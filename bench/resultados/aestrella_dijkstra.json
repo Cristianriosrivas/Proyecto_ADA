@@ -9,8 +9,8 @@
   "reduccion_pct": 40.8,
   "relajaciones_dijkstra": 19.8,
   "relajaciones_aestrella": 10.4,
-  "dijkstra_us": 11.34,
-  "aestrella_us": 30.55,
+  "dijkstra_us": 15.85,
+  "aestrella_us": 26.03,
   "costos_iguales": 60
  },
  {
@@ -23,8 +23,8 @@
   "reduccion_pct": 34,
   "relajaciones_dijkstra": 20.1,
   "relajaciones_aestrella": 12.1,
-  "dijkstra_us": 9.2,
-  "aestrella_us": 25.64,
+  "dijkstra_us": 8.48,
+  "aestrella_us": 25.04,
   "costos_iguales": 60
  },
  {
@@ -37,8 +37,8 @@
   "reduccion_pct": 52.6,
   "relajaciones_dijkstra": 97.1,
   "relajaciones_aestrella": 44.1,
-  "dijkstra_us": 23.88,
-  "aestrella_us": 23.78,
+  "dijkstra_us": 18.25,
+  "aestrella_us": 33.16,
   "costos_iguales": 60
  },
  {
@@ -51,8 +51,8 @@
   "reduccion_pct": 43.6,
   "relajaciones_dijkstra": 95.8,
   "relajaciones_aestrella": 52.8,
-  "dijkstra_us": 22.4,
-  "aestrella_us": 35.59,
+  "dijkstra_us": 31.16,
+  "aestrella_us": 29.65,
   "costos_iguales": 60
  },
  {
@@ -65,8 +65,8 @@
   "reduccion_pct": 40.4,
   "relajaciones_dijkstra": 186.6,
   "relajaciones_aestrella": 110,
-  "dijkstra_us": 36.92,
-  "aestrella_us": 37.43,
+  "dijkstra_us": 27.56,
+  "aestrella_us": 29.25,
   "costos_iguales": 60
  },
  {
@@ -79,8 +79,8 @@
   "reduccion_pct": 36.6,
   "relajaciones_dijkstra": 187.1,
   "relajaciones_aestrella": 117.6,
-  "dijkstra_us": 54.62,
-  "aestrella_us": 88.45,
+  "dijkstra_us": 41.88,
+  "aestrella_us": 49.37,
   "costos_iguales": 60
  },
  {
@@ -93,8 +93,8 @@
   "reduccion_pct": 47.6,
   "relajaciones_dijkstra": 489.8,
   "relajaciones_aestrella": 256,
-  "dijkstra_us": 70.8,
-  "aestrella_us": 66.65,
+  "dijkstra_us": 57.84,
+  "aestrella_us": 57.46,
   "costos_iguales": 60
  },
  {
@@ -107,8 +107,8 @@
   "reduccion_pct": 39.5,
   "relajaciones_dijkstra": 481.6,
   "relajaciones_aestrella": 290.2,
-  "dijkstra_us": 69.64,
-  "aestrella_us": 160.63,
+  "dijkstra_us": 59.28,
+  "aestrella_us": 109.31,
   "costos_iguales": 60
  },
  {
@@ -121,8 +121,8 @@
   "reduccion_pct": 49.6,
   "relajaciones_dijkstra": 937.7,
   "relajaciones_aestrella": 471.9,
-  "dijkstra_us": 210.61,
-  "aestrella_us": 147.81,
+  "dijkstra_us": 152.59,
+  "aestrella_us": 98.75,
   "costos_iguales": 60
  },
  {
@@ -135,8 +135,8 @@
   "reduccion_pct": 43.7,
   "relajaciones_dijkstra": 950.1,
   "relajaciones_aestrella": 534.6,
-  "dijkstra_us": 189.07,
-  "aestrella_us": 308.01,
+  "dijkstra_us": 115.86,
+  "aestrella_us": 234.42,
   "costos_iguales": 60
  },
  {
@@ -149,8 +149,8 @@
   "reduccion_pct": 47.8,
   "relajaciones_dijkstra": 2143.6,
   "relajaciones_aestrella": 1120.7,
-  "dijkstra_us": 383.71,
-  "aestrella_us": 312.67,
+  "dijkstra_us": 308.7,
+  "aestrella_us": 268.16,
   "costos_iguales": 60
  },
  {
@@ -163,8 +163,8 @@
   "reduccion_pct": 39.9,
   "relajaciones_dijkstra": 2150.3,
   "relajaciones_aestrella": 1293.6,
-  "dijkstra_us": 528.27,
-  "aestrella_us": 779.32,
+  "dijkstra_us": 310.42,
+  "aestrella_us": 519.04,
   "costos_iguales": 60
  },
  {
@@ -177,8 +177,8 @@
   "reduccion_pct": 58.2,
   "relajaciones_dijkstra": 4321.9,
   "relajaciones_aestrella": 1808.5,
-  "dijkstra_us": 940.21,
-  "aestrella_us": 903.49,
+  "dijkstra_us": 814.11,
+  "aestrella_us": 562.43,
   "costos_iguales": 30
  },
  {
@@ -191,8 +191,8 @@
   "reduccion_pct": 52.1,
   "relajaciones_dijkstra": 4265.8,
   "relajaciones_aestrella": 2047.8,
-  "dijkstra_us": 1020.38,
-  "aestrella_us": 1946.39,
+  "dijkstra_us": 759.99,
+  "aestrella_us": 1274.9,
   "costos_iguales": 30
  },
  {
@@ -205,8 +205,8 @@
   "reduccion_pct": 52.4,
   "relajaciones_dijkstra": 8341.9,
   "relajaciones_aestrella": 3963.5,
-  "dijkstra_us": 2016.78,
-  "aestrella_us": 1910.61,
+  "dijkstra_us": 1651.47,
+  "aestrella_us": 1195.92,
   "costos_iguales": 30
  },
  {
@@ -219,8 +219,8 @@
   "reduccion_pct": 44.2,
   "relajaciones_dijkstra": 8343.8,
   "relajaciones_aestrella": 4648.7,
-  "dijkstra_us": 2241.41,
-  "aestrella_us": 4229.21,
+  "dijkstra_us": 1861.27,
+  "aestrella_us": 3572.37,
   "costos_iguales": 30
  },
  {
@@ -233,8 +233,8 @@
   "reduccion_pct": 32.5,
   "relajaciones_dijkstra": 15.3,
   "relajaciones_aestrella": 9.9,
-  "dijkstra_us": 9.57,
-  "aestrella_us": 13.95,
+  "dijkstra_us": 8.78,
+  "aestrella_us": 11.82,
   "costos_iguales": 60
  },
  {
@@ -247,8 +247,8 @@
   "reduccion_pct": 34.1,
   "relajaciones_dijkstra": 15.5,
   "relajaciones_aestrella": 9.7,
-  "dijkstra_us": 12.06,
-  "aestrella_us": 19.88,
+  "dijkstra_us": 9.13,
+  "aestrella_us": 12.85,
   "costos_iguales": 60
  },
  {
@@ -261,8 +261,8 @@
   "reduccion_pct": 52.2,
   "relajaciones_dijkstra": 94,
   "relajaciones_aestrella": 44.7,
-  "dijkstra_us": 20.14,
-  "aestrella_us": 25.52,
+  "dijkstra_us": 21.22,
+  "aestrella_us": 21.77,
   "costos_iguales": 60
  },
  {
@@ -275,8 +275,8 @@
   "reduccion_pct": 50.5,
   "relajaciones_dijkstra": 94.2,
   "relajaciones_aestrella": 46.6,
-  "dijkstra_us": 20.29,
-  "aestrella_us": 30.66,
+  "dijkstra_us": 20.9,
+  "aestrella_us": 29.24,
   "costos_iguales": 60
  },
  {
@@ -289,8 +289,8 @@
   "reduccion_pct": 47.2,
   "relajaciones_dijkstra": 191.7,
   "relajaciones_aestrella": 102.3,
-  "dijkstra_us": 31.48,
-  "aestrella_us": 35.05,
+  "dijkstra_us": 35.11,
+  "aestrella_us": 34.66,
   "costos_iguales": 60
  },
  {
@@ -303,8 +303,8 @@
   "reduccion_pct": 44.9,
   "relajaciones_dijkstra": 187.1,
   "relajaciones_aestrella": 103.7,
-  "dijkstra_us": 36.27,
-  "aestrella_us": 108.79,
+  "dijkstra_us": 28.33,
+  "aestrella_us": 42.55,
   "costos_iguales": 60
  },
  {
@@ -317,8 +317,8 @@
   "reduccion_pct": 52.4,
   "relajaciones_dijkstra": 505.7,
   "relajaciones_aestrella": 244.5,
-  "dijkstra_us": 60.9,
-  "aestrella_us": 52.58,
+  "dijkstra_us": 59.29,
+  "aestrella_us": 53.95,
   "costos_iguales": 60
  },
  {
@@ -331,8 +331,8 @@
   "reduccion_pct": 49.7,
   "relajaciones_dijkstra": 506.5,
   "relajaciones_aestrella": 258.4,
-  "dijkstra_us": 72.59,
-  "aestrella_us": 174.03,
+  "dijkstra_us": 68.92,
+  "aestrella_us": 95.12,
   "costos_iguales": 60
  },
  {
@@ -345,8 +345,8 @@
   "reduccion_pct": 49,
   "relajaciones_dijkstra": 1051.3,
   "relajaciones_aestrella": 540.9,
-  "dijkstra_us": 222.57,
-  "aestrella_us": 202.56,
+  "dijkstra_us": 120.76,
+  "aestrella_us": 98.56,
   "costos_iguales": 60
  },
  {
@@ -359,8 +359,8 @@
   "reduccion_pct": 46.2,
   "relajaciones_dijkstra": 1048.8,
   "relajaciones_aestrella": 569.8,
-  "dijkstra_us": 227.34,
-  "aestrella_us": 265.96,
+  "dijkstra_us": 145.83,
+  "aestrella_us": 222.73,
   "costos_iguales": 60
  },
  {
@@ -373,8 +373,8 @@
   "reduccion_pct": 55.6,
   "relajaciones_dijkstra": 2064.7,
   "relajaciones_aestrella": 924.9,
-  "dijkstra_us": 326.11,
-  "aestrella_us": 331.02,
+  "dijkstra_us": 313.94,
+  "aestrella_us": 317.46,
   "costos_iguales": 60
  },
  {
@@ -387,8 +387,8 @@
   "reduccion_pct": 52.5,
   "relajaciones_dijkstra": 2055.8,
   "relajaciones_aestrella": 982.6,
-  "dijkstra_us": 300.49,
-  "aestrella_us": 519.18,
+  "dijkstra_us": 310.68,
+  "aestrella_us": 481.72,
   "costos_iguales": 60
  },
  {
@@ -401,8 +401,8 @@
   "reduccion_pct": 56.3,
   "relajaciones_dijkstra": 3472.1,
   "relajaciones_aestrella": 1520.6,
-  "dijkstra_us": 941.99,
-  "aestrella_us": 629.32,
+  "dijkstra_us": 568.62,
+  "aestrella_us": 474.19,
   "costos_iguales": 30
  },
  {
@@ -415,8 +415,8 @@
   "reduccion_pct": 52.4,
   "relajaciones_dijkstra": 3469.9,
   "relajaciones_aestrella": 1657,
-  "dijkstra_us": 1174.83,
-  "aestrella_us": 1771.27,
+  "dijkstra_us": 558.65,
+  "aestrella_us": 904.81,
   "costos_iguales": 30
  },
  {
@@ -429,8 +429,8 @@
   "reduccion_pct": 46.3,
   "relajaciones_dijkstra": 9909,
   "relajaciones_aestrella": 5355,
-  "dijkstra_us": 3751.67,
-  "aestrella_us": 3802.22,
+  "dijkstra_us": 2010.25,
+  "aestrella_us": 1334.64,
   "costos_iguales": 30
  },
  {
@@ -443,8 +443,8 @@
   "reduccion_pct": 43.3,
   "relajaciones_dijkstra": 9872,
   "relajaciones_aestrella": 5631.6,
-  "dijkstra_us": 5466.55,
-  "aestrella_us": 4542.73,
+  "dijkstra_us": 1619.81,
+  "aestrella_us": 2702.42,
   "costos_iguales": 30
  },
  {
@@ -457,8 +457,8 @@
   "reduccion_pct": 22.3,
   "relajaciones_dijkstra": 11,
   "relajaciones_aestrella": 8.6,
-  "dijkstra_us": 13.8,
-  "aestrella_us": 27.59,
+  "dijkstra_us": 12.24,
+  "aestrella_us": 12.05,
   "costos_iguales": 60
  },
  {
@@ -471,8 +471,8 @@
   "reduccion_pct": 17.6,
   "relajaciones_dijkstra": 11,
   "relajaciones_aestrella": 9.2,
-  "dijkstra_us": 14,
-  "aestrella_us": 15.78,
+  "dijkstra_us": 8.13,
+  "aestrella_us": 11.92,
   "costos_iguales": 60
  },
  {
@@ -485,8 +485,8 @@
   "reduccion_pct": 53.5,
   "relajaciones_dijkstra": 53.9,
   "relajaciones_aestrella": 27.4,
-  "dijkstra_us": 18.27,
-  "aestrella_us": 23.1,
+  "dijkstra_us": 16.52,
+  "aestrella_us": 18.19,
   "costos_iguales": 60
  },
  {
@@ -499,8 +499,8 @@
   "reduccion_pct": 41.9,
   "relajaciones_dijkstra": 53.8,
   "relajaciones_aestrella": 33.5,
-  "dijkstra_us": 14.08,
-  "aestrella_us": 21.59,
+  "dijkstra_us": 15.92,
+  "aestrella_us": 24.31,
   "costos_iguales": 60
  },
  {
@@ -513,8 +513,8 @@
   "reduccion_pct": 53.5,
   "relajaciones_dijkstra": 109.1,
   "relajaciones_aestrella": 52.5,
-  "dijkstra_us": 22.46,
-  "aestrella_us": 25.35,
+  "dijkstra_us": 20.52,
+  "aestrella_us": 25.39,
   "costos_iguales": 60
  },
  {
@@ -527,8 +527,8 @@
   "reduccion_pct": 45,
   "relajaciones_dijkstra": 106.6,
   "relajaciones_aestrella": 60.3,
-  "dijkstra_us": 30.17,
-  "aestrella_us": 29.19,
+  "dijkstra_us": 23.2,
+  "aestrella_us": 37.96,
   "costos_iguales": 60
  },
  {
@@ -541,8 +541,8 @@
   "reduccion_pct": 46.6,
   "relajaciones_dijkstra": 240.8,
   "relajaciones_aestrella": 130.9,
-  "dijkstra_us": 38.64,
-  "aestrella_us": 54.21,
+  "dijkstra_us": 41.39,
+  "aestrella_us": 46.07,
   "costos_iguales": 60
  },
  {
@@ -555,8 +555,8 @@
   "reduccion_pct": 39.6,
   "relajaciones_dijkstra": 240.4,
   "relajaciones_aestrella": 147.4,
-  "dijkstra_us": 40.53,
-  "aestrella_us": 69.03,
+  "dijkstra_us": 42.34,
+  "aestrella_us": 68.01,
   "costos_iguales": 60
  },
  {
@@ -569,8 +569,8 @@
   "reduccion_pct": 39.5,
   "relajaciones_dijkstra": 549.9,
   "relajaciones_aestrella": 335.9,
-  "dijkstra_us": 159.35,
-  "aestrella_us": 66.95,
+  "dijkstra_us": 73.15,
+  "aestrella_us": 121.32,
   "costos_iguales": 60
  },
  {
@@ -583,8 +583,8 @@
   "reduccion_pct": 33.1,
   "relajaciones_dijkstra": 549.8,
   "relajaciones_aestrella": 371.2,
-  "dijkstra_us": 85.25,
-  "aestrella_us": 190.43,
+  "dijkstra_us": 113.13,
+  "aestrella_us": 161.62,
   "costos_iguales": 60
  },
  {
@@ -597,8 +597,8 @@
   "reduccion_pct": 21.8,
   "relajaciones_dijkstra": 1054.2,
   "relajaciones_aestrella": 826.9,
-  "dijkstra_us": 204.75,
-  "aestrella_us": 222.32,
+  "dijkstra_us": 238.55,
+  "aestrella_us": 239.8,
   "costos_iguales": 60
  },
  {
@@ -611,8 +611,8 @@
   "reduccion_pct": 17.5,
   "relajaciones_dijkstra": 1057.8,
   "relajaciones_aestrella": 874,
-  "dijkstra_us": 211.02,
-  "aestrella_us": 345.58,
+  "dijkstra_us": 199.74,
+  "aestrella_us": 370.05,
   "costos_iguales": 60
  },
  {
@@ -625,8 +625,8 @@
   "reduccion_pct": 15.8,
   "relajaciones_dijkstra": 2017.4,
   "relajaciones_aestrella": 1699.5,
-  "dijkstra_us": 376.05,
-  "aestrella_us": 508.53,
+  "dijkstra_us": 424.36,
+  "aestrella_us": 504.83,
   "costos_iguales": 30
  },
  {
@@ -639,8 +639,8 @@
   "reduccion_pct": 12.8,
   "relajaciones_dijkstra": 2028.7,
   "relajaciones_aestrella": 1770,
-  "dijkstra_us": 250.85,
-  "aestrella_us": 814.43,
+  "dijkstra_us": 460.88,
+  "aestrella_us": 900.73,
   "costos_iguales": 30
  },
  {
@@ -653,8 +653,8 @@
   "reduccion_pct": 6,
   "relajaciones_dijkstra": 4660,
   "relajaciones_aestrella": 4380.2,
-  "dijkstra_us": 815.87,
-  "aestrella_us": 1123.59,
+  "dijkstra_us": 1017.03,
+  "aestrella_us": 1553.79,
   "costos_iguales": 30
  },
  {
@@ -667,8 +667,8 @@
   "reduccion_pct": 4.9,
   "relajaciones_dijkstra": 4666.4,
   "relajaciones_aestrella": 4439.5,
-  "dijkstra_us": 928.63,
-  "aestrella_us": 1586.19,
+  "dijkstra_us": 955.15,
+  "aestrella_us": 1809.9,
   "costos_iguales": 30
  }
 ]

@@ -3,126 +3,126 @@
   "tipo": "geometrica",
   "algoritmo": "BFS",
   "curva": "lineal",
-  "c_us": 0.026075413402847303,
-  "r2": 0.9737
+  "c_us": 0.023803469246822768,
+  "r2": 0.96702
  },
  {
   "tipo": "geometrica",
   "algoritmo": "DFS",
   "curva": "lineal",
-  "c_us": 0.03337195503428336,
-  "r2": 0.98876
+  "c_us": 0.02853632176667072,
+  "r2": 0.97868
  },
  {
   "tipo": "geometrica",
   "algoritmo": "DFS recursivo",
   "curva": "lineal",
-  "c_us": 0.027004598592099603,
-  "r2": 0.97026
+  "c_us": 0.02614311574334273,
+  "r2": 0.97388
  },
  {
   "tipo": "geometrica",
   "algoritmo": "Dijkstra heap",
   "curva": "lineal_log",
-  "c_us": 0.011452345494532655,
-  "r2": 0.86424
+  "c_us": 0.010858634050609037,
+  "r2": 0.84489
  },
  {
   "tipo": "geometrica",
   "algoritmo": "Dijkstra perezoso",
   "curva": "lineal_log",
-  "c_us": 0.008215035059159666,
-  "r2": 0.91857
+  "c_us": 0.007518871642246044,
+  "r2": 0.90841
  },
  {
   "tipo": "geometrica",
   "algoritmo": "Dijkstra arreglo",
   "curva": "cuadratica",
-  "c_us": 0.007196311768031993,
-  "r2": 0.95834
+  "c_us": 0.007016428367130115,
+  "r2": 0.95709
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "BFS",
   "curva": "lineal",
-  "c_us": 0.03892784078079617,
-  "r2": 0.95737
+  "c_us": 0.044446136773506416,
+  "r2": 0.98402
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "DFS",
   "curva": "lineal",
-  "c_us": 0.04847505229410139,
-  "r2": 0.98803
+  "c_us": 0.05299131777792691,
+  "r2": 0.99237
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "DFS recursivo",
   "curva": "lineal",
-  "c_us": 0.046903293643371646,
-  "r2": 0.97657
+  "c_us": 0.050844955640683566,
+  "r2": 0.99263
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra heap",
   "curva": "lineal_log",
-  "c_us": 0.017209053273706233,
-  "r2": 0.92417
+  "c_us": 0.020169142451340757,
+  "r2": 0.93766
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra perezoso",
   "curva": "lineal_log",
-  "c_us": 0.013766832615224971,
-  "r2": 0.93969
+  "c_us": 0.013981467267000287,
+  "r2": 0.93675
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra arreglo",
   "curva": "cuadratica",
-  "c_us": 0.011997828185998304,
-  "r2": 0.96851
+  "c_us": 0.012315467395023382,
+  "r2": 0.97607
  },
  {
   "tipo": "metro",
   "algoritmo": "BFS",
   "curva": "lineal",
-  "c_us": 0.07549069338858506,
-  "r2": 0.93507
+  "c_us": 0.04888616177115522,
+  "r2": 0.91991
  },
  {
   "tipo": "metro",
   "algoritmo": "DFS",
   "curva": "lineal",
-  "c_us": 0.07954041773526185,
-  "r2": 0.9366
+  "c_us": 0.05062427632871213,
+  "r2": 0.94309
  },
  {
   "tipo": "metro",
   "algoritmo": "DFS recursivo",
   "curva": "lineal",
-  "c_us": 0.08024784253968928,
-  "r2": 0.88673
+  "c_us": 0.050671858832282785,
+  "r2": 0.95448
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra heap",
   "curva": "lineal_log",
-  "c_us": 0.04349235524066852,
-  "r2": 0.5142
+  "c_us": 0.020694250393658603,
+  "r2": 0.7896
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra perezoso",
   "curva": "lineal_log",
-  "c_us": 0.027794930188465298,
-  "r2": 0.64174
+  "c_us": 0.013119115374705661,
+  "r2": 0.81686
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra arreglo",
   "curva": "cuadratica",
-  "c_us": 0.01755442488245988,
-  "r2": 0.94482
+  "c_us": 0.009116590781367527,
+  "r2": 0.96782
  }
 ]

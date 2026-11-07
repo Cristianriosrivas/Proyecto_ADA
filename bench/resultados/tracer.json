@@ -1,20 +1,20 @@
 [
  {
   "n": 100,
-  "sin_tracer_us": 46.45,
-  "con_tracer_us": 9865.8,
-  "razon": 212.4
+  "sin_tracer_us": 27.35,
+  "con_tracer_us": 9267.1,
+  "razon": 338.8
  },
  {
   "n": 500,
-  "sin_tracer_us": 279.64,
-  "con_tracer_us": 119692.3,
-  "razon": 428
+  "sin_tracer_us": 210.41,
+  "con_tracer_us": 63472.9,
+  "razon": 301.7
  },
  {
   "n": 2500,
-  "sin_tracer_us": 1697.2,
-  "con_tracer_us": 6940269.7,
-  "razon": 4089.2
+  "sin_tracer_us": 1129.58,
+  "con_tracer_us": 2464195.1,
+  "razon": 2181.5
  }
 ]

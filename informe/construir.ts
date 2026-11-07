@@ -55,7 +55,12 @@ const fuentes = modo === 'final' ? leerCarpeta('informe/fuentes/final').join('\n
 function sustituir(texto: string, d: Datos): string {
   let nFig = 0;
   let nTabla = 0;
+  // Primero los datos sueltos: así una leyenda puede contener un dato, como {{p6_m}}
   return texto
+    .replace(/\{\{([a-zA-Z0-9_.]+)\}\}/g, (_, k: string) => {
+      if (!(k in d.valores)) throw new Error(`Falta el dato ${k}`);
+      return d.valores[k];
+    })
     .replace(/\{\{fig:([^|}]+)\|([^}]+)\}\}/g, (_, nombres: string, leyenda: string) => {
       nFig++;
       const svg = nombres.split(',').map((n) => {
@@ -77,10 +82,6 @@ function sustituir(texto: string, d: Datos): string {
       const f = d.tablas[nombre.trim()];
       if (!f) throw new Error(`Falta la tabla ${nombre}`);
       return `\n<figure class="tab"><figcaption><b>Tabla ${nTabla}.</b> ${leyenda}</figcaption>\n\n${f()}\n\n</figure>\n`;
-    })
-    .replace(/\{\{([a-zA-Z0-9_.]+)\}\}/g, (_, k: string) => {
-      if (!(k in d.valores)) throw new Error(`Falta el dato ${k}`);
-      return d.valores[k];
     });
 }
 

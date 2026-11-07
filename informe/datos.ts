@@ -199,7 +199,19 @@ export function datosInforme(): Datos {
     tracer_razon: dec(tr[1].razon, 0),
     build_por_n: dec(bh[bh.length - 1].comparaciones_por_n, 2),
     fecha_bench: maquina.fecha.slice(0, 10),
+    r2_min_lineal: dec(Math.min(...aj.filter((a) => a.curva !== 'lineal_log').map((a) => a.r2)), 3),
+    r2_max_lineal: dec(Math.max(...aj.filter((a) => a.curva !== 'lineal_log').map((a) => a.r2)), 3),
+    r2_min_heap: dec(Math.min(...aj.filter((a) => a.curva === 'lineal_log').map((a) => a.r2)), 3),
+    r2_max_heap: dec(Math.max(...aj.filter((a) => a.curva === 'lineal_log').map((a) => a.r2)), 3),
   };
+  const azar = orden.filter((f) => f.n === 100000 && f.entrada === 'azar');
+  const masRapido = azar.reduce((a, b) => (b.mediana_us < a.mediana_us ? b : a));
+  const menosComp = azar.reduce((a, b) => (b.comparaciones < a.comparaciones ? b : a));
+  valores.orden_rapido = masRapido.algoritmo;
+  valores.orden_rapido_t = tiempo(masRapido.mediana_us);
+  valores.orden_menos_comp = menosComp.algoritmo;
+  valores.kd_min = dec(Math.min(...kd.map((f) => f.us_por_n_lg_n)), 3);
+  valores.kd_max = dec(Math.max(...kd.map((f) => f.us_por_n_lg_n)), 3);
 
   const denso = cr.find((f) => f.n === 1000 && f.densidad === 1) as Cruce & { mejoras: number };
   valores.vias_1000_100 = ent(denso.vias);
@@ -211,6 +223,11 @@ export function datosInforme(): Datos {
   valores.heap_max_metro_5000 = heapMax('metro');
   for (const c of cres) valores[`cruce_vias_${c.n}`] = c.vias_cruce === '' ? 'no hubo cruce' : ent(Number(c.vias_cruce));
   for (const c of cres) valores[`cruce_teorico_${c.n}`] = ent(c.vias_teoricas);
+  // Frase para cada N: el cruce puede no ocurrir dentro de las densidades medidas
+  for (const c of cres) {
+    const maxDens = Math.max(...cr.filter((f) => f.n === c.n).map((f) => f.densidad));
+    valores[`cruce_frase_${c.n}`] = c.vias_cruce === '' ? `el heap siguió ganando hasta el ${dec(maxDens * 100, 0)} % de densidad, el mayor valor medido` : `el arreglo empezó a ganar desde unas ${ent(Number(c.vias_cruce))} vías, frente a una estimación de ${ent(c.vias_teoricas)}`;
+  }
 
   const docente = cargarPreset('docente');
   const rutasAE = rutasSimples(docente, docente.indiceDe('A'), docente.indiceDe('E'));
@@ -249,9 +266,9 @@ export function datosInforme(): Datos {
     kdtree: () => tabla(['n', 'Construir', 'μs / (n lg n)', 'Consulta', 'Nodos visitados'], kd.map((f) => [ent(f.n), tiempo(f.construir_us), dec(f.us_por_n_lg_n, 4), tiempo(f.consulta_us), dec(f.visitados_medio, 1)])),
     build_heap: () => tabla(['n', 'BUILD-HEAP: comparaciones', 'Por elemento', 'n inserciones: comparaciones'], bh.map((f) => [ent(f.n), ent(f.build_comparaciones), dec(f.comparaciones_por_n, 2), ent(f.inserciones_comparaciones)])),
     escala: () =>
-      tabla(['N', '|E|', 'm = 2|E|', 'Ciclo externo BFS', 'Ciclo interno BFS', 'BFS', 'Dijkstra heap', 'Dijkstra arreglo'], [10, 50, 100].map((n) => {
+      tabla(['N', '|E|', 'Externo BFS', 'Interno BFS', 'Barrido del arreglo, V(V + 1)', 'BFS', 'Dijkstra heap', 'Dijkstra arreglo'], [10, 50, 100].map((n) => {
         const c = ct.find((x) => x.tipo === 'geometrica' && !x.dirigida && x.n === n) as Contador;
-        return [n, c.vias, 2 * c.vias, c.bfs_externo, c.bfs_interno, tiempo(us('geometrica', 'BFS', n)), tiempo(us('geometrica', 'Dijkstra heap', n)), tiempo(us('geometrica', 'Dijkstra arreglo', n))];
+        return [n, c.vias, c.bfs_externo, c.bfs_interno, ent(n * (n + 1)), tiempo(us('geometrica', 'BFS', n)), tiempo(us('geometrica', 'Dijkstra heap', n)), tiempo(us('geometrica', 'Dijkstra arreglo', n))];
       })),
     tiempos: () => {
       const ns = [...new Set(t.map((f) => f.n))];

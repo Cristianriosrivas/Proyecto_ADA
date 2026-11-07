@@ -1,19 +1,19 @@
 tipo,algoritmo,curva,c_us,r2
-geometrica,BFS,lineal,0.026075413402847303,0.9737
-geometrica,DFS,lineal,0.03337195503428336,0.98876
-geometrica,DFS recursivo,lineal,0.027004598592099603,0.97026
-geometrica,Dijkstra heap,lineal_log,0.011452345494532655,0.86424
-geometrica,Dijkstra perezoso,lineal_log,0.008215035059159666,0.91857
-geometrica,Dijkstra arreglo,cuadratica,0.007196311768031993,0.95834
-cuadricula,BFS,lineal,0.03892784078079617,0.95737
-cuadricula,DFS,lineal,0.04847505229410139,0.98803
-cuadricula,DFS recursivo,lineal,0.046903293643371646,0.97657
-cuadricula,Dijkstra heap,lineal_log,0.017209053273706233,0.92417
-cuadricula,Dijkstra perezoso,lineal_log,0.013766832615224971,0.93969
-cuadricula,Dijkstra arreglo,cuadratica,0.011997828185998304,0.96851
-metro,BFS,lineal,0.07549069338858506,0.93507
-metro,DFS,lineal,0.07954041773526185,0.9366
-metro,DFS recursivo,lineal,0.08024784253968928,0.88673
-metro,Dijkstra heap,lineal_log,0.04349235524066852,0.5142
-metro,Dijkstra perezoso,lineal_log,0.027794930188465298,0.64174
-metro,Dijkstra arreglo,cuadratica,0.01755442488245988,0.94482
+geometrica,BFS,lineal,0.023803469246822768,0.96702
+geometrica,DFS,lineal,0.02853632176667072,0.97868
+geometrica,DFS recursivo,lineal,0.02614311574334273,0.97388
+geometrica,Dijkstra heap,lineal_log,0.010858634050609037,0.84489
+geometrica,Dijkstra perezoso,lineal_log,0.007518871642246044,0.90841
+geometrica,Dijkstra arreglo,cuadratica,0.007016428367130115,0.95709
+cuadricula,BFS,lineal,0.044446136773506416,0.98402
+cuadricula,DFS,lineal,0.05299131777792691,0.99237
+cuadricula,DFS recursivo,lineal,0.050844955640683566,0.99263
+cuadricula,Dijkstra heap,lineal_log,0.020169142451340757,0.93766
+cuadricula,Dijkstra perezoso,lineal_log,0.013981467267000287,0.93675
+cuadricula,Dijkstra arreglo,cuadratica,0.012315467395023382,0.97607
+metro,BFS,lineal,0.04888616177115522,0.91991
+metro,DFS,lineal,0.05062427632871213,0.94309
+metro,DFS recursivo,lineal,0.050671858832282785,0.95448
+metro,Dijkstra heap,lineal_log,0.020694250393658603,0.7896
+metro,Dijkstra perezoso,lineal_log,0.013119115374705661,0.81686
+metro,Dijkstra arreglo,cuadratica,0.009116590781367527,0.96782

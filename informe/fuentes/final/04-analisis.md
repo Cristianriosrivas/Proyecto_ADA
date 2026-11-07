@@ -189,5 +189,7 @@ La cota de peor caso es la misma: si la heurística no aporta, A* expande lo mis
 
 {{tabla:escala|Escalar de 10 a 50 y 100 estaciones en la red geométrica. Los conteos son exactos y los tiempos son medianas.}}
 
-Pasar de 10 a 100 estaciones multiplica $V$ por 10 y el trabajo de BFS casi en la misma proporción, porque las redes son dispersas: $m$ crece linealmente con $V$. El trabajo de Dijkstra con arreglo, en cambio, crece cerca de 100 veces, porque depende de $V^2$. Con $N = 5000$ esa diferencia se vuelve decisiva, como muestran las secciones 7.2 y 7.5.
+Los conteos exactos muestran la diferencia. Pasar de 10 a 100 estaciones multiplica por cerca de 10 las iteraciones de BFS, porque las redes son dispersas y $m$ crece linealmente con $V$. El barrido de Dijkstra con arreglo, en cambio, pasa de 110 a 10.100 comparaciones, cerca de 92 veces, porque depende de $V^2$.
+
+En este rango los tiempos crecen menos que los conteos, porque con tan pocas estaciones pesan los costos fijos de cada llamada: reservar arreglos e inicializarlos. Con $N = 5000$ el término dominante ya manda, como muestran las secciones 7.2 y 7.5.
 <!--/f1-->

@@ -4,188 +4,188 @@
   "algoritmo": "BFS",
   "n": 10,
   "vias": 19,
-  "mediana_us": 1.984,
-  "iqr_us": 0.66,
+  "mediana_us": 2.035,
+  "iqr_us": 0.933,
   "repeticiones": 21,
-  "lote": 3458
+  "lote": 3289
  },
  {
   "tipo": "geometrica",
   "algoritmo": "DFS",
   "n": 10,
   "vias": 19,
-  "mediana_us": 2.4,
-  "iqr_us": 0.8,
+  "mediana_us": 2.272,
+  "iqr_us": 0.363,
   "repeticiones": 21,
-  "lote": 2694
+  "lote": 2657
  },
  {
   "tipo": "geometrica",
   "algoritmo": "DFS recursivo",
   "n": 10,
   "vias": 19,
-  "mediana_us": 1.965,
-  "iqr_us": 1.097,
+  "mediana_us": 2.176,
+  "iqr_us": 0.299,
   "repeticiones": 21,
-  "lote": 2060
+  "lote": 4736
  },
  {
   "tipo": "geometrica",
   "algoritmo": "Dijkstra heap",
   "n": 10,
   "vias": 19,
-  "mediana_us": 6.584,
-  "iqr_us": 2.308,
+  "mediana_us": 6.448,
+  "iqr_us": 1.576,
   "repeticiones": 21,
-  "lote": 918
+  "lote": 941
  },
  {
   "tipo": "geometrica",
   "algoritmo": "Dijkstra arreglo",
   "n": 10,
   "vias": 19,
-  "mediana_us": 2.683,
-  "iqr_us": 0.978,
+  "mediana_us": 2.748,
+  "iqr_us": 0.769,
   "repeticiones": 21,
-  "lote": 2377
+  "lote": 2424
  },
  {
   "tipo": "geometrica",
   "algoritmo": "Dijkstra perezoso",
   "n": 10,
   "vias": 19,
-  "mediana_us": 4.038,
-  "iqr_us": 1.578,
+  "mediana_us": 3.746,
+  "iqr_us": 1.062,
   "repeticiones": 21,
-  "lote": 1609
+  "lote": 1541
  },
  {
   "tipo": "geometrica",
   "algoritmo": "A*",
   "n": 10,
   "vias": 19,
-  "mediana_us": 7.1,
-  "iqr_us": 2.416,
+  "mediana_us": 7.469,
+  "iqr_us": 1.761,
   "repeticiones": 21,
-  "lote": 597
+  "lote": 734
  },
  {
   "tipo": "geometrica",
   "algoritmo": "BFS",
   "n": 50,
   "vias": 96,
-  "mediana_us": 8.306,
-  "iqr_us": 3.289,
+  "mediana_us": 7.734,
+  "iqr_us": 1.81,
   "repeticiones": 21,
-  "lote": 927
+  "lote": 988
  },
  {
   "tipo": "geometrica",
   "algoritmo": "DFS",
   "n": 50,
   "vias": 96,
-  "mediana_us": 8.016,
-  "iqr_us": 3.11,
+  "mediana_us": 8.429,
+  "iqr_us": 1.804,
   "repeticiones": 21,
-  "lote": 601
+  "lote": 812
  },
  {
   "tipo": "geometrica",
   "algoritmo": "DFS recursivo",
   "n": 50,
   "vias": 96,
-  "mediana_us": 9.39,
-  "iqr_us": 4.032,
+  "mediana_us": 7.628,
+  "iqr_us": 1.882,
   "repeticiones": 21,
-  "lote": 840
+  "lote": 857
  },
  {
   "tipo": "geometrica",
   "algoritmo": "Dijkstra heap",
   "n": 50,
   "vias": 96,
-  "mediana_us": 16.617,
-  "iqr_us": 5.529,
+  "mediana_us": 14.84,
+  "iqr_us": 4.873,
   "repeticiones": 21,
-  "lote": 436
+  "lote": 392
  },
  {
   "tipo": "geometrica",
   "algoritmo": "Dijkstra arreglo",
   "n": 50,
   "vias": 96,
-  "mediana_us": 15.503,
-  "iqr_us": 5.382,
+  "mediana_us": 12.958,
+  "iqr_us": 1.979,
   "repeticiones": 21,
-  "lote": 461
+  "lote": 503
  },
  {
   "tipo": "geometrica",
   "algoritmo": "Dijkstra perezoso",
   "n": 50,
   "vias": 96,
-  "mediana_us": 10.66,
-  "iqr_us": 4.144,
+  "mediana_us": 11.325,
+  "iqr_us": 1.613,
   "repeticiones": 21,
-  "lote": 539
+  "lote": 868
  },
  {
   "tipo": "geometrica",
   "algoritmo": "A*",
   "n": 50,
   "vias": 96,
-  "mediana_us": 15.11,
-  "iqr_us": 5.99,
+  "mediana_us": 15.123,
+  "iqr_us": 2.335,
   "repeticiones": 21,
-  "lote": 349
+  "lote": 462
  },
  {
   "tipo": "geometrica",
   "algoritmo": "BFS",
   "n": 100,
   "vias": 184,
-  "mediana_us": 11.632,
-  "iqr_us": 3.418,
+  "mediana_us": 10.243,
+  "iqr_us": 1.537,
   "repeticiones": 21,
-  "lote": 647
+  "lote": 583
  },
  {
   "tipo": "geometrica",
   "algoritmo": "DFS",
   "n": 100,
   "vias": 184,
-  "mediana_us": 17.637,
-  "iqr_us": 4.767,
+  "mediana_us": 12.979,
+  "iqr_us": 3.455,
   "repeticiones": 21,
-  "lote": 452
+  "lote": 462
  },
  {
   "tipo": "geometrica",
   "algoritmo": "DFS recursivo",
   "n": 100,
   "vias": 184,
-  "mediana_us": 11.789,
-  "iqr_us": 4.459,
+  "mediana_us": 11.698,
+  "iqr_us": 3.173,
   "repeticiones": 21,
-  "lote": 499
+  "lote": 509
  },
  {
   "tipo": "geometrica",
   "algoritmo": "Dijkstra heap",
   "n": 100,
   "vias": 184,
-  "mediana_us": 22.449,
-  "iqr_us": 3.599,
+  "mediana_us": 24.711,
+  "iqr_us": 5.797,
   "repeticiones": 21,
-  "lote": 171
+  "lote": 292
  },
  {
   "tipo": "geometrica",
   "algoritmo": "Dijkstra arreglo",
   "n": 100,
   "vias": 184,
-  "mediana_us": 50.787,
-  "iqr_us": 14.235,
+  "mediana_us": 42.269,
+  "iqr_us": 8.815,
   "repeticiones": 21,
   "lote": 154
  },
@@ -194,208 +194,208 @@
   "algoritmo": "Dijkstra perezoso",
   "n": 100,
   "vias": 184,
-  "mediana_us": 21.172,
-  "iqr_us": 5.581,
+  "mediana_us": 17.781,
+  "iqr_us": 4.06,
   "repeticiones": 21,
-  "lote": 398
+  "lote": 411
  },
  {
   "tipo": "geometrica",
   "algoritmo": "A*",
   "n": 100,
   "vias": 184,
-  "mediana_us": 15.228,
-  "iqr_us": 3.15,
+  "mediana_us": 14.283,
+  "iqr_us": 3.312,
   "repeticiones": 21,
-  "lote": 572
+  "lote": 652
  },
  {
   "tipo": "geometrica",
   "algoritmo": "BFS",
   "n": 250,
   "vias": 462,
-  "mediana_us": 25.302,
-  "iqr_us": 8.115,
+  "mediana_us": 19.963,
+  "iqr_us": 5.357,
   "repeticiones": 21,
-  "lote": 320
+  "lote": 310
  },
  {
   "tipo": "geometrica",
   "algoritmo": "DFS",
   "n": 250,
   "vias": 462,
-  "mediana_us": 33.442,
-  "iqr_us": 18.988,
+  "mediana_us": 27.308,
+  "iqr_us": 6.902,
   "repeticiones": 21,
-  "lote": 194
+  "lote": 227
  },
  {
   "tipo": "geometrica",
   "algoritmo": "DFS recursivo",
   "n": 250,
   "vias": 462,
-  "mediana_us": 23.262,
-  "iqr_us": 8.371,
+  "mediana_us": 25.333,
+  "iqr_us": 6.616,
   "repeticiones": 21,
-  "lote": 230
+  "lote": 285
  },
  {
   "tipo": "geometrica",
   "algoritmo": "Dijkstra heap",
   "n": 250,
   "vias": 462,
-  "mediana_us": 53.802,
-  "iqr_us": 15.713,
+  "mediana_us": 50.301,
+  "iqr_us": 7.067,
   "repeticiones": 21,
-  "lote": 130
+  "lote": 124
  },
  {
   "tipo": "geometrica",
   "algoritmo": "Dijkstra arreglo",
   "n": 250,
   "vias": 462,
-  "mediana_us": 229.75,
-  "iqr_us": 111.215,
-  "repeticiones": 21,
-  "lote": 20
- },
- {
-  "tipo": "geometrica",
-  "algoritmo": "Dijkstra perezoso",
-  "n": 250,
-  "vias": 462,
-  "mediana_us": 47.613,
-  "iqr_us": 13.49,
-  "repeticiones": 21,
-  "lote": 160
- },
- {
-  "tipo": "geometrica",
-  "algoritmo": "A*",
-  "n": 250,
-  "vias": 462,
-  "mediana_us": 27.594,
-  "iqr_us": 8.304,
-  "repeticiones": 21,
-  "lote": 282
- },
- {
-  "tipo": "geometrica",
-  "algoritmo": "BFS",
-  "n": 500,
-  "vias": 938,
-  "mediana_us": 38.275,
-  "iqr_us": 11.764,
-  "repeticiones": 21,
-  "lote": 181
- },
- {
-  "tipo": "geometrica",
-  "algoritmo": "DFS",
-  "n": 500,
-  "vias": 938,
-  "mediana_us": 69.352,
-  "iqr_us": 54.158,
-  "repeticiones": 21,
-  "lote": 48
- },
- {
-  "tipo": "geometrica",
-  "algoritmo": "DFS recursivo",
-  "n": 500,
-  "vias": 938,
-  "mediana_us": 41.758,
-  "iqr_us": 2.893,
-  "repeticiones": 21,
-  "lote": 83
- },
- {
-  "tipo": "geometrica",
-  "algoritmo": "Dijkstra heap",
-  "n": 500,
-  "vias": 938,
-  "mediana_us": 114.862,
-  "iqr_us": 42.675,
-  "repeticiones": 21,
-  "lote": 60
- },
- {
-  "tipo": "geometrica",
-  "algoritmo": "Dijkstra arreglo",
-  "n": 500,
-  "vias": 938,
-  "mediana_us": 1102.275,
-  "iqr_us": 437.675,
-  "repeticiones": 21,
-  "lote": 4
- },
- {
-  "tipo": "geometrica",
-  "algoritmo": "Dijkstra perezoso",
-  "n": 500,
-  "vias": 938,
-  "mediana_us": 112.197,
-  "iqr_us": 43.617,
-  "repeticiones": 21,
-  "lote": 86
- },
- {
-  "tipo": "geometrica",
-  "algoritmo": "A*",
-  "n": 500,
-  "vias": 938,
-  "mediana_us": 46.32,
-  "iqr_us": 16.73,
-  "repeticiones": 21,
-  "lote": 141
- },
- {
-  "tipo": "geometrica",
-  "algoritmo": "BFS",
-  "n": 1000,
-  "vias": 1895,
-  "mediana_us": 133.214,
-  "iqr_us": 103.822,
-  "repeticiones": 21,
-  "lote": 87
- },
- {
-  "tipo": "geometrica",
-  "algoritmo": "DFS",
-  "n": 1000,
-  "vias": 1895,
-  "mediana_us": 142.649,
-  "iqr_us": 45.2,
-  "repeticiones": 21,
-  "lote": 35
- },
- {
-  "tipo": "geometrica",
-  "algoritmo": "DFS recursivo",
-  "n": 1000,
-  "vias": 1895,
-  "mediana_us": 86.882,
-  "iqr_us": 38.526,
-  "repeticiones": 21,
-  "lote": 61
- },
- {
-  "tipo": "geometrica",
-  "algoritmo": "Dijkstra heap",
-  "n": 1000,
-  "vias": 1895,
-  "mediana_us": 320.03,
-  "iqr_us": 98.333,
+  "mediana_us": 248.756,
+  "iqr_us": 26.641,
   "repeticiones": 21,
   "lote": 27
  },
  {
   "tipo": "geometrica",
+  "algoritmo": "Dijkstra perezoso",
+  "n": 250,
+  "vias": 462,
+  "mediana_us": 40.416,
+  "iqr_us": 11.605,
+  "repeticiones": 21,
+  "lote": 174
+ },
+ {
+  "tipo": "geometrica",
+  "algoritmo": "A*",
+  "n": 250,
+  "vias": 462,
+  "mediana_us": 23.485,
+  "iqr_us": 1.992,
+  "repeticiones": 21,
+  "lote": 311
+ },
+ {
+  "tipo": "geometrica",
+  "algoritmo": "BFS",
+  "n": 500,
+  "vias": 938,
+  "mediana_us": 37.462,
+  "iqr_us": 7.357,
+  "repeticiones": 21,
+  "lote": 172
+ },
+ {
+  "tipo": "geometrica",
+  "algoritmo": "DFS",
+  "n": 500,
+  "vias": 938,
+  "mediana_us": 49.203,
+  "iqr_us": 10.083,
+  "repeticiones": 21,
+  "lote": 138
+ },
+ {
+  "tipo": "geometrica",
+  "algoritmo": "DFS recursivo",
+  "n": 500,
+  "vias": 938,
+  "mediana_us": 45.986,
+  "iqr_us": 15.672,
+  "repeticiones": 21,
+  "lote": 148
+ },
+ {
+  "tipo": "geometrica",
+  "algoritmo": "Dijkstra heap",
+  "n": 500,
+  "vias": 938,
+  "mediana_us": 111.081,
+  "iqr_us": 27.683,
+  "repeticiones": 21,
+  "lote": 58
+ },
+ {
+  "tipo": "geometrica",
+  "algoritmo": "Dijkstra arreglo",
+  "n": 500,
+  "vias": 938,
+  "mediana_us": 928.275,
+  "iqr_us": 138.525,
+  "repeticiones": 21,
+  "lote": 8
+ },
+ {
+  "tipo": "geometrica",
+  "algoritmo": "Dijkstra perezoso",
+  "n": 500,
+  "vias": 938,
+  "mediana_us": 87.895,
+  "iqr_us": 16.554,
+  "repeticiones": 21,
+  "lote": 79
+ },
+ {
+  "tipo": "geometrica",
+  "algoritmo": "A*",
+  "n": 500,
+  "vias": 938,
+  "mediana_us": 52.146,
+  "iqr_us": 17.499,
+  "repeticiones": 21,
+  "lote": 157
+ },
+ {
+  "tipo": "geometrica",
+  "algoritmo": "BFS",
+  "n": 1000,
+  "vias": 1895,
+  "mediana_us": 88.1,
+  "iqr_us": 17.354,
+  "repeticiones": 21,
+  "lote": 84
+ },
+ {
+  "tipo": "geometrica",
+  "algoritmo": "DFS",
+  "n": 1000,
+  "vias": 1895,
+  "mediana_us": 104.236,
+  "iqr_us": 23.266,
+  "repeticiones": 21,
+  "lote": 64
+ },
+ {
+  "tipo": "geometrica",
+  "algoritmo": "DFS recursivo",
+  "n": 1000,
+  "vias": 1895,
+  "mediana_us": 89.099,
+  "iqr_us": 15.891,
+  "repeticiones": 21,
+  "lote": 76
+ },
+ {
+  "tipo": "geometrica",
+  "algoritmo": "Dijkstra heap",
+  "n": 1000,
+  "vias": 1895,
+  "mediana_us": 254.289,
+  "iqr_us": 36.789,
+  "repeticiones": 21,
+  "lote": 19
+ },
+ {
+  "tipo": "geometrica",
   "algoritmo": "Dijkstra arreglo",
   "n": 1000,
   "vias": 1895,
-  "mediana_us": 3299.75,
-  "iqr_us": 1005.5,
+  "mediana_us": 3360.15,
+  "iqr_us": 301.35,
   "repeticiones": 21,
   "lote": 2
  },
@@ -404,68 +404,68 @@
   "algoritmo": "Dijkstra perezoso",
   "n": 1000,
   "vias": 1895,
-  "mediana_us": 251.097,
-  "iqr_us": 64.444,
+  "mediana_us": 219.79,
+  "iqr_us": 30.269,
   "repeticiones": 21,
-  "lote": 32
+  "lote": 29
  },
  {
   "tipo": "geometrica",
   "algoritmo": "A*",
   "n": 1000,
   "vias": 1895,
-  "mediana_us": 151.252,
-  "iqr_us": 36.375,
+  "mediana_us": 138.871,
+  "iqr_us": 22.346,
   "repeticiones": 21,
-  "lote": 56
+  "lote": 41
  },
  {
   "tipo": "geometrica",
   "algoritmo": "BFS",
   "n": 2500,
   "vias": 4746,
-  "mediana_us": 259.496,
-  "iqr_us": 92.642,
+  "mediana_us": 248.646,
+  "iqr_us": 45.882,
   "repeticiones": 21,
-  "lote": 24
+  "lote": 28
  },
  {
   "tipo": "geometrica",
   "algoritmo": "DFS",
   "n": 2500,
   "vias": 4746,
-  "mediana_us": 385.509,
-  "iqr_us": 168.082,
+  "mediana_us": 302.213,
+  "iqr_us": 66.574,
   "repeticiones": 21,
-  "lote": 22
+  "lote": 23
  },
  {
   "tipo": "geometrica",
   "algoritmo": "DFS recursivo",
   "n": 2500,
   "vias": 4746,
-  "mediana_us": 363.817,
-  "iqr_us": 167.33,
+  "mediana_us": 321.823,
+  "iqr_us": 87.895,
   "repeticiones": 21,
-  "lote": 23
+  "lote": 40
  },
  {
   "tipo": "geometrica",
   "algoritmo": "Dijkstra heap",
   "n": 2500,
   "vias": 4746,
-  "mediana_us": 857.375,
-  "iqr_us": 321.125,
+  "mediana_us": 824.612,
+  "iqr_us": 149.862,
   "repeticiones": 21,
-  "lote": 4
+  "lote": 8
  },
  {
   "tipo": "geometrica",
   "algoritmo": "Dijkstra arreglo",
   "n": 2500,
   "vias": 4746,
-  "mediana_us": 22410.9,
-  "iqr_us": 2097.9,
+  "mediana_us": 23931.4,
+  "iqr_us": 4028.6,
   "repeticiones": 21,
   "lote": 1
  },
@@ -474,28 +474,28 @@
   "algoritmo": "Dijkstra perezoso",
   "n": 2500,
   "vias": 4746,
-  "mediana_us": 620.25,
-  "iqr_us": 170.95,
+  "mediana_us": 642.345,
+  "iqr_us": 133.291,
   "repeticiones": 21,
-  "lote": 10
+  "lote": 11
  },
  {
   "tipo": "geometrica",
   "algoritmo": "A*",
   "n": 2500,
   "vias": 4746,
-  "mediana_us": 359.9,
-  "iqr_us": 146.065,
+  "mediana_us": 283.195,
+  "iqr_us": 78.133,
   "repeticiones": 21,
-  "lote": 23
+  "lote": 21
  },
  {
   "tipo": "geometrica",
   "algoritmo": "BFS",
   "n": 5000,
   "vias": 9403,
-  "mediana_us": 499.7,
-  "iqr_us": 169.531,
+  "mediana_us": 530.423,
+  "iqr_us": 78.885,
   "repeticiones": 21,
   "lote": 13
  },
@@ -504,38 +504,38 @@
   "algoritmo": "DFS",
   "n": 5000,
   "vias": 9403,
-  "mediana_us": 632.2,
-  "iqr_us": 323.514,
+  "mediana_us": 654.05,
+  "iqr_us": 109.81,
   "repeticiones": 21,
-  "lote": 7
+  "lote": 10
  },
  {
   "tipo": "geometrica",
   "algoritmo": "DFS recursivo",
   "n": 5000,
   "vias": 9403,
-  "mediana_us": 600.982,
-  "iqr_us": 191.991,
+  "mediana_us": 498.092,
+  "iqr_us": 134.875,
   "repeticiones": 21,
-  "lote": 11
+  "lote": 12
  },
  {
   "tipo": "geometrica",
   "algoritmo": "Dijkstra heap",
   "n": 5000,
   "vias": 9403,
-  "mediana_us": 1976.667,
-  "iqr_us": 495.767,
+  "mediana_us": 1640.25,
+  "iqr_us": 382.15,
   "repeticiones": 21,
-  "lote": 6
+  "lote": 4
  },
  {
   "tipo": "geometrica",
   "algoritmo": "Dijkstra arreglo",
   "n": 5000,
   "vias": 9403,
-  "mediana_us": 112263.5,
-  "iqr_us": 14216.5,
+  "mediana_us": 108915.5,
+  "iqr_us": 5741.5,
   "repeticiones": 21,
   "lote": 1
  },
@@ -544,8 +544,8 @@
   "algoritmo": "Dijkstra perezoso",
   "n": 5000,
   "vias": 9403,
-  "mediana_us": 1633.3,
-  "iqr_us": 346.54,
+  "mediana_us": 1419.64,
+  "iqr_us": 366.48,
   "repeticiones": 21,
   "lote": 5
  },
@@ -554,408 +554,408 @@
   "algoritmo": "A*",
   "n": 5000,
   "vias": 9403,
-  "mediana_us": 1007.057,
-  "iqr_us": 330,
+  "mediana_us": 883.15,
+  "iqr_us": 181.462,
   "repeticiones": 21,
-  "lote": 7
+  "lote": 8
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "BFS",
   "n": 10,
   "vias": 13,
-  "mediana_us": 2.03,
-  "iqr_us": 0.393,
+  "mediana_us": 1.846,
+  "iqr_us": 0.303,
   "repeticiones": 21,
-  "lote": 5218
+  "lote": 5002
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "DFS",
   "n": 10,
   "vias": 13,
-  "mediana_us": 2.159,
-  "iqr_us": 0.317,
+  "mediana_us": 2.254,
+  "iqr_us": 0.308,
   "repeticiones": 21,
-  "lote": 5218
+  "lote": 4286
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "DFS recursivo",
   "n": 10,
   "vias": 13,
-  "mediana_us": 1.751,
-  "iqr_us": 0.829,
+  "mediana_us": 2.318,
+  "iqr_us": 0.446,
   "repeticiones": 21,
-  "lote": 2400
+  "lote": 4000
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra heap",
   "n": 10,
   "vias": 13,
-  "mediana_us": 6.512,
-  "iqr_us": 2.825,
-  "repeticiones": 21,
-  "lote": 646
- },
- {
-  "tipo": "cuadricula",
-  "algoritmo": "Dijkstra arreglo",
-  "n": 10,
-  "vias": 13,
-  "mediana_us": 2.85,
-  "iqr_us": 0.419,
-  "repeticiones": 21,
-  "lote": 4248
- },
- {
-  "tipo": "cuadricula",
-  "algoritmo": "Dijkstra perezoso",
-  "n": 10,
-  "vias": 13,
-  "mediana_us": 3.435,
-  "iqr_us": 1.383,
-  "repeticiones": 21,
-  "lote": 1622
- },
- {
-  "tipo": "cuadricula",
-  "algoritmo": "A*",
-  "n": 10,
-  "vias": 13,
-  "mediana_us": 9.423,
-  "iqr_us": 3.16,
-  "repeticiones": 21,
-  "lote": 783
- },
- {
-  "tipo": "cuadricula",
-  "algoritmo": "BFS",
-  "n": 50,
-  "vias": 85,
-  "mediana_us": 6.388,
-  "iqr_us": 2.522,
-  "repeticiones": 21,
-  "lote": 846
- },
- {
-  "tipo": "cuadricula",
-  "algoritmo": "DFS",
-  "n": 50,
-  "vias": 85,
-  "mediana_us": 7.828,
-  "iqr_us": 2.767,
+  "mediana_us": 6.946,
+  "iqr_us": 2.655,
   "repeticiones": 21,
   "lote": 801
  },
  {
   "tipo": "cuadricula",
-  "algoritmo": "DFS recursivo",
-  "n": 50,
-  "vias": 85,
-  "mediana_us": 7.275,
-  "iqr_us": 2.415,
-  "repeticiones": 21,
-  "lote": 834
- },
- {
-  "tipo": "cuadricula",
-  "algoritmo": "Dijkstra heap",
-  "n": 50,
-  "vias": 85,
-  "mediana_us": 14.48,
-  "iqr_us": 4.463,
-  "repeticiones": 21,
-  "lote": 459
- },
- {
-  "tipo": "cuadricula",
   "algoritmo": "Dijkstra arreglo",
-  "n": 50,
-  "vias": 85,
-  "mediana_us": 13.176,
-  "iqr_us": 4.605,
+  "n": 10,
+  "vias": 13,
+  "mediana_us": 3.345,
+  "iqr_us": 0.598,
   "repeticiones": 21,
-  "lote": 492
+  "lote": 3244
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra perezoso",
-  "n": 50,
-  "vias": 85,
-  "mediana_us": 10.101,
-  "iqr_us": 4.477,
+  "n": 10,
+  "vias": 13,
+  "mediana_us": 4.756,
+  "iqr_us": 1.339,
   "repeticiones": 21,
-  "lote": 541
+  "lote": 1200
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "A*",
-  "n": 50,
-  "vias": 85,
-  "mediana_us": 13.683,
-  "iqr_us": 4.701,
+  "n": 10,
+  "vias": 13,
+  "mediana_us": 9.671,
+  "iqr_us": 2.005,
   "repeticiones": 21,
-  "lote": 485
+  "lote": 551
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "BFS",
-  "n": 100,
-  "vias": 180,
-  "mediana_us": 10.007,
-  "iqr_us": 2.691,
+  "n": 50,
+  "vias": 85,
+  "mediana_us": 9.503,
+  "iqr_us": 2.162,
   "repeticiones": 21,
   "lote": 639
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "DFS",
+  "n": 50,
+  "vias": 85,
+  "mediana_us": 11.312,
+  "iqr_us": 1.097,
+  "repeticiones": 21,
+  "lote": 992
+ },
+ {
+  "tipo": "cuadricula",
+  "algoritmo": "DFS recursivo",
+  "n": 50,
+  "vias": 85,
+  "mediana_us": 10.091,
+  "iqr_us": 2.158,
+  "repeticiones": 21,
+  "lote": 551
+ },
+ {
+  "tipo": "cuadricula",
+  "algoritmo": "Dijkstra heap",
+  "n": 50,
+  "vias": 85,
+  "mediana_us": 18.719,
+  "iqr_us": 7.522,
+  "repeticiones": 21,
+  "lote": 299
+ },
+ {
+  "tipo": "cuadricula",
+  "algoritmo": "Dijkstra arreglo",
+  "n": 50,
+  "vias": 85,
+  "mediana_us": 17.495,
+  "iqr_us": 4.613,
+  "repeticiones": 21,
+  "lote": 349
+ },
+ {
+  "tipo": "cuadricula",
+  "algoritmo": "Dijkstra perezoso",
+  "n": 50,
+  "vias": 85,
+  "mediana_us": 14.621,
+  "iqr_us": 4.838,
+  "repeticiones": 21,
+  "lote": 445
+ },
+ {
+  "tipo": "cuadricula",
+  "algoritmo": "A*",
+  "n": 50,
+  "vias": 85,
+  "mediana_us": 18.463,
+  "iqr_us": 7.45,
+  "repeticiones": 21,
+  "lote": 298
+ },
+ {
+  "tipo": "cuadricula",
+  "algoritmo": "BFS",
   "n": 100,
   "vias": 180,
-  "mediana_us": 16.681,
-  "iqr_us": 10.407,
+  "mediana_us": 15.351,
+  "iqr_us": 5.326,
   "repeticiones": 21,
-  "lote": 468
+  "lote": 334
+ },
+ {
+  "tipo": "cuadricula",
+  "algoritmo": "DFS",
+  "n": 100,
+  "vias": 180,
+  "mediana_us": 29.08,
+  "iqr_us": 6.408,
+  "repeticiones": 21,
+  "lote": 404
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "DFS recursivo",
   "n": 100,
   "vias": 180,
-  "mediana_us": 20.483,
-  "iqr_us": 12.805,
+  "mediana_us": 24.222,
+  "iqr_us": 7.246,
   "repeticiones": 21,
-  "lote": 325
+  "lote": 292
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra heap",
   "n": 100,
   "vias": 180,
-  "mediana_us": 29.806,
-  "iqr_us": 19.453,
+  "mediana_us": 48.751,
+  "iqr_us": 15.292,
   "repeticiones": 21,
-  "lote": 273
+  "lote": 172
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra arreglo",
   "n": 100,
   "vias": 180,
-  "mediana_us": 42.935,
-  "iqr_us": 15.011,
+  "mediana_us": 65.127,
+  "iqr_us": 19.366,
+  "repeticiones": 21,
+  "lote": 74
+ },
+ {
+  "tipo": "cuadricula",
+  "algoritmo": "Dijkstra perezoso",
+  "n": 100,
+  "vias": 180,
+  "mediana_us": 25.336,
+  "iqr_us": 5.443,
+  "repeticiones": 21,
+  "lote": 268
+ },
+ {
+  "tipo": "cuadricula",
+  "algoritmo": "A*",
+  "n": 100,
+  "vias": 180,
+  "mediana_us": 54.267,
+  "iqr_us": 13.127,
+  "repeticiones": 21,
+  "lote": 137
+ },
+ {
+  "tipo": "cuadricula",
+  "algoritmo": "BFS",
+  "n": 250,
+  "vias": 468,
+  "mediana_us": 35.767,
+  "iqr_us": 7.969,
+  "repeticiones": 21,
+  "lote": 195
+ },
+ {
+  "tipo": "cuadricula",
+  "algoritmo": "DFS",
+  "n": 250,
+  "vias": 468,
+  "mediana_us": 45.401,
+  "iqr_us": 6.243,
   "repeticiones": 21,
   "lote": 141
  },
  {
   "tipo": "cuadricula",
-  "algoritmo": "Dijkstra perezoso",
-  "n": 100,
-  "vias": 180,
-  "mediana_us": 17.169,
-  "iqr_us": 5.894,
-  "repeticiones": 21,
-  "lote": 414
- },
- {
-  "tipo": "cuadricula",
-  "algoritmo": "A*",
-  "n": 100,
-  "vias": 180,
-  "mediana_us": 28.51,
-  "iqr_us": 3.832,
-  "repeticiones": 21,
-  "lote": 68
- },
- {
-  "tipo": "cuadricula",
-  "algoritmo": "BFS",
-  "n": 250,
-  "vias": 468,
-  "mediana_us": 27.243,
-  "iqr_us": 8.81,
-  "repeticiones": 21,
-  "lote": 316
- },
- {
-  "tipo": "cuadricula",
-  "algoritmo": "DFS",
-  "n": 250,
-  "vias": 468,
-  "mediana_us": 40.72,
-  "iqr_us": 15.713,
-  "repeticiones": 21,
-  "lote": 205
- },
- {
-  "tipo": "cuadricula",
   "algoritmo": "DFS recursivo",
   "n": 250,
   "vias": 468,
-  "mediana_us": 36.516,
-  "iqr_us": 8.024,
+  "mediana_us": 45.384,
+  "iqr_us": 11.229,
   "repeticiones": 21,
-  "lote": 330
+  "lote": 161
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra heap",
   "n": 250,
   "vias": 468,
-  "mediana_us": 82.058,
-  "iqr_us": 27.619,
+  "mediana_us": 89.022,
+  "iqr_us": 28.912,
   "repeticiones": 21,
-  "lote": 103
+  "lote": 78
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra arreglo",
   "n": 250,
   "vias": 468,
-  "mediana_us": 384.287,
-  "iqr_us": 199.094,
+  "mediana_us": 449.141,
+  "iqr_us": 107.218,
   "repeticiones": 21,
-  "lote": 16
+  "lote": 17
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra perezoso",
   "n": 250,
   "vias": 468,
-  "mediana_us": 73.619,
-  "iqr_us": 47.856,
+  "mediana_us": 69.731,
+  "iqr_us": 22.186,
   "repeticiones": 21,
-  "lote": 79
+  "lote": 101
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "A*",
   "n": 250,
   "vias": 468,
-  "mediana_us": 86.197,
-  "iqr_us": 37.987,
+  "mediana_us": 114.367,
+  "iqr_us": 35.735,
   "repeticiones": 21,
-  "lote": 77
+  "lote": 66
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "BFS",
   "n": 500,
   "vias": 955,
-  "mediana_us": 57.123,
-  "iqr_us": 60.984,
+  "mediana_us": 83.184,
+  "iqr_us": 26.282,
   "repeticiones": 21,
-  "lote": 43
+  "lote": 102
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "DFS",
   "n": 500,
   "vias": 955,
-  "mediana_us": 122.729,
-  "iqr_us": 44.63,
+  "mediana_us": 99.223,
+  "iqr_us": 25.08,
   "repeticiones": 21,
-  "lote": 91
+  "lote": 70
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "DFS recursivo",
   "n": 500,
   "vias": 955,
-  "mediana_us": 69.361,
-  "iqr_us": 46.641,
+  "mediana_us": 99.667,
+  "iqr_us": 44.083,
   "repeticiones": 21,
-  "lote": 59
+  "lote": 54
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra heap",
   "n": 500,
   "vias": 955,
-  "mediana_us": 247.329,
-  "iqr_us": 85.995,
+  "mediana_us": 295.383,
+  "iqr_us": 51.607,
   "repeticiones": 21,
-  "lote": 41
+  "lote": 29
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra arreglo",
   "n": 500,
   "vias": 955,
-  "mediana_us": 2056.88,
-  "iqr_us": 583.18,
+  "mediana_us": 2433.325,
+  "iqr_us": 474.025,
   "repeticiones": 21,
-  "lote": 5
+  "lote": 4
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra perezoso",
   "n": 500,
   "vias": 955,
-  "mediana_us": 295.261,
-  "iqr_us": 164.629,
-  "repeticiones": 21,
-  "lote": 31
- },
- {
-  "tipo": "cuadricula",
-  "algoritmo": "A*",
-  "n": 500,
-  "vias": 955,
-  "mediana_us": 225.905,
-  "iqr_us": 152.641,
-  "repeticiones": 21,
-  "lote": 22
- },
- {
-  "tipo": "cuadricula",
-  "algoritmo": "BFS",
-  "n": 1000,
-  "vias": 1936,
-  "mediana_us": 160.949,
-  "iqr_us": 126.535,
-  "repeticiones": 21,
-  "lote": 37
- },
- {
-  "tipo": "cuadricula",
-  "algoritmo": "DFS",
-  "n": 1000,
-  "vias": 1936,
-  "mediana_us": 258.14,
-  "iqr_us": 96.34,
+  "mediana_us": 230.703,
+  "iqr_us": 139.431,
   "repeticiones": 21,
   "lote": 35
  },
  {
   "tipo": "cuadricula",
+  "algoritmo": "A*",
+  "n": 500,
+  "vias": 955,
+  "mediana_us": 311.85,
+  "iqr_us": 60.396,
+  "repeticiones": 21,
+  "lote": 24
+ },
+ {
+  "tipo": "cuadricula",
+  "algoritmo": "BFS",
+  "n": 1000,
+  "vias": 1936,
+  "mediana_us": 285.698,
+  "iqr_us": 147.033,
+  "repeticiones": 21,
+  "lote": 40
+ },
+ {
+  "tipo": "cuadricula",
+  "algoritmo": "DFS",
+  "n": 1000,
+  "vias": 1936,
+  "mediana_us": 289.376,
+  "iqr_us": 81.826,
+  "repeticiones": 21,
+  "lote": 50
+ },
+ {
+  "tipo": "cuadricula",
   "algoritmo": "DFS recursivo",
   "n": 1000,
   "vias": 1936,
-  "mediana_us": 261.11,
-  "iqr_us": 153.562,
+  "mediana_us": 238.44,
+  "iqr_us": 295.175,
   "repeticiones": 21,
-  "lote": 42
+  "lote": 20
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra heap",
   "n": 1000,
   "vias": 1936,
-  "mediana_us": 519.8,
-  "iqr_us": 494.517,
+  "mediana_us": 977.908,
+  "iqr_us": 507.677,
   "repeticiones": 21,
-  "lote": 6
+  "lote": 13
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra arreglo",
   "n": 1000,
   "vias": 1936,
-  "mediana_us": 6305.2,
-  "iqr_us": 3129.1,
+  "mediana_us": 11637.8,
+  "iqr_us": 6346.9,
   "repeticiones": 21,
   "lote": 1
  },
@@ -964,68 +964,68 @@
   "algoritmo": "Dijkstra perezoso",
   "n": 1000,
   "vias": 1936,
-  "mediana_us": 361.174,
-  "iqr_us": 147.295,
+  "mediana_us": 624.446,
+  "iqr_us": 385.654,
   "repeticiones": 21,
-  "lote": 19
+  "lote": 13
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "A*",
   "n": 1000,
   "vias": 1936,
-  "mediana_us": 544.062,
-  "iqr_us": 774.55,
-  "repeticiones": 21,
-  "lote": 26
- },
- {
-  "tipo": "cuadricula",
-  "algoritmo": "BFS",
-  "n": 2500,
-  "vias": 4900,
-  "mediana_us": 576.078,
-  "iqr_us": 231.989,
-  "repeticiones": 21,
-  "lote": 18
- },
- {
-  "tipo": "cuadricula",
-  "algoritmo": "DFS",
-  "n": 2500,
-  "vias": 4900,
-  "mediana_us": 719.464,
-  "iqr_us": 391.429,
+  "mediana_us": 734.136,
+  "iqr_us": 335.279,
   "repeticiones": 21,
   "lote": 14
  },
  {
   "tipo": "cuadricula",
+  "algoritmo": "BFS",
+  "n": 2500,
+  "vias": 4900,
+  "mediana_us": 477.064,
+  "iqr_us": 168.645,
+  "repeticiones": 21,
+  "lote": 11
+ },
+ {
+  "tipo": "cuadricula",
+  "algoritmo": "DFS",
+  "n": 2500,
+  "vias": 4900,
+  "mediana_us": 650.208,
+  "iqr_us": 373.215,
+  "repeticiones": 21,
+  "lote": 13
+ },
+ {
+  "tipo": "cuadricula",
   "algoritmo": "DFS recursivo",
   "n": 2500,
   "vias": 4900,
-  "mediana_us": 641.844,
-  "iqr_us": 249.688,
+  "mediana_us": 776.82,
+  "iqr_us": 480.833,
   "repeticiones": 21,
-  "lote": 16
+  "lote": 15
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra heap",
   "n": 2500,
   "vias": 4900,
-  "mediana_us": 1420.8,
-  "iqr_us": 176.9,
+  "mediana_us": 2360.575,
+  "iqr_us": 1574.575,
   "repeticiones": 21,
-  "lote": 1
+  "lote": 4
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra arreglo",
   "n": 2500,
   "vias": 4900,
-  "mediana_us": 150930.7,
-  "iqr_us": 86673.5,
+  "mediana_us": 105322.7,
+  "iqr_us": 67083.3,
   "repeticiones": 21,
   "lote": 1
  },
@@ -1034,68 +1034,68 @@
   "algoritmo": "Dijkstra perezoso",
   "n": 2500,
   "vias": 4900,
-  "mediana_us": 3880.78,
-  "iqr_us": 4344.56,
-  "repeticiones": 21,
-  "lote": 5
- },
- {
-  "tipo": "cuadricula",
-  "algoritmo": "A*",
-  "n": 2500,
-  "vias": 4900,
-  "mediana_us": 5794.533,
-  "iqr_us": 7384.633,
-  "repeticiones": 21,
-  "lote": 3
- },
- {
-  "tipo": "cuadricula",
-  "algoritmo": "BFS",
-  "n": 5000,
-  "vias": 9858,
-  "mediana_us": 1920.467,
-  "iqr_us": 962.033,
+  "mediana_us": 1933.55,
+  "iqr_us": 897.967,
   "repeticiones": 21,
   "lote": 6
  },
  {
   "tipo": "cuadricula",
+  "algoritmo": "A*",
+  "n": 2500,
+  "vias": 4900,
+  "mediana_us": 2856.35,
+  "iqr_us": 3005.5,
+  "repeticiones": 21,
+  "lote": 2
+ },
+ {
+  "tipo": "cuadricula",
+  "algoritmo": "BFS",
+  "n": 5000,
+  "vias": 9858,
+  "mediana_us": 1621.925,
+  "iqr_us": 714.262,
+  "repeticiones": 21,
+  "lote": 8
+ },
+ {
+  "tipo": "cuadricula",
   "algoritmo": "DFS",
   "n": 5000,
   "vias": 9858,
-  "mediana_us": 1464.2,
-  "iqr_us": 3532.35,
+  "mediana_us": 1358.533,
+  "iqr_us": 1540.833,
   "repeticiones": 21,
-  "lote": 2
+  "lote": 3
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "DFS recursivo",
   "n": 5000,
   "vias": 9858,
-  "mediana_us": 2067.233,
-  "iqr_us": 827.7,
+  "mediana_us": 1288.45,
+  "iqr_us": 377.76,
   "repeticiones": 21,
-  "lote": 6
+  "lote": 10
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra heap",
   "n": 5000,
   "vias": 9858,
-  "mediana_us": 6296.2,
-  "iqr_us": 3480.55,
+  "mediana_us": 3645.733,
+  "iqr_us": 931.467,
   "repeticiones": 21,
-  "lote": 2
+  "lote": 3
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "Dijkstra arreglo",
   "n": 5000,
   "vias": 9858,
-  "mediana_us": 327185.2,
-  "iqr_us": 267626.7,
+  "mediana_us": 153832.9,
+  "iqr_us": 32497.5,
   "repeticiones": 21,
   "lote": 1
  },
@@ -1104,258 +1104,258 @@
   "algoritmo": "Dijkstra perezoso",
   "n": 5000,
   "vias": 9858,
-  "mediana_us": 3282.833,
-  "iqr_us": 1277.667,
+  "mediana_us": 2178.975,
+  "iqr_us": 615.625,
   "repeticiones": 21,
-  "lote": 3
+  "lote": 4
  },
  {
   "tipo": "cuadricula",
   "algoritmo": "A*",
   "n": 5000,
   "vias": 9858,
-  "mediana_us": 3762.867,
-  "iqr_us": 2034.933,
+  "mediana_us": 1756.9,
+  "iqr_us": 495.15,
   "repeticiones": 21,
-  "lote": 3
+  "lote": 2
  },
  {
   "tipo": "metro",
   "algoritmo": "BFS",
   "n": 10,
   "vias": 9,
-  "mediana_us": 3.785,
-  "iqr_us": 2.09,
+  "mediana_us": 2.869,
+  "iqr_us": 0.719,
   "repeticiones": 21,
-  "lote": 1539
+  "lote": 3078
  },
  {
   "tipo": "metro",
   "algoritmo": "DFS",
   "n": 10,
   "vias": 9,
-  "mediana_us": 4.709,
-  "iqr_us": 2.266,
+  "mediana_us": 2.677,
+  "iqr_us": 0.565,
   "repeticiones": 21,
-  "lote": 2092
+  "lote": 3530
  },
  {
   "tipo": "metro",
   "algoritmo": "DFS recursivo",
   "n": 10,
   "vias": 9,
-  "mediana_us": 4.312,
-  "iqr_us": 1.156,
+  "mediana_us": 2.379,
+  "iqr_us": 0.448,
   "repeticiones": 21,
-  "lote": 2746
+  "lote": 3530
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra heap",
   "n": 10,
   "vias": 9,
-  "mediana_us": 18.352,
-  "iqr_us": 8.123,
+  "mediana_us": 7.155,
+  "iqr_us": 2.218,
   "repeticiones": 21,
-  "lote": 724
+  "lote": 706
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra arreglo",
   "n": 10,
   "vias": 9,
-  "mediana_us": 6.862,
-  "iqr_us": 1.676,
+  "mediana_us": 3.133,
+  "iqr_us": 0.571,
   "repeticiones": 21,
-  "lote": 2002
+  "lote": 1154
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra perezoso",
   "n": 10,
   "vias": 9,
-  "mediana_us": 11.783,
-  "iqr_us": 7.348,
+  "mediana_us": 4.291,
+  "iqr_us": 0.95,
   "repeticiones": 21,
-  "lote": 811
+  "lote": 1200
  },
  {
   "tipo": "metro",
   "algoritmo": "A*",
   "n": 10,
   "vias": 9,
-  "mediana_us": 20.935,
-  "iqr_us": 30.727,
+  "mediana_us": 12.124,
+  "iqr_us": 2.578,
   "repeticiones": 21,
-  "lote": 216
+  "lote": 640
  },
  {
   "tipo": "metro",
   "algoritmo": "BFS",
   "n": 50,
   "vias": 49,
-  "mediana_us": 18.437,
-  "iqr_us": 6.795,
+  "mediana_us": 9.964,
+  "iqr_us": 3.456,
   "repeticiones": 21,
-  "lote": 664
+  "lote": 639
  },
  {
   "tipo": "metro",
   "algoritmo": "DFS",
   "n": 50,
   "vias": 49,
-  "mediana_us": 13.305,
-  "iqr_us": 9.05,
+  "mediana_us": 9.723,
+  "iqr_us": 6.483,
   "repeticiones": 21,
-  "lote": 455
+  "lote": 619
  },
  {
   "tipo": "metro",
   "algoritmo": "DFS recursivo",
   "n": 50,
   "vias": 49,
-  "mediana_us": 22.783,
-  "iqr_us": 13.867,
+  "mediana_us": 11.778,
+  "iqr_us": 2.666,
   "repeticiones": 21,
-  "lote": 432
+  "lote": 718
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra heap",
   "n": 50,
   "vias": 49,
-  "mediana_us": 33.877,
-  "iqr_us": 18.881,
+  "mediana_us": 20.158,
+  "iqr_us": 6.465,
   "repeticiones": 21,
-  "lote": 280
+  "lote": 334
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra arreglo",
   "n": 50,
   "vias": 49,
-  "mediana_us": 37.883,
-  "iqr_us": 16.906,
+  "mediana_us": 19.881,
+  "iqr_us": 4.978,
   "repeticiones": 21,
-  "lote": 233
+  "lote": 325
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra perezoso",
   "n": 50,
   "vias": 49,
-  "mediana_us": 17.855,
-  "iqr_us": 16.523,
+  "mediana_us": 13.486,
+  "iqr_us": 3.749,
   "repeticiones": 21,
-  "lote": 225
+  "lote": 502
  },
  {
   "tipo": "metro",
   "algoritmo": "A*",
   "n": 50,
   "vias": 49,
-  "mediana_us": 28.292,
-  "iqr_us": 15.474,
+  "mediana_us": 20.085,
+  "iqr_us": 6.594,
   "repeticiones": 21,
-  "lote": 238
+  "lote": 372
  },
  {
   "tipo": "metro",
   "algoritmo": "BFS",
   "n": 100,
   "vias": 99,
-  "mediana_us": 23.894,
-  "iqr_us": 14.806,
+  "mediana_us": 14.164,
+  "iqr_us": 4.031,
   "repeticiones": 21,
-  "lote": 392
+  "lote": 373
  },
  {
   "tipo": "metro",
   "algoritmo": "DFS",
   "n": 100,
   "vias": 99,
-  "mediana_us": 26.283,
-  "iqr_us": 8.76,
+  "mediana_us": 17.232,
+  "iqr_us": 4.553,
   "repeticiones": 21,
-  "lote": 490
+  "lote": 415
  },
  {
   "tipo": "metro",
   "algoritmo": "DFS recursivo",
   "n": 100,
   "vias": 99,
-  "mediana_us": 21.544,
-  "iqr_us": 11.373,
+  "mediana_us": 15.527,
+  "iqr_us": 3.097,
   "repeticiones": 21,
-  "lote": 313
+  "lote": 395
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra heap",
   "n": 100,
   "vias": 99,
-  "mediana_us": 80.679,
-  "iqr_us": 54.602,
+  "mediana_us": 32.522,
+  "iqr_us": 5.481,
   "repeticiones": 21,
-  "lote": 120
+  "lote": 213
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra arreglo",
   "n": 100,
   "vias": 99,
-  "mediana_us": 129.072,
-  "iqr_us": 66.893,
+  "mediana_us": 67.61,
+  "iqr_us": 7.763,
   "repeticiones": 21,
-  "lote": 74
+  "lote": 116
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra perezoso",
   "n": 100,
   "vias": 99,
-  "mediana_us": 39.287,
-  "iqr_us": 19.928,
+  "mediana_us": 21.564,
+  "iqr_us": 4.425,
   "repeticiones": 21,
-  "lote": 276
+  "lote": 318
  },
  {
   "tipo": "metro",
   "algoritmo": "A*",
   "n": 100,
   "vias": 99,
-  "mediana_us": 32.121,
-  "iqr_us": 31.953,
+  "mediana_us": 40.737,
+  "iqr_us": 9.817,
   "repeticiones": 21,
-  "lote": 174
+  "lote": 179
  },
  {
   "tipo": "metro",
   "algoritmo": "BFS",
   "n": 250,
   "vias": 249,
-  "mediana_us": 47.798,
-  "iqr_us": 18.563,
+  "mediana_us": 36.617,
+  "iqr_us": 14.575,
   "repeticiones": 21,
-  "lote": 225
+  "lote": 199
  },
  {
   "tipo": "metro",
   "algoritmo": "DFS",
   "n": 250,
   "vias": 249,
-  "mediana_us": 39.14,
-  "iqr_us": 20.414,
+  "mediana_us": 37.468,
+  "iqr_us": 13.156,
   "repeticiones": 21,
-  "lote": 182
+  "lote": 176
  },
  {
   "tipo": "metro",
   "algoritmo": "DFS recursivo",
   "n": 250,
   "vias": 249,
-  "mediana_us": 49.746,
-  "iqr_us": 22.075,
+  "mediana_us": 34.185,
+  "iqr_us": 12.187,
   "repeticiones": 21,
   "lote": 201
  },
@@ -1364,228 +1364,228 @@
   "algoritmo": "Dijkstra heap",
   "n": 250,
   "vias": 249,
-  "mediana_us": 90.497,
-  "iqr_us": 34.79,
+  "mediana_us": 75.659,
+  "iqr_us": 22.181,
   "repeticiones": 21,
-  "lote": 96
+  "lote": 115
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra arreglo",
   "n": 250,
   "vias": 249,
-  "mediana_us": 743.94,
-  "iqr_us": 497.04,
+  "mediana_us": 360.874,
+  "iqr_us": 95.184,
   "repeticiones": 21,
-  "lote": 15
+  "lote": 19
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra perezoso",
   "n": 250,
   "vias": 249,
-  "mediana_us": 84.78,
-  "iqr_us": 22.462,
+  "mediana_us": 47.018,
+  "iqr_us": 11.07,
   "repeticiones": 21,
-  "lote": 145
+  "lote": 164
  },
  {
   "tipo": "metro",
   "algoritmo": "A*",
   "n": 250,
   "vias": 249,
-  "mediana_us": 86.011,
-  "iqr_us": 96.835,
+  "mediana_us": 66.382,
+  "iqr_us": 25.303,
   "repeticiones": 21,
-  "lote": 57
+  "lote": 97
  },
  {
   "tipo": "metro",
   "algoritmo": "BFS",
   "n": 500,
   "vias": 499,
-  "mediana_us": 81.025,
-  "iqr_us": 45.485,
+  "mediana_us": 51.348,
+  "iqr_us": 12.531,
   "repeticiones": 21,
-  "lote": 135
+  "lote": 134
  },
  {
   "tipo": "metro",
   "algoritmo": "DFS",
   "n": 500,
   "vias": 499,
-  "mediana_us": 91.167,
-  "iqr_us": 50.665,
+  "mediana_us": 55.439,
+  "iqr_us": 10.734,
   "repeticiones": 21,
-  "lote": 100
+  "lote": 89
  },
  {
   "tipo": "metro",
   "algoritmo": "DFS recursivo",
   "n": 500,
   "vias": 499,
-  "mediana_us": 70.228,
-  "iqr_us": 36.139,
+  "mediana_us": 57.694,
+  "iqr_us": 14.901,
   "repeticiones": 21,
-  "lote": 109
+  "lote": 124
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra heap",
   "n": 500,
   "vias": 499,
-  "mediana_us": 251.606,
-  "iqr_us": 67.915,
+  "mediana_us": 110.629,
+  "iqr_us": 16.433,
+  "repeticiones": 21,
+  "lote": 63
+ },
+ {
+  "tipo": "metro",
+  "algoritmo": "Dijkstra arreglo",
+  "n": 500,
+  "vias": 499,
+  "mediana_us": 1337.58,
+  "iqr_us": 223.24,
+  "repeticiones": 21,
+  "lote": 5
+ },
+ {
+  "tipo": "metro",
+  "algoritmo": "Dijkstra perezoso",
+  "n": 500,
+  "vias": 499,
+  "mediana_us": 80.647,
+  "iqr_us": 28.857,
+  "repeticiones": 21,
+  "lote": 58
+ },
+ {
+  "tipo": "metro",
+  "algoritmo": "A*",
+  "n": 500,
+  "vias": 499,
+  "mediana_us": 144.385,
+  "iqr_us": 59.583,
   "repeticiones": 21,
   "lote": 53
  },
  {
   "tipo": "metro",
-  "algoritmo": "Dijkstra arreglo",
-  "n": 500,
-  "vias": 499,
-  "mediana_us": 1746.367,
-  "iqr_us": 972.2,
-  "repeticiones": 21,
-  "lote": 3
- },
- {
-  "tipo": "metro",
-  "algoritmo": "Dijkstra perezoso",
-  "n": 500,
-  "vias": 499,
-  "mediana_us": 108.687,
-  "iqr_us": 51.711,
-  "repeticiones": 21,
-  "lote": 84
- },
- {
-  "tipo": "metro",
-  "algoritmo": "A*",
-  "n": 500,
-  "vias": 499,
-  "mediana_us": 199.112,
-  "iqr_us": 49.071,
-  "repeticiones": 21,
-  "lote": 66
- },
- {
-  "tipo": "metro",
   "algoritmo": "BFS",
   "n": 1000,
   "vias": 999,
-  "mediana_us": 131.03,
-  "iqr_us": 29.243,
+  "mediana_us": 99.844,
+  "iqr_us": 26.186,
   "repeticiones": 21,
-  "lote": 102
+  "lote": 94
  },
  {
   "tipo": "metro",
   "algoritmo": "DFS",
   "n": 1000,
   "vias": 999,
-  "mediana_us": 143.91,
-  "iqr_us": 106.049,
+  "mediana_us": 102.342,
+  "iqr_us": 30.7,
+  "repeticiones": 21,
+  "lote": 71
+ },
+ {
+  "tipo": "metro",
+  "algoritmo": "DFS recursivo",
+  "n": 1000,
+  "vias": 999,
+  "mediana_us": 97.956,
+  "iqr_us": 24.741,
   "repeticiones": 21,
   "lote": 68
  },
  {
   "tipo": "metro",
-  "algoritmo": "DFS recursivo",
-  "n": 1000,
-  "vias": 999,
-  "mediana_us": 97.697,
-  "iqr_us": 94.622,
-  "repeticiones": 21,
-  "lote": 37
- },
- {
-  "tipo": "metro",
   "algoritmo": "Dijkstra heap",
   "n": 1000,
   "vias": 999,
-  "mediana_us": 271.394,
-  "iqr_us": 342.867,
+  "mediana_us": 284.973,
+  "iqr_us": 88.86,
   "repeticiones": 21,
-  "lote": 18
+  "lote": 30
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra arreglo",
   "n": 1000,
   "vias": 999,
-  "mediana_us": 10066.4,
-  "iqr_us": 6177.9,
+  "mediana_us": 5353.45,
+  "iqr_us": 728,
   "repeticiones": 21,
-  "lote": 1
+  "lote": 2
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra perezoso",
   "n": 1000,
   "vias": 999,
-  "mediana_us": 462.614,
-  "iqr_us": 306.714,
+  "mediana_us": 190.336,
+  "iqr_us": 43.125,
   "repeticiones": 21,
-  "lote": 21
+  "lote": 44
  },
  {
   "tipo": "metro",
   "algoritmo": "A*",
   "n": 1000,
   "vias": 999,
-  "mediana_us": 715.543,
-  "iqr_us": 366.964,
+  "mediana_us": 298.132,
+  "iqr_us": 47.084,
   "repeticiones": 21,
-  "lote": 14
+  "lote": 19
  },
  {
   "tipo": "metro",
   "algoritmo": "BFS",
   "n": 2500,
   "vias": 2499,
-  "mediana_us": 382.692,
-  "iqr_us": 149.052,
+  "mediana_us": 184.635,
+  "iqr_us": 30.265,
   "repeticiones": 21,
-  "lote": 25
+  "lote": 31
  },
  {
   "tipo": "metro",
   "algoritmo": "DFS",
   "n": 2500,
   "vias": 2499,
-  "mediana_us": 620.77,
-  "iqr_us": 354.86,
-  "repeticiones": 21,
-  "lote": 20
- },
- {
-  "tipo": "metro",
-  "algoritmo": "DFS recursivo",
-  "n": 2500,
-  "vias": 2499,
-  "mediana_us": 496.2,
-  "iqr_us": 240.509,
+  "mediana_us": 220.414,
+  "iqr_us": 57.109,
   "repeticiones": 21,
   "lote": 22
  },
  {
   "tipo": "metro",
+  "algoritmo": "DFS recursivo",
+  "n": 2500,
+  "vias": 2499,
+  "mediana_us": 263.319,
+  "iqr_us": 46.996,
+  "repeticiones": 21,
+  "lote": 27
+ },
+ {
+  "tipo": "metro",
   "algoritmo": "Dijkstra heap",
   "n": 2500,
   "vias": 2499,
-  "mediana_us": 1158.925,
-  "iqr_us": 626.975,
+  "mediana_us": 799.009,
+  "iqr_us": 286.355,
   "repeticiones": 21,
-  "lote": 8
+  "lote": 11
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra arreglo",
   "n": 2500,
   "vias": 2499,
-  "mediana_us": 49637.1,
-  "iqr_us": 9093,
+  "mediana_us": 33348.6,
+  "iqr_us": 4980,
   "repeticiones": 21,
   "lote": 1
  },
@@ -1594,18 +1594,18 @@
   "algoritmo": "Dijkstra perezoso",
   "n": 2500,
   "vias": 2499,
-  "mediana_us": 782.356,
-  "iqr_us": 111.333,
+  "mediana_us": 516.608,
+  "iqr_us": 186.7,
   "repeticiones": 21,
-  "lote": 18
+  "lote": 13
  },
  {
   "tipo": "metro",
   "algoritmo": "A*",
   "n": 2500,
   "vias": 2499,
-  "mediana_us": 1440.875,
-  "iqr_us": 582.013,
+  "mediana_us": 1139.138,
+  "iqr_us": 609.575,
   "repeticiones": 21,
   "lote": 8
  },
@@ -1614,48 +1614,48 @@
   "algoritmo": "BFS",
   "n": 5000,
   "vias": 4999,
-  "mediana_us": 768.993,
-  "iqr_us": 228.443,
+  "mediana_us": 488.896,
+  "iqr_us": 83.279,
   "repeticiones": 21,
-  "lote": 14
+  "lote": 24
  },
  {
   "tipo": "metro",
   "algoritmo": "DFS",
   "n": 5000,
   "vias": 4999,
-  "mediana_us": 690.7,
-  "iqr_us": 562.09,
+  "mediana_us": 528.55,
+  "iqr_us": 135.192,
   "repeticiones": 21,
-  "lote": 10
+  "lote": 12
  },
  {
   "tipo": "metro",
   "algoritmo": "DFS recursivo",
   "n": 5000,
   "vias": 4999,
-  "mediana_us": 744.11,
-  "iqr_us": 54.145,
+  "mediana_us": 550.964,
+  "iqr_us": 137.864,
   "repeticiones": 21,
-  "lote": 20
+  "lote": 11
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra heap",
   "n": 5000,
   "vias": 4999,
-  "mediana_us": 2327.4,
-  "iqr_us": 313.933,
+  "mediana_us": 1503.7,
+  "iqr_us": 228.52,
   "repeticiones": 21,
-  "lote": 6
+  "lote": 5
  },
  {
   "tipo": "metro",
   "algoritmo": "Dijkstra arreglo",
   "n": 5000,
   "vias": 4999,
-  "mediana_us": 171380.3,
-  "iqr_us": 34688.1,
+  "mediana_us": 126959.1,
+  "iqr_us": 23584.4,
   "repeticiones": 21,
   "lote": 1
  },
@@ -1664,18 +1664,18 @@
   "algoritmo": "Dijkstra perezoso",
   "n": 5000,
   "vias": 4999,
-  "mediana_us": 1366.55,
-  "iqr_us": 1008.567,
+  "mediana_us": 998.087,
+  "iqr_us": 228.663,
   "repeticiones": 21,
-  "lote": 6
+  "lote": 8
  },
  {
   "tipo": "metro",
   "algoritmo": "A*",
   "n": 5000,
   "vias": 4999,
-  "mediana_us": 2750.625,
-  "iqr_us": 988.325,
+  "mediana_us": 2367.5,
+  "iqr_us": 477.2,
   "repeticiones": 21,
   "lote": 4
  }

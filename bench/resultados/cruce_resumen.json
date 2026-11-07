@@ -1,29 +1,29 @@
 [
  {
   "n": 250,
-  "densidad_cruce": 0.2947,
-  "vias_cruce": 9276,
+  "densidad_cruce": 0.4141,
+  "vias_cruce": 12887,
   "vias_teoricas": 7846,
   "max_vias": 31125
  },
  {
   "n": 500,
-  "densidad_cruce": 0.5774,
-  "vias_cruce": 71920,
+  "densidad_cruce": 0.332,
+  "vias_cruce": 41627,
   "vias_teoricas": 27884,
   "max_vias": 124750
  },
  {
   "n": 1000,
-  "densidad_cruce": 0.0826,
-  "vias_cruce": 42057,
+  "densidad_cruce": 0.253,
+  "vias_cruce": 126756,
   "vias_teoricas": 100343,
   "max_vias": 499500
  },
  {
   "n": 2000,
-  "densidad_cruce": 0.2183,
-  "vias_cruce": 437574,
+  "densidad_cruce": "",
+  "vias_cruce": "",
   "vias_teoricas": 364771,
   "max_vias": 1999000
  }

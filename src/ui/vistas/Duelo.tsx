@@ -47,6 +47,15 @@ export function Duelo() {
 
   const reporte = useMemo(() => validarHeuristica(red, h, destino, metrica), [red, h, destino, metrica]);
 
+  // El validador marca en el mapa las estaciones inadmisibles y las vías donde falla la consistencia
+  const violaciones = useMemo(() => {
+    const estaciones = new Uint8Array(red.numEstaciones);
+    reporte.admisibilidad.forEach((v) => { estaciones[v.nodo] = 1; });
+    const vias = new Uint8Array(red.numVias);
+    reporte.consistencia.forEach((v) => { vias[red.viaDeArco(v.arco)] = 1; });
+    return { estaciones, vias };
+  }, [red, reporte]);
+
   const corrida = useMemo(() => {
     if (grande) return null;
     const td = new TracerMemoria(60000);
@@ -93,6 +102,7 @@ export function Duelo() {
         <button className={`boton ${superponer ? 'activo' : ''}`} aria-pressed={superponer} onClick={() => setSuperponer((s) => !s)}>Superponer regiones</button>
         <span className={`etiqueta ${reporte.admisible ? 'ok' : 'mal'}`}>{reporte.admisible ? 'Admisible' : `Inadmisible en ${reporte.admisibilidad.length} estaciones`}</span>
         <span className={`etiqueta ${reporte.consistente ? 'ok' : 'mal'}`}>{reporte.consistente ? 'Consistente' : `Inconsistente en ${reporte.consistencia.length} arcos`}</span>
+        {(!reporte.admisible || !reporte.consistente) && <span className="etiqueta mal">Marcadas en rojo en el mapa de A*</span>}
       </div>
       {superponer ? (
         <div style={{ minHeight: 0 }}>
@@ -106,7 +116,7 @@ export function Duelo() {
           </div>
           <div style={{ minHeight: 0, display: 'flex', flexDirection: 'column', gap: 4 }}>
             <b>A*{w > 1 ? ` ponderado (w = ${w.toFixed(1)})` : ''}{tipo === 'cero' ? ' con h = 0' : ''}</b>
-            <div style={{ flex: 1, minHeight: 0 }}><Mapa red={red} estados={pa.estados} origen={origen} destino={destino} regiones={[{ estados: pa.estados, color: color.a }]} ruta={terminoA ? corrida.a.ruta : undefined} minimapa={false} etiquetas="ninguna" /></div>
+            <div style={{ flex: 1, minHeight: 0 }}><Mapa red={red} estados={pa.estados} origen={origen} destino={destino} regiones={[{ estados: pa.estados, color: color.a }]} ruta={terminoA ? corrida.a.ruta : undefined} criticas={violaciones.estaciones} puentes={violaciones.vias} minimapa={false} etiquetas="ninguna" /></div>
           </div>
         </>
       )}

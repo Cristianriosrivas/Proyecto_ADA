@@ -34,6 +34,8 @@ Con parada temprana se cierran 6 nodos: G y H nunca se extraen.
 
 {{tabla:traza_aestrella|Traza de A* de A hacia H. Las claves del heap son $f = g + h$, y d[ ] es g.}}
 
-En esta red la ruta óptima de A a H pasa por los 8 nodos, así que A* no puede expandir menos que Dijkstra. {{fig:red-docente-ruta|Ruta óptima de A a H, 16 km.}}
+En esta red la ruta óptima de A a H pasa por los 8 nodos, así que A* no puede expandir menos que Dijkstra.
+
+{{fig:red-docente-ruta|Ruta óptima de A a H, 16 km.}}
 
 Las diferencias entre A* y Dijkstra aparecen desde $N \ge 50$, como muestra la sección 7.6.

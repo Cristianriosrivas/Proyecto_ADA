@@ -5,7 +5,7 @@
   "estrategia": "quick",
   "comparaciones": 218930,
   "movimientos": 6261,
-  "ms": 10.119,
+  "ms": 11.631,
   "maximo_final": 0.9834998045116663
  },
  {
@@ -14,7 +14,7 @@
   "estrategia": "heap",
   "comparaciones": 215924,
   "movimientos": 127529,
-  "ms": 13.611,
+  "ms": 14.391,
   "maximo_final": 0.9834998045116663
  },
  {
@@ -23,7 +23,7 @@
   "estrategia": "cola",
   "comparaciones": 668,
   "movimientos": 283,
-  "ms": 0.14,
+  "ms": 0.083,
   "maximo_final": 0.9834998045116663
  },
  {
@@ -32,7 +32,7 @@
   "estrategia": "quick",
   "comparaciones": 1355789,
   "movimientos": 34348,
-  "ms": 52.898,
+  "ms": 64.626,
   "maximo_final": 0.9995453071314842
  },
  {
@@ -41,7 +41,7 @@
   "estrategia": "heap",
   "comparaciones": 1549815,
   "movimientos": 870062,
-  "ms": 86.759,
+  "ms": 89.318,
   "maximo_final": 0.9995453071314842
  },
  {
@@ -50,7 +50,7 @@
   "estrategia": "cola",
   "comparaciones": 1440,
   "movimientos": 609,
-  "ms": 0.066,
+  "ms": 0.063,
   "maximo_final": 0.9995453071314842
  },
  {
@@ -59,7 +59,7 @@
   "estrategia": "quick",
   "comparaciones": 2936873,
   "movimientos": 68365,
-  "ms": 111.695,
+  "ms": 143.627,
   "maximo_final": 0.9989472422748804
  },
  {
@@ -68,7 +68,7 @@
   "estrategia": "heap",
   "comparaciones": 3515175,
   "movimientos": 1941055,
-  "ms": 173.857,
+  "ms": 233.315,
   "maximo_final": 0.9989472422748804
  },
  {
@@ -77,7 +77,7 @@
   "estrategia": "cola",
   "comparaciones": 2406,
   "movimientos": 1005,
-  "ms": 0.101,
+  "ms": 0.082,
   "maximo_final": 0.9989472422748804
  },
  {
@@ -86,7 +86,7 @@
   "estrategia": "quick",
   "comparaciones": 6368488,
   "movimientos": 141504,
-  "ms": 239.984,
+  "ms": 358.188,
   "maximo_final": 0.9995453071314842
  },
  {
@@ -95,7 +95,7 @@
   "estrategia": "heap",
   "comparaciones": 7838656,
   "movimientos": 4272450,
-  "ms": 384.333,
+  "ms": 538.77,
   "maximo_final": 0.9995453071314842
  },
  {
@@ -104,7 +104,7 @@
   "estrategia": "cola",
   "comparaciones": 4325,
   "movimientos": 1761,
-  "ms": 0.131,
+  "ms": 0.143,
   "maximo_final": 0.9995453071314842
  },
  {
@@ -113,7 +113,7 @@
   "estrategia": "quick",
   "comparaciones": 17451140,
   "movimientos": 332505,
-  "ms": 1211.673,
+  "ms": 1161.847,
   "maximo_final": 0.9995453071314842
  },
  {
@@ -122,7 +122,7 @@
   "estrategia": "heap",
   "comparaciones": 22420001,
   "movimientos": 12163261,
-  "ms": 1598.883,
+  "ms": 1503.078,
   "maximo_final": 0.9995453071314842
  },
  {
@@ -131,7 +131,7 @@
   "estrategia": "cola",
   "comparaciones": 9947,
   "movimientos": 3988,
-  "ms": 0.58,
+  "ms": 0.349,
   "maximo_final": 0.9995453071314842
  }
 ]

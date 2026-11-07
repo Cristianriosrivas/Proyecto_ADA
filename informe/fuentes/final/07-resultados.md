@@ -32,9 +32,9 @@ El ruido es real: el equipo es un portátil de gama de entrada y los tiempos de 
 
 {{tabla:ajustes|Constante ajustada y $R^2$ por algoritmo y tipo de red.}}
 
-Las curvas lineal y cuadrática ajustan bien en los tres tipos de red. Con $N = 5000$, Dijkstra con arreglo tarda {{arreglo_5000}} y con heap {{heap_5000}}: el heap es {{razon_heap_arreglo_5000}} veces más rápido en esta red dispersa.
+Las curvas lineal y cuadrática dan $R^2$ entre {{r2_min_lineal}} y {{r2_max_lineal}} en los tres tipos de red. Con $N = 5000$, Dijkstra con arreglo tarda {{arreglo_5000}} y con heap {{heap_5000}}: el heap es {{razon_heap_arreglo_5000}} veces más rápido en esta red dispersa.
 
-El ajuste de Dijkstra con heap es el más flojo, sobre todo en la red de metro, y la razón es instructiva. La cota $O((V + E) \lg V)$ supone un heap de tamaño $V$, pero en la práctica el heap solo guarda la frontera. Con $N = 5000$, su mayor tamaño fue {{heap_max_geo_5000}} en la red geométrica, {{heap_max_cuad_5000}} en la cuadrícula y {{heap_max_metro_5000}} en la de metro. En una red de líneas casi no hay frontera, cada operación cuesta mucho menos que $\lg V$, y el tiempo crece casi linealmente. La cota sigue siendo cierta, pero en esas redes no es ajustada.
+Los ajustes de Dijkstra con heap son los más flojos, con $R^2$ entre {{r2_min_heap}} y {{r2_max_heap}}, y la razón es instructiva. La cota $O((V + E) \lg V)$ supone un heap de tamaño $V$, pero en la práctica el heap solo guarda la frontera. Con $N = 5000$, su mayor tamaño fue {{heap_max_geo_5000}} en la red geométrica, {{heap_max_cuad_5000}} en la cuadrícula y {{heap_max_metro_5000}} en la de metro. En una red de líneas casi no hay frontera, cada operación cuesta mucho menos que $\lg V$, y el tiempo crece casi linealmente. La cota sigue siendo cierta, pero en esas redes no es ajustada.
 
 ## Contadores de operaciones contra la teoría
 
@@ -48,7 +48,7 @@ En las {{contadores_filas}} combinaciones de tipo de red, dirección y tamaño, 
 
 ## Matriz contra lista
 
-{{tabla:matriz_lista|Memoria y tiempo con matriz y con lista, red geométrica. Los valores medidos incluyen la capacidad de reserva de los arreglos.}}
+{{tabla:matriz_lista|Memoria y tiempo con matriz y con lista, red geométrica. La memoria medida es la mediana de 5 mediciones con recolección forzada.}}
 
 {{fig:matriz-memoria|Memoria de cada representación. La matriz crece con pendiente 2 en log-log y la lista con pendiente 1.}}
 
@@ -56,7 +56,7 @@ En las {{contadores_filas}} combinaciones de tipo de red, dirección y tamaño, 
 
 {{tabla:celdas|Trabajo exacto: arcos que recorre la lista frente a celdas que barre la matriz.}}
 
-La memoria medida con `process.memoryUsage()` sigue a la teórica, con dos ruidos que conviene explicar. El recolector de basura decide cuándo liberar, y por eso una medición aislada en redes pequeñas puede dar casi cualquier valor; usamos la mediana de 5 y forzamos la recolección. Además la lista reserva capacidad extra al crecer, y por eso su valor medido supera al teórico.
+La memoria medida con `process.memoryUsage()` sigue a la teórica en las redes grandes, donde las dos casi coinciden. En las pequeñas aparecen dos ruidos que conviene explicar. El recolector de basura decide cuándo liberar, y por eso una medición aislada puede dar casi cualquier valor; usamos la mediana de 5 y forzamos la recolección. Además cada objeto tiene un costo fijo de encabezados que la cuenta teórica no incluye, y con pocos bytes ese costo pesa mucho.
 
 ## Dijkstra: arreglo contra heap
 
@@ -108,7 +108,7 @@ Con $w > 1$, A* expande menos a cambio de perder la garantía de optimalidad. El
 
 {{fig:quicksort-peor|Comparaciones de QuickSort con datos ya ordenados: la mediana de 3 mantiene $n \lg n$ y el último elemento como pivote cae en $n^2$.}}
 
-QuickSort con mediana de 3 fue el más rápido en la práctica, aunque MergeSort hizo menos comparaciones. Con el último elemento como pivote y datos ordenados aparece el peor caso de la sección 5: la curva tiene pendiente 2 en log-log. HeapSort garantiza $n \lg n$, a cambio de más comparaciones.
+Con datos al azar y $n = 100\,000$, el más rápido fue {{orden_rapido}} ({{orden_rapido_t}}) y el que menos comparó fue {{orden_menos_comp}}. Comparar no lo es todo: MergeSort copia el arreglo en cada mezcla, y en este equipo esas escrituras pesan más que las comparaciones que ahorra. Con el último elemento como pivote y datos ordenados aparece el peor caso de la sección 5: la curva tiene pendiente 2 en log-log. HeapSort garantiza $n \lg n$, a cambio de más comparaciones.
 
 ## Mantener una tabla de congestión
 

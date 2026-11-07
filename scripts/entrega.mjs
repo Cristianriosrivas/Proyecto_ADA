@@ -1,6 +1,6 @@
 // npm run entrega: genera el .zip con la estructura que pide el proyecto.
 import { createWriteStream, existsSync, readFileSync, statSync } from 'node:fs';
-import archiver from 'archiver';
+import { ZipArchive } from 'archiver';
 
 const config = JSON.parse(readFileSync('proyecto.config.json', 'utf8'));
 const apellidos = config.integrantes
@@ -18,7 +18,7 @@ for (const f of obligatorios) {
 }
 
 const salida = createWriteStream(nombre);
-const zip = archiver('zip', { zlib: { level: 9 } });
+const zip = new ZipArchive({ zlib: { level: 9 } });
 zip.on('error', (e) => {
   throw e;
 });
@@ -30,7 +30,7 @@ zip.directory('docs/', 'docs');
 if (existsSync('informe/salida/Documento_Fase1.pdf')) zip.file('informe/salida/Documento_Fase1.pdf', { name: 'docs/Documento_Fase1.pdf' });
 zip.directory('dist/', 'software/dist');
 zip.glob('**/*', {
-  ignore: ['node_modules/**', 'dist/**', 'dist-unico/**', 'coverage/**', '.git/**', 'Entrega_*.zip', 'GestorRutas.html', 'informe/salida/**'],
+  ignore: ['REGLAS.md', 'PROGRESO.md', 'node_modules/**', 'dist/**', 'dist-unico/**', 'coverage/**', '.git/**', 'Entrega_*.zip', 'GestorRutas.html', 'informe/salida/**'],
   dot: true,
 }, { prefix: 'software' });
 

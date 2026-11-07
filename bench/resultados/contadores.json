@@ -13,7 +13,9 @@
   "dfs_pops": 20,
   "dfs_interno": 38,
   "dfs_max_pila": 12,
-  "bfs_max_cola": 5
+  "bfs_max_cola": 5,
+  "dijkstra_max_heap": 4,
+  "dijkstra_mejoras": 11
  },
  {
   "tipo": "geometrica",
@@ -29,7 +31,9 @@
   "dfs_pops": 97,
   "dfs_interno": 192,
   "dfs_max_pila": 41,
-  "bfs_max_cola": 11
+  "bfs_max_cola": 11,
+  "dijkstra_max_heap": 10,
+  "dijkstra_mejoras": 65
  },
  {
   "tipo": "geometrica",
@@ -45,7 +49,9 @@
   "dfs_pops": 185,
   "dfs_interno": 368,
   "dfs_max_pila": 61,
-  "bfs_max_cola": 14
+  "bfs_max_cola": 14,
+  "dijkstra_max_heap": 12,
+  "dijkstra_mejoras": 118
  },
  {
   "tipo": "geometrica",
@@ -61,7 +67,9 @@
   "dfs_pops": 463,
   "dfs_interno": 924,
   "dfs_max_pila": 146,
-  "bfs_max_cola": 25
+  "bfs_max_cola": 25,
+  "dijkstra_max_heap": 24,
+  "dijkstra_mejoras": 286
  },
  {
   "tipo": "geometrica",
@@ -77,7 +85,9 @@
   "dfs_pops": 939,
   "dfs_interno": 1876,
   "dfs_max_pila": 233,
-  "bfs_max_cola": 36
+  "bfs_max_cola": 36,
+  "dijkstra_max_heap": 36,
+  "dijkstra_mejoras": 574
  },
  {
   "tipo": "geometrica",
@@ -93,7 +103,9 @@
   "dfs_pops": 1896,
   "dfs_interno": 3790,
   "dfs_max_pila": 515,
-  "bfs_max_cola": 55
+  "bfs_max_cola": 55,
+  "dijkstra_max_heap": 47,
+  "dijkstra_mejoras": 1170
  },
  {
   "tipo": "geometrica",
@@ -109,7 +121,9 @@
   "dfs_pops": 4747,
   "dfs_interno": 9492,
   "dfs_max_pila": 1322,
-  "bfs_max_cola": 90
+  "bfs_max_cola": 90,
+  "dijkstra_max_heap": 73,
+  "dijkstra_mejoras": 2943
  },
  {
   "tipo": "geometrica",
@@ -125,7 +139,9 @@
   "dfs_pops": 9404,
   "dfs_interno": 18806,
   "dfs_max_pila": 2013,
-  "bfs_max_cola": 107
+  "bfs_max_cola": 107,
+  "dijkstra_max_heap": 102,
+  "dijkstra_mejoras": 5869
  },
  {
   "tipo": "geometrica",
@@ -141,7 +157,9 @@
   "dfs_pops": 20,
   "dfs_interno": 38,
   "dfs_max_pila": 12,
-  "bfs_max_cola": 5
+  "bfs_max_cola": 5,
+  "dijkstra_max_heap": 4,
+  "dijkstra_mejoras": 11
  },
  {
   "tipo": "geometrica",
@@ -157,7 +175,9 @@
   "dfs_pops": 97,
   "dfs_interno": 192,
   "dfs_max_pila": 41,
-  "bfs_max_cola": 11
+  "bfs_max_cola": 11,
+  "dijkstra_max_heap": 10,
+  "dijkstra_mejoras": 60
  },
  {
   "tipo": "geometrica",
@@ -173,7 +193,9 @@
   "dfs_pops": 185,
   "dfs_interno": 368,
   "dfs_max_pila": 61,
-  "bfs_max_cola": 14
+  "bfs_max_cola": 14,
+  "dijkstra_max_heap": 12,
+  "dijkstra_mejoras": 117
  },
  {
   "tipo": "geometrica",
@@ -189,7 +211,9 @@
   "dfs_pops": 463,
   "dfs_interno": 924,
   "dfs_max_pila": 146,
-  "bfs_max_cola": 25
+  "bfs_max_cola": 25,
+  "dijkstra_max_heap": 24,
+  "dijkstra_mejoras": 287
  },
  {
   "tipo": "geometrica",
@@ -205,7 +229,9 @@
   "dfs_pops": 939,
   "dfs_interno": 1876,
   "dfs_max_pila": 233,
-  "bfs_max_cola": 36
+  "bfs_max_cola": 36,
+  "dijkstra_max_heap": 37,
+  "dijkstra_mejoras": 587
  },
  {
   "tipo": "geometrica",
@@ -221,7 +247,9 @@
   "dfs_pops": 1896,
   "dfs_interno": 3790,
   "dfs_max_pila": 515,
-  "bfs_max_cola": 55
+  "bfs_max_cola": 55,
+  "dijkstra_max_heap": 49,
+  "dijkstra_mejoras": 1168
  },
  {
   "tipo": "geometrica",
@@ -237,7 +265,9 @@
   "dfs_pops": 4747,
   "dfs_interno": 9492,
   "dfs_max_pila": 1322,
-  "bfs_max_cola": 90
+  "bfs_max_cola": 90,
+  "dijkstra_max_heap": 77,
+  "dijkstra_mejoras": 2940
  },
  {
   "tipo": "geometrica",
@@ -253,7 +283,9 @@
   "dfs_pops": 9404,
   "dfs_interno": 18806,
   "dfs_max_pila": 2013,
-  "bfs_max_cola": 107
+  "bfs_max_cola": 107,
+  "dijkstra_max_heap": 106,
+  "dijkstra_mejoras": 5901
  },
  {
   "tipo": "cuadricula",
@@ -269,7 +301,9 @@
   "dfs_pops": 14,
   "dfs_interno": 26,
   "dfs_max_pila": 5,
-  "bfs_max_cola": 4
+  "bfs_max_cola": 4,
+  "dijkstra_max_heap": 4,
+  "dijkstra_mejoras": 10
  },
  {
   "tipo": "cuadricula",
@@ -285,7 +319,9 @@
   "dfs_pops": 86,
   "dfs_interno": 170,
   "dfs_max_pila": 37,
-  "bfs_max_cola": 8
+  "bfs_max_cola": 8,
+  "dijkstra_max_heap": 9,
+  "dijkstra_mejoras": 58
  },
  {
   "tipo": "cuadricula",
@@ -301,7 +337,9 @@
   "dfs_pops": 181,
   "dfs_interno": 360,
   "dfs_max_pila": 82,
-  "bfs_max_cola": 10
+  "bfs_max_cola": 10,
+  "dijkstra_max_heap": 12,
+  "dijkstra_mejoras": 114
  },
  {
   "tipo": "cuadricula",
@@ -317,7 +355,9 @@
   "dfs_pops": 469,
   "dfs_interno": 936,
   "dfs_max_pila": 221,
-  "bfs_max_cola": 16
+  "bfs_max_cola": 16,
+  "dijkstra_max_heap": 20,
+  "dijkstra_mejoras": 288
  },
  {
   "tipo": "cuadricula",
@@ -333,7 +373,9 @@
   "dfs_pops": 956,
   "dfs_interno": 1910,
   "dfs_max_pila": 458,
-  "bfs_max_cola": 23
+  "bfs_max_cola": 23,
+  "dijkstra_max_heap": 25,
+  "dijkstra_mejoras": 591
  },
  {
   "tipo": "cuadricula",
@@ -349,7 +391,9 @@
   "dfs_pops": 1937,
   "dfs_interno": 3872,
   "dfs_max_pila": 939,
-  "bfs_max_cola": 32
+  "bfs_max_cola": 32,
+  "dijkstra_max_heap": 39,
+  "dijkstra_mejoras": 1177
  },
  {
   "tipo": "cuadricula",
@@ -365,7 +409,9 @@
   "dfs_pops": 4901,
   "dfs_interno": 9800,
   "dfs_max_pila": 2402,
-  "bfs_max_cola": 50
+  "bfs_max_cola": 50,
+  "dijkstra_max_heap": 62,
+  "dijkstra_mejoras": 3023
  },
  {
   "tipo": "cuadricula",
@@ -381,7 +427,9 @@
   "dfs_pops": 9859,
   "dfs_interno": 19716,
   "dfs_max_pila": 4860,
-  "bfs_max_cola": 71
+  "bfs_max_cola": 71,
+  "dijkstra_max_heap": 86,
+  "dijkstra_mejoras": 6028
  },
  {
   "tipo": "cuadricula",
@@ -397,7 +445,9 @@
   "dfs_pops": 14,
   "dfs_interno": 26,
   "dfs_max_pila": 5,
-  "bfs_max_cola": 4
+  "bfs_max_cola": 4,
+  "dijkstra_max_heap": 4,
+  "dijkstra_mejoras": 9
  },
  {
   "tipo": "cuadricula",
@@ -413,7 +463,9 @@
   "dfs_pops": 86,
   "dfs_interno": 170,
   "dfs_max_pila": 37,
-  "bfs_max_cola": 8
+  "bfs_max_cola": 8,
+  "dijkstra_max_heap": 9,
+  "dijkstra_mejoras": 59
  },
  {
   "tipo": "cuadricula",
@@ -429,7 +481,9 @@
   "dfs_pops": 181,
   "dfs_interno": 360,
   "dfs_max_pila": 82,
-  "bfs_max_cola": 10
+  "bfs_max_cola": 10,
+  "dijkstra_max_heap": 12,
+  "dijkstra_mejoras": 119
  },
  {
   "tipo": "cuadricula",
@@ -445,7 +499,9 @@
   "dfs_pops": 469,
   "dfs_interno": 936,
   "dfs_max_pila": 221,
-  "bfs_max_cola": 16
+  "bfs_max_cola": 16,
+  "dijkstra_max_heap": 22,
+  "dijkstra_mejoras": 299
  },
  {
   "tipo": "cuadricula",
@@ -461,7 +517,9 @@
   "dfs_pops": 956,
   "dfs_interno": 1910,
   "dfs_max_pila": 458,
-  "bfs_max_cola": 23
+  "bfs_max_cola": 23,
+  "dijkstra_max_heap": 27,
+  "dijkstra_mejoras": 608
  },
  {
   "tipo": "cuadricula",
@@ -477,7 +535,9 @@
   "dfs_pops": 1937,
   "dfs_interno": 3872,
   "dfs_max_pila": 939,
-  "bfs_max_cola": 32
+  "bfs_max_cola": 32,
+  "dijkstra_max_heap": 38,
+  "dijkstra_mejoras": 1203
  },
  {
   "tipo": "cuadricula",
@@ -493,7 +553,9 @@
   "dfs_pops": 4901,
   "dfs_interno": 9800,
   "dfs_max_pila": 2402,
-  "bfs_max_cola": 50
+  "bfs_max_cola": 50,
+  "dijkstra_max_heap": 60,
+  "dijkstra_mejoras": 3039
  },
  {
   "tipo": "cuadricula",
@@ -509,7 +571,9 @@
   "dfs_pops": 9859,
   "dfs_interno": 19716,
   "dfs_max_pila": 4860,
-  "bfs_max_cola": 71
+  "bfs_max_cola": 71,
+  "dijkstra_max_heap": 84,
+  "dijkstra_mejoras": 5981
  },
  {
   "tipo": "metro",
@@ -525,7 +589,9 @@
   "dfs_pops": 10,
   "dfs_interno": 18,
   "dfs_max_pila": 2,
-  "bfs_max_cola": 2
+  "bfs_max_cola": 2,
+  "dijkstra_max_heap": 3,
+  "dijkstra_mejoras": 9
  },
  {
   "tipo": "metro",
@@ -541,7 +607,9 @@
   "dfs_pops": 50,
   "dfs_interno": 98,
   "dfs_max_pila": 3,
-  "bfs_max_cola": 8
+  "bfs_max_cola": 8,
+  "dijkstra_max_heap": 9,
+  "dijkstra_mejoras": 49
  },
  {
   "tipo": "metro",
@@ -557,7 +625,9 @@
   "dfs_pops": 100,
   "dfs_interno": 198,
   "dfs_max_pila": 3,
-  "bfs_max_cola": 9
+  "bfs_max_cola": 9,
+  "dijkstra_max_heap": 9,
+  "dijkstra_mejoras": 99
  },
  {
   "tipo": "metro",
@@ -573,7 +643,9 @@
   "dfs_pops": 250,
   "dfs_interno": 498,
   "dfs_max_pila": 3,
-  "bfs_max_cola": 9
+  "bfs_max_cola": 9,
+  "dijkstra_max_heap": 9,
+  "dijkstra_mejoras": 249
  },
  {
   "tipo": "metro",
@@ -589,7 +661,9 @@
   "dfs_pops": 500,
   "dfs_interno": 998,
   "dfs_max_pila": 6,
-  "bfs_max_cola": 13
+  "bfs_max_cola": 13,
+  "dijkstra_max_heap": 13,
+  "dijkstra_mejoras": 499
  },
  {
   "tipo": "metro",
@@ -605,7 +679,9 @@
   "dfs_pops": 1000,
   "dfs_interno": 1998,
   "dfs_max_pila": 5,
-  "bfs_max_cola": 10
+  "bfs_max_cola": 10,
+  "dijkstra_max_heap": 11,
+  "dijkstra_mejoras": 999
  },
  {
   "tipo": "metro",
@@ -621,7 +697,9 @@
   "dfs_pops": 2500,
   "dfs_interno": 4998,
   "dfs_max_pila": 5,
-  "bfs_max_cola": 13
+  "bfs_max_cola": 13,
+  "dijkstra_max_heap": 13,
+  "dijkstra_mejoras": 2499
  },
  {
   "tipo": "metro",
@@ -637,7 +715,9 @@
   "dfs_pops": 5000,
   "dfs_interno": 9998,
   "dfs_max_pila": 5,
-  "bfs_max_cola": 12
+  "bfs_max_cola": 12,
+  "dijkstra_max_heap": 12,
+  "dijkstra_mejoras": 4999
  },
  {
   "tipo": "metro",
@@ -653,7 +733,9 @@
   "dfs_pops": 10,
   "dfs_interno": 18,
   "dfs_max_pila": 2,
-  "bfs_max_cola": 3
+  "bfs_max_cola": 3,
+  "dijkstra_max_heap": 3,
+  "dijkstra_mejoras": 9
  },
  {
   "tipo": "metro",
@@ -669,7 +751,9 @@
   "dfs_pops": 50,
   "dfs_interno": 98,
   "dfs_max_pila": 3,
-  "bfs_max_cola": 8
+  "bfs_max_cola": 8,
+  "dijkstra_max_heap": 9,
+  "dijkstra_mejoras": 49
  },
  {
   "tipo": "metro",
@@ -685,7 +769,9 @@
   "dfs_pops": 100,
   "dfs_interno": 198,
   "dfs_max_pila": 3,
-  "bfs_max_cola": 9
+  "bfs_max_cola": 9,
+  "dijkstra_max_heap": 9,
+  "dijkstra_mejoras": 99
  },
  {
   "tipo": "metro",
@@ -701,7 +787,9 @@
   "dfs_pops": 250,
   "dfs_interno": 498,
   "dfs_max_pila": 3,
-  "bfs_max_cola": 9
+  "bfs_max_cola": 9,
+  "dijkstra_max_heap": 9,
+  "dijkstra_mejoras": 249
  },
  {
   "tipo": "metro",
@@ -717,7 +805,9 @@
   "dfs_pops": 500,
   "dfs_interno": 998,
   "dfs_max_pila": 5,
-  "bfs_max_cola": 11
+  "bfs_max_cola": 11,
+  "dijkstra_max_heap": 11,
+  "dijkstra_mejoras": 499
  },
  {
   "tipo": "metro",
@@ -733,7 +823,9 @@
   "dfs_pops": 1000,
   "dfs_interno": 1998,
   "dfs_max_pila": 4,
-  "bfs_max_cola": 14
+  "bfs_max_cola": 14,
+  "dijkstra_max_heap": 15,
+  "dijkstra_mejoras": 999
  },
  {
   "tipo": "metro",
@@ -749,7 +841,9 @@
   "dfs_pops": 2500,
   "dfs_interno": 4998,
   "dfs_max_pila": 5,
-  "bfs_max_cola": 12
+  "bfs_max_cola": 12,
+  "dijkstra_max_heap": 12,
+  "dijkstra_mejoras": 2499
  },
  {
   "tipo": "metro",
@@ -765,6 +859,8 @@
   "dfs_pops": 5000,
   "dfs_interno": 9998,
   "dfs_max_pila": 4,
-  "bfs_max_cola": 14
+  "bfs_max_cola": 14,
+  "dijkstra_max_heap": 14,
+  "dijkstra_mejoras": 4999
  }
 ]

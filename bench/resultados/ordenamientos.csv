@@ -1,85 +1,85 @@
 n,entrada,algoritmo,comparaciones,movimientos,mediana_us,n_lg_n
-100,azar,MergeSort,552,672,57.9,664
-100,azar,QuickSort mediana de 3,1142,166,17.45,664
-100,azar,HeapSort,1035,588,15.59,664
-100,azar,QuickSort último pivote,1054,248,16.87,664
-100,ordenada,MergeSort,356,672,24.49,664
-100,ordenada,QuickSort mediana de 3,1068,0,14.3,664
-100,ordenada,HeapSort,1081,640,13.08,664
-100,ordenada,QuickSort último pivote,5247,198,51.14,664
-100,invertida,MergeSort,316,672,23.42,664
-100,invertida,QuickSort mediana de 3,1069,52,15.58,664
-100,invertida,HeapSort,944,516,11.25,664
-100,invertida,QuickSort último pivote,5197,148,44.09,664
-100,pocos_valores,MergeSort,539,672,28.72,664
-100,pocos_valores,QuickSort mediana de 3,1199,247,17.25,664
-100,pocos_valores,HeapSort,999,534,12.26,664
-100,pocos_valores,QuickSort último pivote,999,330,17.38,664
-1000,azar,MergeSort,8756,9976,448.19,9966
-1000,azar,QuickSort mediana de 3,15419,2663,233.89,9966
-1000,azar,HeapSort,16897,9101,211.41,9966
-1000,azar,QuickSort último pivote,15611,3291,225.45,9966
-1000,ordenada,MergeSort,5044,9976,272.34,9966
-1000,ordenada,QuickSort mediana de 3,13972,0,126.92,9966
-1000,ordenada,HeapSort,17583,9708,203.79,9966
-1000,ordenada,QuickSort último pivote,502497,1998,3852.5,9966
-1000,invertida,MergeSort,4932,9976,277.69,9966
-1000,invertida,QuickSort mediana de 3,13973,502,136,9966
-1000,invertida,HeapSort,15965,8316,188.4,9966
-1000,invertida,QuickSort último pivote,501997,1498,3139.6,9966
-1000,pocos_valores,MergeSort,8437,9976,430.32,9966
-1000,pocos_valores,QuickSort mediana de 3,15225,4093,160.55,9966
-1000,pocos_valores,HeapSort,15438,8035,178.83,9966
-1000,pocos_valores,QuickSort último pivote,12290,5052,179.53,9966
-5000,azar,MergeSort,55188,61808,3923.9,61439
-5000,azar,QuickSort mediana de 3,95086,15918,1262.93,61439
-5000,azar,HeapSort,107700,57192,1427.2,61439
-5000,azar,QuickSort último pivote,108094,18902,1353.57,61439
-5000,ordenada,MergeSort,32004,61808,1533.53,61439
-5000,ordenada,QuickSort mediana de 3,81804,0,619.47,61439
-5000,ordenada,HeapSort,112126,60932,1219.48,61439
-5000,ordenada,QuickSort último pivote,12512497,9998,114657.7,61439
-5000,invertida,MergeSort,29804,61808,1503.2,61439
-5000,invertida,QuickSort mediana de 3,81805,2502,638.3,61439
-5000,invertida,HeapSort,103227,53436,1204.32,61439
-5000,invertida,QuickSort último pivote,12509997,7498,97017.9,61439
-5000,pocos_valores,MergeSort,53118,61808,2183.35,61439
-5000,pocos_valores,QuickSort mediana de 3,88665,26033,963.85,61439
-5000,pocos_valores,HeapSort,97873,50582,1055.18,61439
-5000,pocos_valores,QuickSort último pivote,77226,30732,922.13,61439
-10000,azar,MergeSort,120417,133616,6519.9,132877
-10000,azar,QuickSort mediana de 3,196886,34293,2919.6,132877
-10000,azar,HeapSort,235394,124189,4592.6,132877
-10000,ordenada,MergeSort,69008,133616,3436.2,132877
-10000,ordenada,QuickSort mediana de 3,173612,0,1370,132877
-10000,ordenada,HeapSort,244460,131956,2756.85,132877
-10000,invertida,MergeSort,64608,133616,3308.9,132877
-10000,invertida,QuickSort mediana de 3,173613,5002,1314.23,132877
-10000,invertida,HeapSort,226682,116696,2431.2,132877
-10000,pocos_valores,MergeSort,115841,133616,5189.9,132877
-10000,pocos_valores,QuickSort mediana de 3,189319,56554,3491.4,132877
-10000,pocos_valores,HeapSort,212245,109308,3409.6,132877
-50000,azar,MergeSort,718190,784464,42270,780482
-50000,azar,QuickSort mediana de 3,1089572,201198,20208.9,780482
-50000,azar,HeapSort,1410197,737864,20680.4,780482
-50000,ordenada,MergeSort,401952,784464,34749.3,780482
-50000,ordenada,QuickSort mediana de 3,984460,0,9287.6,780482
-50000,ordenada,HeapSort,1455438,773304,15305.1,780482
-50000,invertida,MergeSort,382512,784464,22455.8,780482
-50000,invertida,QuickSort mediana de 3,984461,25002,9044.4,780482
-50000,invertida,HeapSort,1366047,698892,17102.2,780482
-50000,pocos_valores,MergeSort,687451,784464,33106.6,780482
-50000,pocos_valores,QuickSort mediana de 3,1031545,343999,14399.1,780482
-50000,pocos_valores,HeapSort,1261578,646683,15782.8,780482
-100000,azar,MergeSort,1536409,1668928,96932.4,1660964
-100000,azar,QuickSort mediana de 3,2342426,423111,38352,1660964
-100000,azar,HeapSort,3019528,1574991,50261.9,1660964
-100000,ordenada,MergeSort,853904,1668928,52574.3,1660964
-100000,ordenada,QuickSort mediana de 3,2068924,0,18138.9,1660964
-100000,ordenada,HeapSort,3112517,1650854,37538.1,1660964
-100000,invertida,MergeSort,815024,1668928,50715.5,1660964
-100000,invertida,QuickSort mediana de 3,2068925,50002,18253.7,1660964
-100000,invertida,HeapSort,2926640,1497434,39484.6,1660964
-100000,pocos_valores,MergeSort,1468278,1668928,74293.8,1660964
-100000,pocos_valores,QuickSort mediana de 3,2179344,736877,32455.8,1660964
-100000,pocos_valores,HeapSort,2692801,1378134,35571.6,1660964
+100,azar,MergeSort,552,672,44.41,664
+100,azar,QuickSort mediana de 3,1142,166,66.6,664
+100,azar,HeapSort,1035,588,20.87,664
+100,azar,QuickSort último pivote,1054,248,23.01,664
+100,ordenada,MergeSort,356,672,30.21,664
+100,ordenada,QuickSort mediana de 3,1068,0,18.68,664
+100,ordenada,HeapSort,1081,640,28.42,664
+100,ordenada,QuickSort último pivote,5247,198,61.91,664
+100,invertida,MergeSort,316,672,27.23,664
+100,invertida,QuickSort mediana de 3,1069,52,33.58,664
+100,invertida,HeapSort,944,516,13.68,664
+100,invertida,QuickSort último pivote,5197,148,58.82,664
+100,pocos_valores,MergeSort,539,672,75.23,664
+100,pocos_valores,QuickSort mediana de 3,1199,247,73.43,664
+100,pocos_valores,HeapSort,999,534,15.97,664
+100,pocos_valores,QuickSort último pivote,999,330,24.73,664
+1000,azar,MergeSort,8756,9976,991.11,9966
+1000,azar,QuickSort mediana de 3,15419,2663,281.11,9966
+1000,azar,HeapSort,16897,9101,260.27,9966
+1000,azar,QuickSort último pivote,15611,3291,534.91,9966
+1000,ordenada,MergeSort,5044,9976,331.14,9966
+1000,ordenada,QuickSort mediana de 3,13972,0,155.87,9966
+1000,ordenada,HeapSort,17583,9708,264.13,9966
+1000,ordenada,QuickSort último pivote,502497,1998,6833.1,9966
+1000,invertida,MergeSort,4932,9976,485.7,9966
+1000,invertida,QuickSort mediana de 3,13973,502,304.97,9966
+1000,invertida,HeapSort,15965,8316,267.78,9966
+1000,invertida,QuickSort último pivote,501997,1498,12562.1,9966
+1000,pocos_valores,MergeSort,8437,9976,492.6,9966
+1000,pocos_valores,QuickSort mediana de 3,15225,4093,670.43,9966
+1000,pocos_valores,HeapSort,15438,8035,236.01,9966
+1000,pocos_valores,QuickSort último pivote,12290,5052,232.19,9966
+5000,azar,MergeSort,55188,61808,3272.3,61439
+5000,azar,QuickSort mediana de 3,95086,15918,2963.87,61439
+5000,azar,HeapSort,107700,57192,3175.63,61439
+5000,azar,QuickSort último pivote,108094,18902,2810.03,61439
+5000,ordenada,MergeSort,32004,61808,1978.9,61439
+5000,ordenada,QuickSort mediana de 3,81804,0,839.74,61439
+5000,ordenada,HeapSort,112126,60932,1323,61439
+5000,ordenada,QuickSort último pivote,12512497,9998,127428.3,61439
+5000,invertida,MergeSort,29804,61808,1726.07,61439
+5000,invertida,QuickSort mediana de 3,81805,2502,845.28,61439
+5000,invertida,HeapSort,103227,53436,1288.13,61439
+5000,invertida,QuickSort último pivote,12509997,7498,157807.5,61439
+5000,pocos_valores,MergeSort,53118,61808,4287.2,61439
+5000,pocos_valores,QuickSort mediana de 3,88665,26033,1313.35,61439
+5000,pocos_valores,HeapSort,97873,50582,1326.97,61439
+5000,pocos_valores,QuickSort último pivote,77226,30732,1147.55,61439
+10000,azar,MergeSort,120417,133616,9371.4,132877
+10000,azar,QuickSort mediana de 3,196886,34293,3309.7,132877
+10000,azar,HeapSort,235394,124189,3466.3,132877
+10000,ordenada,MergeSort,69008,133616,4429.5,132877
+10000,ordenada,QuickSort mediana de 3,173612,0,1649.4,132877
+10000,ordenada,HeapSort,244460,131956,5383.8,132877
+10000,invertida,MergeSort,64608,133616,7403.8,132877
+10000,invertida,QuickSort mediana de 3,173613,5002,1916.6,132877
+10000,invertida,HeapSort,226682,116696,4291.8,132877
+10000,pocos_valores,MergeSort,115841,133616,8149.9,132877
+10000,pocos_valores,QuickSort mediana de 3,189319,56554,3801.65,132877
+10000,pocos_valores,HeapSort,212245,109308,5183.7,132877
+50000,azar,MergeSort,718190,784464,134956.9,780482
+50000,azar,QuickSort mediana de 3,1089572,201198,76434.4,780482
+50000,azar,HeapSort,1410197,737864,82596.1,780482
+50000,ordenada,MergeSort,401952,784464,60703.9,780482
+50000,ordenada,QuickSort mediana de 3,984460,0,13543.9,780482
+50000,ordenada,HeapSort,1455438,773304,23560.2,780482
+50000,invertida,MergeSort,382512,784464,67596.6,780482
+50000,invertida,QuickSort mediana de 3,984461,25002,15914.5,780482
+50000,invertida,HeapSort,1366047,698892,18428.5,780482
+50000,pocos_valores,MergeSort,687451,784464,73804,780482
+50000,pocos_valores,QuickSort mediana de 3,1031545,343999,21045.9,780482
+50000,pocos_valores,HeapSort,1261578,646683,36103,780482
+100000,azar,MergeSort,1536409,1668928,256934.2,1660964
+100000,azar,QuickSort mediana de 3,2342426,423111,112036.6,1660964
+100000,azar,HeapSort,3019528,1574991,99364.1,1660964
+100000,ordenada,MergeSort,853904,1668928,122677.8,1660964
+100000,ordenada,QuickSort mediana de 3,2068924,0,34033.2,1660964
+100000,ordenada,HeapSort,3112517,1650854,64949.2,1660964
+100000,invertida,MergeSort,815024,1668928,70540.3,1660964
+100000,invertida,QuickSort mediana de 3,2068925,50002,26922.3,1660964
+100000,invertida,HeapSort,2926640,1497434,63766.1,1660964
+100000,pocos_valores,MergeSort,1468278,1668928,114861.6,1660964
+100000,pocos_valores,QuickSort mediana de 3,2179344,736877,53508.9,1660964
+100000,pocos_valores,HeapSort,2692801,1378134,67669.3,1660964

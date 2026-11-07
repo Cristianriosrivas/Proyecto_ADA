@@ -42,4 +42,4 @@ Usa encadenamiento separado y el hash FNV-1a de 32 bits. Con factor de carga $\a
 
 Lo usamos para hallar la estación más cercana a un clic y para el generador de vecinos más cercanos. Se construye partiendo por la mediana del eje alterno, con selección rápida. La búsqueda desciende primero por el lado del punto y solo revisa el otro lado si la franja puede contener algo mejor.
 
-{{tabla:kdtree|Árbol k-d medido: la construcción por $n \lg n$ es casi constante y las consultas visitan pocos nodos.}}
+{{tabla:kdtree|Árbol k-d medido: el tiempo de construcción dividido entre $n \lg n$ varía poco, entre {{kd_min}} y {{kd_max}} μs, y las consultas visitan pocos nodos.}}

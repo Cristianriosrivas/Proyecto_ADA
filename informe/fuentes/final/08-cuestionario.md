@@ -61,9 +61,14 @@ Así que $T = \Omega(V + E)$ y $T = O(V + E)$, es decir, $T = \Theta(V + E)$.
 
 Igualando $V^2 = E \lg V$ se obtiene el cruce teórico, $E \approx V^2 / \lg V$. Un heap de Fibonacci cuesta $O(E + V \lg V)$, porque disminuye claves en $O(1)$ amortizado, y sería mejor o igual en todo el rango, aunque con constantes mayores.
 
-**Evidencia.** En la red dispersa de 5000 estaciones, el heap es {{razon_heap_arreglo_5000}} veces más rápido ({{heap_5000}} frente a {{arreglo_5000}}). El punto de cruce medido, en vías, fue {{cruce_vias_500}} con $N = 500$, {{cruce_vias_1000}} con $N = 1000$ y {{cruce_vias_2000}} con $N = 2000$, frente a estimaciones de {{cruce_teorico_500}}, {{cruce_teorico_1000}} y {{cruce_teorico_2000}}.
+**Evidencia.** En la red dispersa de 5000 estaciones, el heap es {{razon_heap_arreglo_5000}} veces más rápido ({{heap_5000}} frente a {{arreglo_5000}}). En el barrido de densidad:
 
-El orden de magnitud coincide, pero el heap aguanta más de lo que dice la cota. La razón es que la cota supone que cada arco dispara un `DECREASE-KEY`, y eso casi nunca pasa. En la red completa de 1000 estaciones hay {{vias_1000_100}} vías y solo {{mejoras_1000_100}} relajaciones mejoraron una distancia. Por eso en redes densas la ventaja del arreglo es pequeña: en esa red el heap fue apenas {{razon_1000_100}} veces más lento.
+- con $N = 250$, {{cruce_frase_250}};
+- con $N = 500$, {{cruce_frase_500}};
+- con $N = 1000$, {{cruce_frase_1000}};
+- con $N = 2000$, {{cruce_frase_2000}}.
+
+El orden de magnitud coincide con la estimación, pero el heap aguanta más de lo que dice la cota, y la ventaja crece con $N$. La razón es que la cota supone que cada arco dispara un `DECREASE-KEY`, y eso casi nunca pasa. En la red completa de 1000 estaciones hay {{vias_1000_100}} vías y solo {{mejoras_1000_100}} relajaciones mejoraron una distancia. Por eso en redes densas la ventaja del arreglo es pequeña: en esa red el heap fue apenas {{razon_1000_100}} veces más lento.
 
 ## Pregunta 5: condiciones geométricas de $h$
 
