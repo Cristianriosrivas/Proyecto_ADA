@@ -10,10 +10,10 @@
 - [x] **F3** Dijkstra (heap y arreglo) + A\* (km y minutos, ponderado, h = 0) + validador de heurística + validación cruzada.
 - [x] **F4** Ordenamientos con contadores + búsqueda binaria + tráfico + estadísticas + experimento de la P6.
 - [x] **F5** Generadores con semilla + presets (docente, fase 1, Buenaventura) + `npm run bench` + CLI.
-- [ ] **F6** Shell de la UI + sistema de diseño (tokens, tipografía, temas) + mapa SVG/Canvas con zoom/pan + editor.
-- [ ] **F7** Planificador + Visualizador paso a paso (pseudocódigo, inspector de estructuras, narración) + Modo Prueba de Escritorio.
-- [ ] **F8** Explorador DFS + Duelo + Centro de Tráfico + Laboratorio (Web Worker) + Teoría.
-- [ ] **F9** Pulido: Modo Sustentación, Ctrl+K, atajos, accesibilidad, responsive, rendimiento, build de un solo archivo.
+- [x] **F6** Shell de la UI + sistema de diseño (tokens, tipografía, temas) + mapa SVG/Canvas con zoom/pan + editor.
+- [x] **F7** Planificador + Visualizador paso a paso (pseudocódigo, inspector de estructuras, narración) + Modo Prueba de Escritorio.
+- [x] **F8** Explorador DFS + Duelo + Centro de Tráfico + Laboratorio (Web Worker) + Teoría.
+- [x] **F9** Pulido: Modo Sustentación, Ctrl+K, atajos, accesibilidad, responsive, rendimiento, build de un solo archivo.
 - [ ] **F10** Informe PDF (fase 1 y final) + guía de sustentación + README + manual con capturas.
 - [ ] **F11** QA final: `npm run check` en verde, revisión del cumplimiento punto por punto contra la sección 1 y la rúbrica, `npm run entrega`.
 
