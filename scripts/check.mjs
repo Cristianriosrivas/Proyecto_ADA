@@ -4,7 +4,7 @@ import { spawnSync } from 'node:child_process';
 const pasos = [
   ['Typecheck', 'npm run typecheck --silent'],
   ['Lint', 'npm run lint --silent'],
-  ['Pruebas con cobertura', 'npm run coverage --silent'],
+  ['Pruebas con cobertura', 'npm run coverage --silent -- --reporter=default --reporter=json --outputFile.json=coverage/vitest.json'],
   ['Build', 'npm run build --silent'],
 ];
 

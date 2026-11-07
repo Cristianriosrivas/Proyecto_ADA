@@ -195,6 +195,11 @@ describe('Dijkstra: casos de borde y trazas', () => {
     expect(dijkstra(red, 0).costo).toBe(Infinity);
   });
 
+  it('Dijkstra con arreglo hace exactamente V(V + 1) comparaciones en su barrido', () => {
+    const red = redDocente();
+    expect(dijkstraArreglo(red, 0).contadores.comparaciones).toBe(8 * 9);
+  });
+
   it('el heap perezoso crece más que el indexado', () => {
     const red = generarRed('densa', 150, 2, { densidad: 0.4 });
     const a = dijkstra(red, 0);

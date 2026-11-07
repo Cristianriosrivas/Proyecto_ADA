@@ -32,11 +32,24 @@ const NAVEGADORES = [
   'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe',
 ];
 
-const fuentes = readdirSync(`informe/fuentes/${modo}`)
-  .filter((f) => f.endsWith('.md'))
-  .sort()
-  .map((f) => readFileSync(`informe/fuentes/${modo}/${f}`, 'utf8'))
-  .join('\n\n');
+const leerCarpeta = (c: string) =>
+  readdirSync(c)
+    .filter((f) => f.endsWith('.md'))
+    .sort()
+    .map((f) => readFileSync(`${c}/${f}`, 'utf8'));
+
+/** Las partes marcadas del informe final se reutilizan en el documento de la Fase 1, sin copiarlas. */
+function fuentesFase1(): string {
+  const propias = leerCarpeta('informe/fuentes/fase1');
+  const marcadas = leerCarpeta('informe/fuentes/final')
+    .join('\n\n')
+    .split('<!--f1-->')
+    .slice(1)
+    .map((p) => p.split('<!--/f1-->')[0]);
+  return [propias[0], ...marcadas, propias[propias.length - 1]].join('\n\n');
+}
+
+const fuentes = modo === 'final' ? leerCarpeta('informe/fuentes/final').join('\n\n') : fuentesFase1();
 
 /** Sustituye {{dato}}, {{tabla:x|leyenda}} y {{fig:x|leyenda}}. Toda cifra entra por aquí. */
 function sustituir(texto: string, d: Datos): string {
@@ -71,6 +84,33 @@ function sustituir(texto: string, d: Datos): string {
     });
 }
 
+/** Numera secciones y subsecciones: las referencias del texto usan estos números. */
+function numerar(texto: string): string {
+  let h1 = 0;
+  let h2 = 0;
+  let enBloque = false;
+  let numerando = false;
+  return texto
+    .split('\n')
+    .map((l) => {
+      if (l.startsWith('```')) enBloque = !enBloque;
+      if (enBloque) return l;
+      if (l.startsWith('# ')) {
+        numerando = !/^# (Resumen|Anexo)/.test(l);
+        if (!numerando) return l;
+        h1++;
+        h2 = 0;
+        return `# ${h1}. ${l.slice(2)}`;
+      }
+      if (l.startsWith('## ') && numerando) {
+        h2++;
+        return `## ${h1}.${h2} ${l.slice(3)}`;
+      }
+      return l;
+    })
+    .join('\n');
+}
+
 /** Protege las fórmulas para que markdown-it no toque sus guiones bajos y asteriscos. */
 function renderizarMatematicas(texto: string): { texto: string; formulas: string[] } {
   const formulas: string[] = [];
@@ -85,7 +125,7 @@ function renderizarMatematicas(texto: string): { texto: string; formulas: string
 }
 
 /** Pseudocódigo numerado estilo CLRS: bloques ```pseudo. */
-function bloquesPseudo(md: MarkdownIt): void {
+function bloquesPseudo(md: InstanceType<typeof MarkdownIt>): void {
   const original = md.renderer.rules.fence;
   md.renderer.rules.fence = (tokens, idx, opciones, env, self) => {
     const t = tokens[idx];
@@ -189,7 +229,7 @@ async function paginasDeDestinos(pdfPath: string): Promise<Map<string, number>> 
 
 async function principal(): Promise<void> {
   const d = datosInforme();
-  const conDatos = sustituir(fuentes, d);
+  const conDatos = sustituir(numerar(fuentes), d);
   const { texto, formulas } = renderizarMatematicas(conDatos);
   const md = new MarkdownIt({ html: true, typographer: false });
   bloquesPseudo(md);

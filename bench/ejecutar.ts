@@ -16,6 +16,7 @@ import { ajustarConstante, CURVAS, medir } from '../src/core/instrumentacion/med
 import { TracerMemoria } from '../src/core/instrumentacion/TracerMemoria';
 import { contadoresOrdenVacios, heapSort, mergeSort, quickSort } from '../src/core/ordenamiento/ordenamiento';
 import { experimentoP6 } from '../src/core/trafico/trafico';
+import { generarFiguras } from './figuras';
 
 const SALIDA = 'bench/resultados';
 mkdirSync(SALIDA, { recursive: true });
@@ -108,6 +109,7 @@ function contadores(): void {
         const red = generarRed(tipo, n, SEMILLA, { dirigida });
         const b = bfs(red, 0);
         const d = dfsIterativo(red, 0);
+        const dj = dijkstra(red, 0);
         let sumaGrados = 0;
         for (let u = 0; u < n; u++) sumaGrados += red.adj.grado(u);
         filas.push({
@@ -125,6 +127,8 @@ function contadores(): void {
           dfs_interno: d.contadores.internas,
           dfs_max_pila: d.contadores.maximoEstructura,
           bfs_max_cola: b.contadores.maximoEstructura,
+          dijkstra_max_heap: dj.contadores.maximoCola,
+          dijkstra_mejoras: dj.contadores.mejoras,
         });
       }
     }
@@ -132,22 +136,51 @@ function contadores(): void {
   guardar('contadores', filas);
 }
 
+/** Una medición: la referencia sigue viva hasta después de leer la memoria, para que no se recolecte. */
+function unaMedicion(crear: () => unknown): number {
+  gc?.();
+  gc?.();
+  const a = process.memoryUsage();
+  const ref = crear();
+  gc?.();
+  gc?.();
+  const b = process.memoryUsage();
+  // Leer `ref` aquí evita que el motor lo libere antes de medir
+  return ref === undefined ? 0 : b.heapUsed + b.arrayBuffers - a.heapUsed - a.arrayBuffers;
+}
+
 /** Mediana de 5 mediciones: una sola se la lleva el recolector de basura en redes pequeñas. */
-function bytesMedidos(crear: () => unknown): { bytes: number; ref: unknown } {
+function bytesMedidos(crear: () => unknown): number {
   const muestras: number[] = [];
-  let ref: unknown;
-  for (let i = 0; i < 5; i++) {
-    gc?.();
-    gc?.();
-    const a = process.memoryUsage();
-    ref = crear();
-    gc?.();
-    gc?.();
-    const b = process.memoryUsage();
-    muestras.push(b.heapUsed + b.arrayBuffers - a.heapUsed - a.arrayBuffers);
-  }
+  for (let i = 0; i < 5; i++) muestras.push(unaMedicion(crear));
   muestras.sort((x, y) => x - y);
-  return { bytes: muestras[2], ref };
+  return muestras[2];
+}
+
+/** Mide dos funciones intercaladas: así una racha de ruido del sistema afecta a las dos por igual. */
+function medirPareja(fa: () => void, fb: () => void, repeticiones: number): [number, number] {
+  const fin = reloj() + 40;
+  while (reloj() < fin) {
+    fa();
+    fb();
+  }
+  const t0 = reloj();
+  fa();
+  fb();
+  const lote = Math.max(1, Math.ceil(4 / Math.max(reloj() - t0, 0.001)));
+  const a: number[] = [];
+  const b: number[] = [];
+  for (let r = 0; r < repeticiones; r++) {
+    let t = reloj();
+    for (let i = 0; i < lote; i++) fa();
+    a.push(((reloj() - t) * 1000) / lote);
+    t = reloj();
+    for (let i = 0; i < lote; i++) fb();
+    b.push(((reloj() - t) * 1000) / lote);
+  }
+  a.sort((x, y) => x - y);
+  b.sort((x, y) => x - y);
+  return [a[a.length >> 1], b[b.length >> 1]];
 }
 
 /** Pregunta 1: memoria teórica y medida, y tiempo de BFS y DFS en lista y en matriz. */
@@ -157,19 +190,23 @@ function matrizVsLista(): void {
     const red = generarRed('geometrica', n, SEMILLA);
     const lista = medir(() => void bfs(red, 0), reloj, { minimoMs: 5, calentamientoMs: 40 });
     const listaD = medir(() => void dfsIterativo(red, 0), reloj, { minimoMs: 5, calentamientoMs: 40 });
-    const memoria = bytesMedidos(() => red.matriz('km'));
-    const m = memoria.ref as ReturnType<RedTransporte['matriz']>;
+    const memoriaMatriz = bytesMedidos(() => red.matriz('km'));
+    const m = red.matriz('km');
     const matriz = medir(() => void bfsMatriz(m, 0), reloj, { repeticiones: n >= 2500 ? 7 : 15 });
     const matrizD = medir(() => void dfsMatriz(m, 0), reloj, { repeticiones: n >= 2500 ? 7 : 15 });
-    const memLista = bytesMedidos(() => generarRed('geometrica', n, SEMILLA).adj);
+    const memLista = bytesMedidos(() => {
+      const r = generarRed('geometrica', n, SEMILLA);
+      // Copia solo la lista: la red completa traería también los objetos de estación y vía
+      return r.listaInvertida();
+    });
     filas.push({
       n,
       vias: red.numVias,
       densidad: Number(((2 * red.numVias) / (n * (n - 1))).toFixed(5)),
       lista_bytes_teorico: red.adj.bytesTeoricos(),
       matriz_bytes_teorico: m.bytesTeoricos(),
-      lista_bytes_medido: memLista.bytes,
-      matriz_bytes_medido: memoria.bytes,
+      lista_bytes_medido: memLista,
+      matriz_bytes_medido: memoriaMatriz,
       bfs_lista_us: Number(lista.medianaUs.toFixed(2)),
       bfs_matriz_us: Number(matriz.medianaUs.toFixed(2)),
       dfs_lista_us: Number(listaD.medianaUs.toFixed(2)),
@@ -192,18 +229,20 @@ function cruceDijkstra(): void {
     for (const densidad of densidades) {
       if (n === 2000 && densidad > 0.5) continue; // 2 millones de vías ya no aportan al cruce y llenan la RAM
       const red = generarRed('densa', n, SEMILLA, { densidad });
-      const heap = medir(() => void dijkstra(red, 0), reloj, { repeticiones: 11, calentamientoMs: 40 });
-      const arreglo = medir(() => void dijkstraArreglo(red, 0), reloj, { repeticiones: 11, calentamientoMs: 40 });
-      filas.push({ n, densidad, vias: red.numVias, heap_us: Number(heap.medianaUs.toFixed(2)), arreglo_us: Number(arreglo.medianaUs.toFixed(2)), razon: Number((heap.medianaUs / arreglo.medianaUs).toFixed(3)), e_teorico_cruce: Math.round((n * n) / Math.log2(n)) });
-      serie.push({ p: densidad, heap: heap.medianaUs, arreglo: arreglo.medianaUs, e: red.numVias });
+      const [heap, arreglo] = medirPareja(() => void dijkstra(red, 0), () => void dijkstraArreglo(red, 0), 15);
+      const c = dijkstra(red, 0).contadores;
+      filas.push({ n, densidad, vias: red.numVias, heap_us: Number(heap.toFixed(2)), arreglo_us: Number(arreglo.toFixed(2)), razon: Number((heap / arreglo).toFixed(3)), mejoras: c.mejoras, disminuciones: c.disminuciones, e_teorico_cruce: Math.round((n * n) / Math.log2(n)) });
+      serie.push({ p: densidad, heap, arreglo, e: red.numVias });
     }
-    // Interpolación en escala logarítmica entre el último punto donde gana el heap y el primero donde gana el arreglo
+    // El cruce es el último cambio de heap a arreglo: desde ahí el arreglo gana en todas las mediciones.
+    // Cerca de la paridad el ruido alterna al ganador, por eso no sirve el primer cambio.
     let cruce: number | null = null;
     let eCruce: number | null = null;
-    for (let i = 1; i < serie.length; i++) {
+    for (let i = serie.length - 1; i >= 1; i--) {
       const a = serie[i - 1];
       const b = serie[i];
-      if (a.heap <= a.arreglo && b.heap > b.arreglo) {
+      if (b.heap <= b.arreglo) break;
+      if (a.heap <= a.arreglo) {
         const fa = Math.log(a.heap / a.arreglo);
         const fb = Math.log(b.heap / b.arreglo);
         const u = fa / (fa - fb);
@@ -415,4 +454,5 @@ for (const [nombre, fn] of Object.entries(SECCIONES)) {
   console.log(`\n${nombre}`);
   fn();
 }
+generarFiguras();
 console.log(`\nListo en ${((Date.now() - inicio) / 60000).toFixed(1)} min.`);

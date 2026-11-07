@@ -1,24 +1,24 @@
 [
  {
   "n": 1000,
-  "insertar_us_por_op": 0.3176,
-  "buscar_us_por_op": 0.1613,
+  "insertar_us_por_op": 0.5573,
+  "buscar_us_por_op": 0.2558,
   "factor_carga": 0.488,
   "cubeta_mas_larga": 3,
   "redimensionamientos": 7
  },
  {
   "n": 10000,
-  "insertar_us_por_op": 0.4353,
-  "buscar_us_por_op": 0.1748,
+  "insertar_us_por_op": 1.0385,
+  "buscar_us_por_op": 0.2664,
   "factor_carga": 0.61,
   "cubeta_mas_larga": 4,
   "redimensionamientos": 10
  },
  {
   "n": 100000,
-  "insertar_us_por_op": 1.8918,
-  "buscar_us_por_op": 0.9901,
+  "insertar_us_por_op": 4.1971,
+  "buscar_us_por_op": 6.0998,
   "factor_carga": 0.381,
   "cubeta_mas_larga": 5,
   "redimensionamientos": 14
