@@ -1,0 +1,9 @@
+node_modules/
+dist/
+dist-unico/
+coverage/
+*.log
+.DS_Store
+Entrega_GestorRutas_*.zip
+GestorRutas.html
+informe/salida/*.tmp.html

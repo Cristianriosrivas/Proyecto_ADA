@@ -1,0 +1,13 @@
+{
+  "proyecto": "Gestor de Rutas de Transporte",
+  "universidad": "Universidad del Valle – Sede Pacífico",
+  "curso": "Análisis y Diseño de Algoritmos I",
+  "codigoCurso": "750008C",
+  "periodo": "2026-2",
+  "docente": "Esteban Andrés Díaz Mina",
+  "fechaEntrega": "[FECHA DE ENTREGA]",
+  "integrantes": [
+    { "nombre": "[NOMBRE 1]", "apellidos": "[APELLIDOS 1]", "codigo": "[CÓDIGO 1]" },
+    { "nombre": "[NOMBRE 2]", "apellidos": "[APELLIDOS 2]", "codigo": "[CÓDIGO 2]" }
+  ]
+}
