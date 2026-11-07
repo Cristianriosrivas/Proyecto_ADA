@@ -1,0 +1,91 @@
+import { aEstrella } from '@core/algoritmos/aEstrella';
+import { bfs } from '@core/algoritmos/bfs';
+import { dfsIterativo } from '@core/algoritmos/dfs';
+import { dijkstra } from '@core/algoritmos/dijkstra';
+import type { RedTransporte } from '@core/grafo/RedTransporte';
+import type { Metrica } from '@core/grafo/tipos';
+import { medir } from '@core/instrumentacion/medicion';
+import { TracerMemoria } from '@core/instrumentacion/TracerMemoria';
+import type { NombreAlgoritmo, PasoTraza } from '@core/instrumentacion/tipos';
+
+export const NOMBRE_ALGORITMO: Record<NombreAlgoritmo, string> = { bfs: 'BFS', dfs: 'DFS', dijkstra: 'Dijkstra', aestrella: 'A*' };
+
+export const COMPLEJIDAD: Record<NombreAlgoritmo, string> = { bfs: 'O(|V| + |E|)', dfs: 'O(|V| + |E|)', dijkstra: 'O((V + E) log V)', aestrella: 'O((V + E) log V)' };
+
+export const ESTRUCTURA: Record<NombreAlgoritmo, string> = { bfs: 'Cola FIFO circular', dfs: 'Pila LIFO', dijkstra: 'Min-Heap indexado', aestrella: 'Min-Heap + heurística' };
+
+/** Resultado común para la tarjeta del planificador. */
+export interface ResultadoVista {
+  algoritmo: NombreAlgoritmo;
+  ruta: Int32Array;
+  alcanzado: boolean;
+  costo: number | null;
+  saltos: number;
+  expandidos: number;
+  relajaciones: number | null;
+  opsHeap: number | null;
+  microsegundos: number;
+  estados: Uint8Array;
+}
+
+export interface OpcionesCorrida {
+  metrica: Metrica;
+  pesos?: Float64Array;
+  arcosBloqueados?: Uint8Array;
+}
+
+/**
+ * Corre el algoritmo del core y mide el tiempo sin tracer, igual que el laboratorio.
+ * Si hay vías bloqueadas o pesos con congestión, se le pasan tal cual.
+ */
+export function correr(red: RedTransporte, algoritmo: NombreAlgoritmo, s: number, t: number, o: OpcionesCorrida): ResultadoVista {
+  const n = red.numEstaciones;
+  const estados = new Uint8Array(n);
+  // Una sola corrida dura menos que la resolución del reloj del navegador: se mide por lotes
+  const tiempo = (fn: () => void) => medir(fn, () => performance.now(), { repeticiones: 5, minimoMs: 1, calentamiento: 1 }).medianaUs;
+  if (algoritmo === 'bfs' || algoritmo === 'dfs') {
+    const f = () => (algoritmo === 'bfs' ? bfs(red, s, t, { arcosBloqueados: o.arcosBloqueados }) : dfsIterativo(red, s, t, { arcosBloqueados: o.arcosBloqueados }));
+    const r = f();
+    const us = tiempo(f);
+    for (let i = 0; i < r.visitados; i++) estados[r.orden[i]] = 2;
+    return { algoritmo, ruta: r.ruta, alcanzado: r.alcanzado, costo: null, saltos: r.saltos, expandidos: r.visitados, relajaciones: r.contadores.internas, opsHeap: null, microsegundos: us, estados };
+  }
+  const op = { metrica: o.metrica, pesos: o.pesos, arcosBloqueados: o.arcosBloqueados };
+  const f = () => (algoritmo === 'dijkstra' ? dijkstra(red, s, t, op) : aEstrella(red, s, t, op));
+  const r = f();
+  const us = tiempo(f);
+  for (let i = 0; i < r.orden.length; i++) estados[r.orden[i]] = 2;
+  const c = r.contadores;
+  return { algoritmo, ruta: r.ruta, alcanzado: r.alcanzado, costo: r.alcanzado ? r.costo : null, saltos: r.saltos, expandidos: c.expandidos, relajaciones: c.relajaciones, opsHeap: c.inserciones + c.extracciones + c.disminuciones, microsegundos: us, estados };
+}
+
+/** Corre con tracer y devuelve los pasos para el visualizador. */
+export function trazar(red: RedTransporte, algoritmo: NombreAlgoritmo, s: number, t: number, metrica: Metrica, limite = 12000): { pasos: PasoTraza[]; truncado: boolean } {
+  const tracer = new TracerMemoria(limite);
+  if (algoritmo === 'bfs') bfs(red, s, t, {}, tracer);
+  else if (algoritmo === 'dfs') dfsIterativo(red, s, t, {}, tracer);
+  else if (algoritmo === 'dijkstra') dijkstra(red, s, t, { metrica }, tracer);
+  else aEstrella(red, s, t, { metrica }, tracer);
+  return { pasos: tracer.aArreglo(), truncado: tracer.truncado };
+}
+
+/** Formato de un número para tablas: ∞ y hasta 2 decimales. */
+export function num(v: number, decimales = 2): string {
+  if (v === Infinity) return '∞';
+  if (Number.isNaN(v)) return '–';
+  return Number.isInteger(v) ? String(v) : v.toFixed(decimales);
+}
+
+export function rutaTexto(red: RedTransporte, ruta: ArrayLike<number>, largo = false): string {
+  return Array.from(ruta, (i) => (largo ? red.estacion(i).nombre : red.estacion(i).id)).join(' → ');
+}
+
+/** Descarga texto como archivo, sin servidor. */
+export function descargar(nombre: string, contenido: string, tipo = 'text/csv;charset=utf-8'): void {
+  const url = URL.createObjectURL(new Blob([contenido], { type: tipo }));
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = nombre;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+}
