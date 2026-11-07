@@ -1,0 +1,189 @@
+{
+  "nombre": "Red Fase 1 (12)",
+  "descripcion": "Red de 12 estaciones para cumplir el mínimo de 10 de la Fase 1. Datos simulados.",
+  "dirigida": false,
+  "estaciones": [
+    {
+      "id": "E1",
+      "nombre": "Portal Norte",
+      "x": 0.5,
+      "y": 7.2
+    },
+    {
+      "id": "E2",
+      "nombre": "Mercado",
+      "x": 2.6,
+      "y": 7.8
+    },
+    {
+      "id": "E3",
+      "nombre": "Hospital",
+      "x": 4.9,
+      "y": 7.1
+    },
+    {
+      "id": "E4",
+      "nombre": "Estadio",
+      "x": 7.3,
+      "y": 7.6
+    },
+    {
+      "id": "E5",
+      "nombre": "Plaza Central",
+      "x": 2.2,
+      "y": 4.8
+    },
+    {
+      "id": "E6",
+      "nombre": "Biblioteca",
+      "x": 4.6,
+      "y": 4.4
+    },
+    {
+      "id": "E7",
+      "nombre": "Parque",
+      "x": 6.9,
+      "y": 4.9
+    },
+    {
+      "id": "E8",
+      "nombre": "Colegio",
+      "x": 9.1,
+      "y": 5.2
+    },
+    {
+      "id": "E9",
+      "nombre": "Terminal",
+      "x": 1.4,
+      "y": 2.1
+    },
+    {
+      "id": "E10",
+      "nombre": "Universidad",
+      "x": 4.1,
+      "y": 1.6
+    },
+    {
+      "id": "E11",
+      "nombre": "Puerto",
+      "x": 6.7,
+      "y": 2
+    },
+    {
+      "id": "E12",
+      "nombre": "Portal Sur",
+      "x": 9.4,
+      "y": 1.8
+    }
+  ],
+  "vias": [
+    {
+      "desde": "E1",
+      "hasta": "E2",
+      "distanciaKm": 2.795,
+      "tiempoMin": 9.317
+    },
+    {
+      "desde": "E2",
+      "hasta": "E3",
+      "distanciaKm": 3.392,
+      "tiempoMin": 5.653
+    },
+    {
+      "desde": "E3",
+      "hasta": "E4",
+      "distanciaKm": 2.988,
+      "tiempoMin": 9.96
+    },
+    {
+      "desde": "E1",
+      "hasta": "E5",
+      "distanciaKm": 4.303,
+      "tiempoMin": 8.606
+    },
+    {
+      "desde": "E2",
+      "hasta": "E5",
+      "distanciaKm": 4.236,
+      "tiempoMin": 8.472
+    },
+    {
+      "desde": "E3",
+      "hasta": "E6",
+      "distanciaKm": 3.161,
+      "tiempoMin": 5.268
+    },
+    {
+      "desde": "E4",
+      "hasta": "E7",
+      "distanciaKm": 3.54,
+      "tiempoMin": 7.08
+    },
+    {
+      "desde": "E4",
+      "hasta": "E8",
+      "distanciaKm": 4.462,
+      "tiempoMin": 8.924
+    },
+    {
+      "desde": "E5",
+      "hasta": "E6",
+      "distanciaKm": 3.38,
+      "tiempoMin": 5.633
+    },
+    {
+      "desde": "E6",
+      "hasta": "E7",
+      "distanciaKm": 3.763,
+      "tiempoMin": 12.543
+    },
+    {
+      "desde": "E7",
+      "hasta": "E8",
+      "distanciaKm": 2.858,
+      "tiempoMin": 4.763
+    },
+    {
+      "desde": "E5",
+      "hasta": "E9",
+      "distanciaKm": 3.73,
+      "tiempoMin": 9.325
+    },
+    {
+      "desde": "E6",
+      "hasta": "E10",
+      "distanciaKm": 3.572,
+      "tiempoMin": 11.907
+    },
+    {
+      "desde": "E7",
+      "hasta": "E11",
+      "distanciaKm": 3.866,
+      "tiempoMin": 12.887
+    },
+    {
+      "desde": "E8",
+      "hasta": "E12",
+      "distanciaKm": 4.343,
+      "tiempoMin": 10.857
+    },
+    {
+      "desde": "E9",
+      "hasta": "E10",
+      "distanciaKm": 3.558,
+      "tiempoMin": 11.86
+    },
+    {
+      "desde": "E10",
+      "hasta": "E11",
+      "distanciaKm": 3.744,
+      "tiempoMin": 7.488
+    },
+    {
+      "desde": "E11",
+      "hasta": "E12",
+      "distanciaKm": 3.456,
+      "tiempoMin": 6.912
+    }
+  ]
+}

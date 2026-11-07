@@ -1,0 +1,595 @@
+{
+  "nombre": "Red Buenaventura",
+  "descripcion": "Red simulada con fines académicos. Coordenadas aproximadas proyectadas a km.",
+  "dirigida": false,
+  "estaciones": [
+    {
+      "id": "MT",
+      "nombre": "Muelle Turístico",
+      "x": 0.2,
+      "y": 2.6,
+      "linea": "Isla Cascajal"
+    },
+    {
+      "id": "PC",
+      "nombre": "Parque Central",
+      "x": 0.7,
+      "y": 2.2,
+      "linea": "Isla Cascajal"
+    },
+    {
+      "id": "CE",
+      "nombre": "Centro",
+      "x": 1.2,
+      "y": 2.5,
+      "linea": "Isla Cascajal"
+    },
+    {
+      "id": "TM",
+      "nombre": "Terminal Marítimo",
+      "x": 0.5,
+      "y": 3.3,
+      "linea": "Isla Cascajal"
+    },
+    {
+      "id": "PN",
+      "nombre": "Pueblo Nuevo",
+      "x": 1.7,
+      "y": 1.7,
+      "linea": "Isla Cascajal"
+    },
+    {
+      "id": "LP",
+      "nombre": "La Pilota",
+      "x": 2,
+      "y": 2.8,
+      "linea": "Isla Cascajal"
+    },
+    {
+      "id": "VL",
+      "nombre": "Viento Libre",
+      "x": 1.1,
+      "y": 1.3,
+      "linea": "Isla Cascajal"
+    },
+    {
+      "id": "PL",
+      "nombre": "La Playita",
+      "x": 2.5,
+      "y": 1.2,
+      "linea": "Isla Cascajal"
+    },
+    {
+      "id": "AL",
+      "nombre": "Alfonso López",
+      "x": 2.8,
+      "y": 2.2,
+      "linea": "Isla Cascajal"
+    },
+    {
+      "id": "LL",
+      "nombre": "Lleras",
+      "x": 3,
+      "y": 3.1,
+      "linea": "Isla Cascajal"
+    },
+    {
+      "id": "MI",
+      "nombre": "Miramar",
+      "x": 3.4,
+      "y": 1.5,
+      "linea": "Isla Cascajal"
+    },
+    {
+      "id": "CA",
+      "nombre": "Calimita",
+      "x": 3.7,
+      "y": 2.5,
+      "linea": "Isla Cascajal"
+    },
+    {
+      "id": "PP",
+      "nombre": "Puente El Piñal",
+      "x": 4.6,
+      "y": 2,
+      "linea": "Conexión"
+    },
+    {
+      "id": "EP",
+      "nombre": "El Piñal",
+      "x": 5.4,
+      "y": 2.3,
+      "linea": "Continente"
+    },
+    {
+      "id": "BV",
+      "nombre": "Bellavista",
+      "x": 5.9,
+      "y": 1.3,
+      "linea": "Continente"
+    },
+    {
+      "id": "SB3",
+      "nombre": "Simón Bolívar km 3",
+      "x": 6.6,
+      "y": 2.1,
+      "linea": "Continente"
+    },
+    {
+      "id": "JX",
+      "nombre": "Juan XXIII",
+      "x": 7.1,
+      "y": 3.1,
+      "linea": "Continente"
+    },
+    {
+      "id": "SB4",
+      "nombre": "Simón Bolívar km 4",
+      "x": 7.7,
+      "y": 1.8,
+      "linea": "Continente"
+    },
+    {
+      "id": "AN",
+      "nombre": "Antonio Nariño",
+      "x": 7.9,
+      "y": 0.8,
+      "linea": "Continente"
+    },
+    {
+      "id": "NA",
+      "nombre": "Nayita",
+      "x": 8.5,
+      "y": 2.9,
+      "linea": "Continente"
+    },
+    {
+      "id": "SB5",
+      "nombre": "Simón Bolívar km 5",
+      "x": 8.9,
+      "y": 1.5,
+      "linea": "Continente"
+    },
+    {
+      "id": "LA",
+      "nombre": "Las Américas",
+      "x": 9.4,
+      "y": 0.5,
+      "linea": "Continente"
+    },
+    {
+      "id": "IN",
+      "nombre": "La Independencia",
+      "x": 9.7,
+      "y": 2.6,
+      "linea": "Continente"
+    },
+    {
+      "id": "TT",
+      "nombre": "Terminal de Transporte",
+      "x": 10.1,
+      "y": 1.3,
+      "linea": "Continente"
+    },
+    {
+      "id": "SB7",
+      "nombre": "Simón Bolívar km 7",
+      "x": 11,
+      "y": 1,
+      "linea": "Continente"
+    },
+    {
+      "id": "UV",
+      "nombre": "Unión de Vivienda",
+      "x": 11.3,
+      "y": 2.2,
+      "linea": "Continente"
+    },
+    {
+      "id": "SE",
+      "nombre": "Sector Oriental",
+      "x": 11.8,
+      "y": 0.1,
+      "linea": "Continente"
+    },
+    {
+      "id": "SB8",
+      "nombre": "Simón Bolívar km 8",
+      "x": 12.2,
+      "y": 0.8,
+      "linea": "Continente"
+    },
+    {
+      "id": "UN",
+      "nombre": "Univalle Sede Pacífico",
+      "x": 13.2,
+      "y": 0.6,
+      "linea": "Continente"
+    },
+    {
+      "id": "CN",
+      "nombre": "Ciudadela Nueva",
+      "x": 13,
+      "y": 1.9,
+      "linea": "Continente"
+    },
+    {
+      "id": "SB10",
+      "nombre": "Simón Bolívar km 10",
+      "x": 14.3,
+      "y": 0.3,
+      "linea": "Continente"
+    },
+    {
+      "id": "ZI",
+      "nombre": "Zona Industrial",
+      "x": 14.7,
+      "y": 1.4,
+      "linea": "Continente"
+    },
+    {
+      "id": "AE",
+      "nombre": "Aeropuerto",
+      "x": 15.5,
+      "y": -0.5,
+      "linea": "Continente"
+    },
+    {
+      "id": "SB12",
+      "nombre": "Simón Bolívar km 12",
+      "x": 16.2,
+      "y": 0.2,
+      "linea": "Continente"
+    }
+  ],
+  "vias": [
+    {
+      "desde": "MT",
+      "hasta": "PC",
+      "distanciaKm": 0.868,
+      "tiempoMin": 2.17
+    },
+    {
+      "desde": "MT",
+      "hasta": "TM",
+      "distanciaKm": 1.102,
+      "tiempoMin": 2.204
+    },
+    {
+      "desde": "PC",
+      "hasta": "CE",
+      "distanciaKm": 0.711,
+      "tiempoMin": 2.37
+    },
+    {
+      "desde": "TM",
+      "hasta": "CE",
+      "distanciaKm": 1.549,
+      "tiempoMin": 2.582
+    },
+    {
+      "desde": "CE",
+      "hasta": "LP",
+      "distanciaKm": 1.095,
+      "tiempoMin": 3.65
+    },
+    {
+      "desde": "CE",
+      "hasta": "PN",
+      "distanciaKm": 1.113,
+      "tiempoMin": 2.226
+    },
+    {
+      "desde": "PC",
+      "hasta": "VL",
+      "distanciaKm": 1.305,
+      "tiempoMin": 4.35
+    },
+    {
+      "desde": "VL",
+      "hasta": "PN",
+      "distanciaKm": 0.888,
+      "tiempoMin": 2.22
+    },
+    {
+      "desde": "PN",
+      "hasta": "PL",
+      "distanciaKm": 1.258,
+      "tiempoMin": 2.097
+    },
+    {
+      "desde": "PN",
+      "hasta": "AL",
+      "distanciaKm": 1.697,
+      "tiempoMin": 5.657
+    },
+    {
+      "desde": "LP",
+      "hasta": "AL",
+      "distanciaKm": 1.242,
+      "tiempoMin": 3.105
+    },
+    {
+      "desde": "LP",
+      "hasta": "LL",
+      "distanciaKm": 1.566,
+      "tiempoMin": 2.61
+    },
+    {
+      "desde": "AL",
+      "hasta": "CA",
+      "distanciaKm": 1.493,
+      "tiempoMin": 2.488
+    },
+    {
+      "desde": "LL",
+      "hasta": "CA",
+      "distanciaKm": 1.176,
+      "tiempoMin": 2.94
+    },
+    {
+      "desde": "PL",
+      "hasta": "MI",
+      "distanciaKm": 1.268,
+      "tiempoMin": 3.17
+    },
+    {
+      "desde": "AL",
+      "hasta": "MI",
+      "distanciaKm": 1.336,
+      "tiempoMin": 2.227
+    },
+    {
+      "desde": "MI",
+      "hasta": "CA",
+      "distanciaKm": 1.342,
+      "tiempoMin": 2.237
+    },
+    {
+      "desde": "CA",
+      "hasta": "PP",
+      "distanciaKm": 1.221,
+      "tiempoMin": 4.07
+    },
+    {
+      "desde": "MI",
+      "hasta": "PP",
+      "distanciaKm": 1.691,
+      "tiempoMin": 2.818
+    },
+    {
+      "desde": "PP",
+      "hasta": "EP",
+      "distanciaKm": 1.268,
+      "tiempoMin": 3.17
+    },
+    {
+      "desde": "EP",
+      "hasta": "BV",
+      "distanciaKm": 1.772,
+      "tiempoMin": 3.544
+    },
+    {
+      "desde": "EP",
+      "hasta": "SB3",
+      "distanciaKm": 1.743,
+      "tiempoMin": 4.357
+    },
+    {
+      "desde": "BV",
+      "hasta": "SB3",
+      "distanciaKm": 1.237,
+      "tiempoMin": 2.062
+    },
+    {
+      "desde": "SB3",
+      "hasta": "JX",
+      "distanciaKm": 1.377,
+      "tiempoMin": 2.295
+    },
+    {
+      "desde": "SB3",
+      "hasta": "SB4",
+      "distanciaKm": 1.738,
+      "tiempoMin": 4.345
+    },
+    {
+      "desde": "JX",
+      "hasta": "SB4",
+      "distanciaKm": 1.964,
+      "tiempoMin": 6.547
+    },
+    {
+      "desde": "BV",
+      "hasta": "AN",
+      "distanciaKm": 3.276,
+      "tiempoMin": 6.552
+    },
+    {
+      "desde": "SB4",
+      "hasta": "AN",
+      "distanciaKm": 1.572,
+      "tiempoMin": 2.62
+    },
+    {
+      "desde": "JX",
+      "hasta": "NA",
+      "distanciaKm": 2.008,
+      "tiempoMin": 5.02
+    },
+    {
+      "desde": "SB4",
+      "hasta": "NA",
+      "distanciaKm": 1.871,
+      "tiempoMin": 3.118
+    },
+    {
+      "desde": "SB4",
+      "hasta": "SB5",
+      "distanciaKm": 1.85,
+      "tiempoMin": 3.7
+    },
+    {
+      "desde": "AN",
+      "hasta": "SB5",
+      "distanciaKm": 1.774,
+      "tiempoMin": 2.957
+    },
+    {
+      "desde": "NA",
+      "hasta": "SB5",
+      "distanciaKm": 1.919,
+      "tiempoMin": 6.397
+    },
+    {
+      "desde": "AN",
+      "hasta": "LA",
+      "distanciaKm": 1.882,
+      "tiempoMin": 6.273
+    },
+    {
+      "desde": "SB5",
+      "hasta": "LA",
+      "distanciaKm": 1.765,
+      "tiempoMin": 2.942
+    },
+    {
+      "desde": "NA",
+      "hasta": "IN",
+      "distanciaKm": 1.519,
+      "tiempoMin": 5.063
+    },
+    {
+      "desde": "SB5",
+      "hasta": "IN",
+      "distanciaKm": 1.861,
+      "tiempoMin": 3.722
+    },
+    {
+      "desde": "SB5",
+      "hasta": "TT",
+      "distanciaKm": 1.557,
+      "tiempoMin": 2.595
+    },
+    {
+      "desde": "LA",
+      "hasta": "TT",
+      "distanciaKm": 1.653,
+      "tiempoMin": 5.51
+    },
+    {
+      "desde": "IN",
+      "hasta": "TT",
+      "distanciaKm": 2.157,
+      "tiempoMin": 4.314
+    },
+    {
+      "desde": "IN",
+      "hasta": "UV",
+      "distanciaKm": 2.553,
+      "tiempoMin": 8.51
+    },
+    {
+      "desde": "TT",
+      "hasta": "SB7",
+      "distanciaKm": 1.346,
+      "tiempoMin": 2.692
+    },
+    {
+      "desde": "UV",
+      "hasta": "SB7",
+      "distanciaKm": 1.433,
+      "tiempoMin": 2.388
+    },
+    {
+      "desde": "LA",
+      "hasta": "SE",
+      "distanciaKm": 3.746,
+      "tiempoMin": 6.243
+    },
+    {
+      "desde": "SB7",
+      "hasta": "SE",
+      "distanciaKm": 1.814,
+      "tiempoMin": 6.047
+    },
+    {
+      "desde": "SB7",
+      "hasta": "SB8",
+      "distanciaKm": 1.921,
+      "tiempoMin": 3.202
+    },
+    {
+      "desde": "SE",
+      "hasta": "SB8",
+      "distanciaKm": 1.1,
+      "tiempoMin": 2.75
+    },
+    {
+      "desde": "UV",
+      "hasta": "CN",
+      "distanciaKm": 1.986,
+      "tiempoMin": 6.62
+    },
+    {
+      "desde": "SB8",
+      "hasta": "UN",
+      "distanciaKm": 1.553,
+      "tiempoMin": 2.588
+    },
+    {
+      "desde": "SB8",
+      "hasta": "CN",
+      "distanciaKm": 1.905,
+      "tiempoMin": 6.35
+    },
+    {
+      "desde": "CN",
+      "hasta": "UN",
+      "distanciaKm": 1.57,
+      "tiempoMin": 3.925
+    },
+    {
+      "desde": "UN",
+      "hasta": "SB10",
+      "distanciaKm": 1.821,
+      "tiempoMin": 3.035
+    },
+    {
+      "desde": "CN",
+      "hasta": "ZI",
+      "distanciaKm": 2.217,
+      "tiempoMin": 5.542
+    },
+    {
+      "desde": "SB10",
+      "hasta": "ZI",
+      "distanciaKm": 1.721,
+      "tiempoMin": 2.868
+    },
+    {
+      "desde": "SB10",
+      "hasta": "AE",
+      "distanciaKm": 1.785,
+      "tiempoMin": 3.57
+    },
+    {
+      "desde": "SB10",
+      "hasta": "SB12",
+      "distanciaKm": 2.99,
+      "tiempoMin": 9.967
+    },
+    {
+      "desde": "AE",
+      "hasta": "SB12",
+      "distanciaKm": 1.384,
+      "tiempoMin": 4.613
+    },
+    {
+      "desde": "ZI",
+      "hasta": "SB12",
+      "distanciaKm": 2.751,
+      "tiempoMin": 5.502
+    }
+  ]
+}
