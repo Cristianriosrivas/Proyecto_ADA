@@ -7,7 +7,7 @@
 - [x] **F0** Setup: Vite + TS strict + Tailwind + Vitest + ESLint, scripts compatibles con Windows, git, `REGLAS.md`, `PROGRESO.md`, `proyecto.config.json`.
 - [x] **F1** Estructuras: cola circular, pila, lista enlazada, lista y matriz de adyacencia, min-heap indexado, tabla hash, árbol k-d + tests + auditoría de pureza.
 - [x] **F2** Grafo + BFS + DFS (iterativo y recursivo) + rutas simples + conectividad + Tarjan + tracer + tests de la prueba de escritorio.
-- [ ] **F3** Dijkstra (heap y arreglo) + A\* (km y minutos, ponderado, h = 0) + validador de heurística + validación cruzada.
+- [x] **F3** Dijkstra (heap y arreglo) + A\* (km y minutos, ponderado, h = 0) + validador de heurística + validación cruzada.
 - [ ] **F4** Ordenamientos con contadores + búsqueda binaria + tráfico + estadísticas + experimento de la P6.
 - [ ] **F5** Generadores con semilla + presets (docente, fase 1, Buenaventura) + `npm run bench` + CLI.
 - [ ] **F6** Shell de la UI + sistema de diseño (tokens, tipografía, temas) + mapa SVG/Canvas con zoom/pan + editor.
