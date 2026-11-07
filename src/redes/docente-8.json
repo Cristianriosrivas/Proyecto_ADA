@@ -1,0 +1,28 @@
+{
+  "nombre": "Red Docente (8)",
+  "descripcion": "Red estándar de la prueba de escritorio. Pesos del documento del docente, en km y min.",
+  "dirigida": false,
+  "estaciones": [
+    { "id": "A", "nombre": "A", "x": 0.0, "y": 0.0 },
+    { "id": "B", "nombre": "B", "x": 2.4, "y": -0.6 },
+    { "id": "C", "nombre": "C", "x": 1.6, "y": -1.2 },
+    { "id": "D", "nombre": "D", "x": 6.8, "y": 1.6 },
+    { "id": "E", "nombre": "E", "x": 8.6, "y": 0.8 },
+    { "id": "F", "nombre": "F", "x": 11.2, "y": 2.0 },
+    { "id": "G", "nombre": "G", "x": 12.0, "y": 2.5 },
+    { "id": "H", "nombre": "H", "x": 13.6, "y": 3.6 }
+  ],
+  "vias": [
+    { "desde": "A", "hasta": "B", "distanciaKm": 4, "tiempoMin": 4 },
+    { "desde": "A", "hasta": "C", "distanciaKm": 2, "tiempoMin": 2 },
+    { "desde": "B", "hasta": "C", "distanciaKm": 1, "tiempoMin": 1 },
+    { "desde": "B", "hasta": "D", "distanciaKm": 5, "tiempoMin": 5 },
+    { "desde": "C", "hasta": "D", "distanciaKm": 8, "tiempoMin": 8 },
+    { "desde": "C", "hasta": "E", "distanciaKm": 10, "tiempoMin": 10 },
+    { "desde": "D", "hasta": "E", "distanciaKm": 2, "tiempoMin": 2 },
+    { "desde": "D", "hasta": "F", "distanciaKm": 6, "tiempoMin": 6 },
+    { "desde": "E", "hasta": "F", "distanciaKm": 3, "tiempoMin": 3 },
+    { "desde": "F", "hasta": "G", "distanciaKm": 1, "tiempoMin": 1 },
+    { "desde": "G", "hasta": "H", "distanciaKm": 2, "tiempoMin": 2 }
+  ]
+}
