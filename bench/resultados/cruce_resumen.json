@@ -1,0 +1,30 @@
+[
+ {
+  "n": 250,
+  "densidad_cruce": 0.789,
+  "vias_cruce": 24588,
+  "vias_teoricas": 7846,
+  "max_vias": 31125
+ },
+ {
+  "n": 500,
+  "densidad_cruce": 0.4177,
+  "vias_cruce": 52169,
+  "vias_teoricas": 27884,
+  "max_vias": 124750
+ },
+ {
+  "n": 1000,
+  "densidad_cruce": 0.1963,
+  "vias_cruce": 98426,
+  "vias_teoricas": 100343,
+  "max_vias": 499500
+ },
+ {
+  "n": 2000,
+  "densidad_cruce": 0.4378,
+  "vias_cruce": 875267,
+  "vias_teoricas": 364771,
+  "max_vias": 1999000
+ }
+]

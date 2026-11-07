@@ -1,0 +1,19 @@
+tipo,algoritmo,curva,c_us,r2
+geometrica,BFS,lineal,0.029628869613094723,0.949
+geometrica,DFS,lineal,0.03629825313158434,0.96775
+geometrica,DFS recursivo,lineal,0.028812880294474763,0.9732
+geometrica,Dijkstra heap,lineal_log,0.013259973872550016,0.85244
+geometrica,Dijkstra perezoso,lineal_log,0.009577885934037562,0.90588
+geometrica,Dijkstra arreglo,cuadratica,0.008852005919137396,0.95634
+cuadricula,BFS,lineal,0.025519294925491133,0.92893
+cuadricula,DFS,lineal,0.03413142867974559,0.96316
+cuadricula,DFS recursivo,lineal,0.028943821139651184,0.95199
+cuadricula,Dijkstra heap,lineal_log,0.01567058614742502,0.65297
+cuadricula,Dijkstra perezoso,lineal_log,0.008772418860164343,0.84811
+cuadricula,Dijkstra arreglo,cuadratica,0.007308023714484936,0.95816
+metro,BFS,lineal,0.03221290183721492,0.95438
+metro,DFS,lineal,0.03813861350002914,0.96214
+metro,DFS recursivo,lineal,0.032693510635388,0.94857
+metro,Dijkstra heap,lineal_log,0.016295962897938065,0.8046
+metro,Dijkstra perezoso,lineal_log,0.009428332739525643,0.81139
+metro,Dijkstra arreglo,cuadratica,0.006891320601775268,0.96165

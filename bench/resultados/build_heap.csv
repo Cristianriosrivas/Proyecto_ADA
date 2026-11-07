@@ -1,0 +1,5 @@
+n,build_comparaciones,inserciones_comparaciones,comparaciones_por_n
+1000,1875,2238,1.875
+10000,18745,22709,1.875
+100000,188310,228117,1.883
+1000000,1882513,2283364,1.883

@@ -1,0 +1,38 @@
+[
+ {
+  "w": 1,
+  "expandidos": 611.7,
+  "sobrecosto_medio_pct": 0,
+  "sobrecosto_max_pct": 0
+ },
+ {
+  "w": 1.2,
+  "expandidos": 491.7,
+  "sobrecosto_medio_pct": 0,
+  "sobrecosto_max_pct": 0
+ },
+ {
+  "w": 1.5,
+  "expandidos": 324,
+  "sobrecosto_medio_pct": 0.008,
+  "sobrecosto_max_pct": 0.214
+ },
+ {
+  "w": 2,
+  "expandidos": 151.1,
+  "sobrecosto_medio_pct": 1.756,
+  "sobrecosto_max_pct": 12.655
+ },
+ {
+  "w": 3,
+  "expandidos": 86.9,
+  "sobrecosto_medio_pct": 6.682,
+  "sobrecosto_max_pct": 29.687
+ },
+ {
+  "w": 5,
+  "expandidos": 68.5,
+  "sobrecosto_medio_pct": 10.712,
+  "sobrecosto_max_pct": 28.116
+ }
+]

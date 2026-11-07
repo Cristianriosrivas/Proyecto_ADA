@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
+import { aEstrella } from '../src/core/algoritmos/aEstrella';
 import { bfs } from '../src/core/algoritmos/bfs';
+import { dfsIterativo } from '../src/core/algoritmos/dfs';
+import { dijkstra } from '../src/core/algoritmos/dijkstra';
 import { componentesConexas } from '../src/core/algoritmos/conectividad';
 import { heuristicaEuclidiana, validarHeuristica } from '../src/core/algoritmos/heuristica';
 import { enteroAzar, mulberry32 } from '../src/core/generadores/azar';
@@ -70,6 +73,24 @@ describe('generadores', () => {
     expect(componentesConexas(r).cantidad).toBe(1);
     expect(redMetro(20, 1).numEstaciones).toBe(20);
     expect(redMetro(400, 1).numEstaciones).toBe(400);
+  });
+});
+
+describe('definición de terminado', () => {
+  it('los 4 algoritmos funcionan en redes de 8 a 5000 estaciones, dirigidas y no dirigidas', () => {
+    for (const n of [8, 50, 500, 5000]) {
+      for (const dirigida of [false, true]) {
+        const r = redGeometrica(n, 3, { dirigida });
+        const t = n - 1;
+        const b = bfs(r, 0, t);
+        const d = dfsIterativo(r, 0, t);
+        const k = dijkstra(r, 0, t);
+        const a = aEstrella(r, 0, t);
+        expect(b.alcanzado && d.alcanzado && k.alcanzado && a.alcanzado).toBe(true);
+        expect(b.saltos).toBeLessThanOrEqual(d.saltos);
+        expect(a.costo).toBeCloseTo(k.costo, 9);
+      }
+    }
   });
 });
 

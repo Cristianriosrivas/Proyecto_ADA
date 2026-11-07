@@ -1,0 +1,26 @@
+[
+ {
+  "n": 1000,
+  "build_comparaciones": 1875,
+  "inserciones_comparaciones": 2238,
+  "comparaciones_por_n": 1.875
+ },
+ {
+  "n": 10000,
+  "build_comparaciones": 18745,
+  "inserciones_comparaciones": 22709,
+  "comparaciones_por_n": 1.875
+ },
+ {
+  "n": 100000,
+  "build_comparaciones": 188310,
+  "inserciones_comparaciones": 228117,
+  "comparaciones_por_n": 1.883
+ },
+ {
+  "n": 1000000,
+  "build_comparaciones": 1882513,
+  "inserciones_comparaciones": 2283364,
+  "comparaciones_por_n": 1.883
+ }
+]

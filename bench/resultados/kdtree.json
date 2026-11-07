@@ -1,0 +1,34 @@
+[
+ {
+  "n": 1000,
+  "construir_us": 309.5,
+  "n_lg_n": 9966,
+  "us_por_n_lg_n": 0.03106,
+  "consulta_us": 2.947,
+  "visitados_medio": 15.5
+ },
+ {
+  "n": 5000,
+  "construir_us": 2021,
+  "n_lg_n": 61439,
+  "us_por_n_lg_n": 0.03289,
+  "consulta_us": 3.607,
+  "visitados_medio": 18.5
+ },
+ {
+  "n": 20000,
+  "construir_us": 11710.9,
+  "n_lg_n": 285754,
+  "us_por_n_lg_n": 0.04098,
+  "consulta_us": 3.896,
+  "visitados_medio": 20.7
+ },
+ {
+  "n": 100000,
+  "construir_us": 75764.8,
+  "n_lg_n": 1660964,
+  "us_por_n_lg_n": 0.04561,
+  "consulta_us": 3.67,
+  "visitados_medio": 22.7
+ }
+]

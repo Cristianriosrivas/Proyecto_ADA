@@ -1,0 +1,137 @@
+[
+ {
+  "n": 100,
+  "m": 200,
+  "estrategia": "quick",
+  "comparaciones": 218930,
+  "movimientos": 6261,
+  "ms": 17.737,
+  "maximo_final": 0.9834998045116663
+ },
+ {
+  "n": 100,
+  "m": 200,
+  "estrategia": "heap",
+  "comparaciones": 215924,
+  "movimientos": 127529,
+  "ms": 25.846,
+  "maximo_final": 0.9834998045116663
+ },
+ {
+  "n": 100,
+  "m": 200,
+  "estrategia": "cola",
+  "comparaciones": 668,
+  "movimientos": 283,
+  "ms": 0.134,
+  "maximo_final": 0.9834998045116663
+ },
+ {
+  "n": 500,
+  "m": 200,
+  "estrategia": "quick",
+  "comparaciones": 1355789,
+  "movimientos": 34348,
+  "ms": 100.602,
+  "maximo_final": 0.9995453071314842
+ },
+ {
+  "n": 500,
+  "m": 200,
+  "estrategia": "heap",
+  "comparaciones": 1549815,
+  "movimientos": 870062,
+  "ms": 136.69,
+  "maximo_final": 0.9995453071314842
+ },
+ {
+  "n": 500,
+  "m": 200,
+  "estrategia": "cola",
+  "comparaciones": 1440,
+  "movimientos": 609,
+  "ms": 0.073,
+  "maximo_final": 0.9995453071314842
+ },
+ {
+  "n": 1000,
+  "m": 200,
+  "estrategia": "quick",
+  "comparaciones": 2936873,
+  "movimientos": 68365,
+  "ms": 262.928,
+  "maximo_final": 0.9989472422748804
+ },
+ {
+  "n": 1000,
+  "m": 200,
+  "estrategia": "heap",
+  "comparaciones": 3515175,
+  "movimientos": 1941055,
+  "ms": 503.669,
+  "maximo_final": 0.9989472422748804
+ },
+ {
+  "n": 1000,
+  "m": 200,
+  "estrategia": "cola",
+  "comparaciones": 2406,
+  "movimientos": 1005,
+  "ms": 0.133,
+  "maximo_final": 0.9989472422748804
+ },
+ {
+  "n": 2000,
+  "m": 200,
+  "estrategia": "quick",
+  "comparaciones": 6368488,
+  "movimientos": 141504,
+  "ms": 908.223,
+  "maximo_final": 0.9995453071314842
+ },
+ {
+  "n": 2000,
+  "m": 200,
+  "estrategia": "heap",
+  "comparaciones": 7838656,
+  "movimientos": 4272450,
+  "ms": 726.062,
+  "maximo_final": 0.9995453071314842
+ },
+ {
+  "n": 2000,
+  "m": 200,
+  "estrategia": "cola",
+  "comparaciones": 4325,
+  "movimientos": 1761,
+  "ms": 0.188,
+  "maximo_final": 0.9995453071314842
+ },
+ {
+  "n": 5000,
+  "m": 200,
+  "estrategia": "quick",
+  "comparaciones": 17451140,
+  "movimientos": 332505,
+  "ms": 1227.518,
+  "maximo_final": 0.9995453071314842
+ },
+ {
+  "n": 5000,
+  "m": 200,
+  "estrategia": "heap",
+  "comparaciones": 22420001,
+  "movimientos": 12163261,
+  "ms": 1131.532,
+  "maximo_final": 0.9995453071314842
+ },
+ {
+  "n": 5000,
+  "m": 200,
+  "estrategia": "cola",
+  "comparaciones": 9947,
+  "movimientos": 3988,
+  "ms": 0.304,
+  "maximo_final": 0.9995453071314842
+ }
+]

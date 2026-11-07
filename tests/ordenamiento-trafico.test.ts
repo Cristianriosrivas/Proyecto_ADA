@@ -5,6 +5,7 @@ import { bloquear, congestionPorVia, demandaHoraria, estadisticas, experimentoP6
 import { aEstrella } from '../src/core/algoritmos/aEstrella';
 import { dijkstra } from '../src/core/algoritmos/dijkstra';
 import { generarRed } from '../src/core/generadores/redes';
+import { ajustarConstante, CURVAS, medir } from '../src/core/instrumentacion/medicion';
 import { redDocente } from './ayudas';
 
 const num = (a: number, b: number) => a - b;
@@ -63,6 +64,26 @@ describe('ordenamientos', () => {
     const c = contadoresOrdenVacios();
     busquedaBinaria(Array.from({ length: 1024 }, (_, i) => i), (x) => x - 700, c);
     expect(c.comparaciones).toBeLessThanOrEqual(11);
+  });
+});
+
+describe('medición', () => {
+  it('mide con mediana, ajusta curvas y calcula R²', () => {
+    let t = 0;
+    const r = medir(() => { t += 0.5; }, () => t, { repeticiones: 5, minimoMs: 2, calentamiento: 1, calentamientoMs: 1 });
+    expect(r.repeticiones).toBe(5);
+    expect(r.lote).toBeGreaterThanOrEqual(1);
+    expect(r.medianaUs).toBeCloseTo(500, 6);
+    const f = [10, 100, 1000];
+    const a = ajustarConstante(f, f.map((x) => 3 * x));
+    expect(a.c).toBeCloseTo(3, 9);
+    expect(a.r2).toBeCloseTo(1, 9);
+    expect(CURVAS.lineal(3, 4)).toBe(7);
+    expect(CURVAS.lineal_log(4, 4)).toBe(16);
+    expect(CURVAS.cuadratica(5)).toBe(25);
+    expect(ajustarConstante([], []).c).toBe(0);
+    let u = 0;
+    expect(medir(() => undefined, () => u, { repeticiones: 3, minimoMs: 0.5, calentamiento: 1 }).lote).toBeGreaterThan(0 * (u += 1));
   });
 });
 

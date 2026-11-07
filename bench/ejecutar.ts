@@ -78,7 +78,7 @@ function tiempos(): void {
         ['A*', () => void aEstrella(red, 0, lejos)],
       ];
       for (const [algo, fn] of casos) {
-        const m = medir(fn, reloj);
+        const m = medir(fn, reloj, { repeticiones: 21, minimoMs: 5, calentamientoMs: 60 });
         filas.push({ tipo, algoritmo: algo, n: V, vias: E, mediana_us: Number(m.medianaUs.toFixed(3)), iqr_us: Number(m.iqrUs.toFixed(3)), repeticiones: m.repeticiones, lote: m.lote });
         const k = (porAlgo[algo] ??= { v: [], e: [], t: [] });
         k.v.push(V);
@@ -132,15 +132,22 @@ function contadores(): void {
   guardar('contadores', filas);
 }
 
+/** Mediana de 5 mediciones: una sola se la lleva el recolector de basura en redes pequeñas. */
 function bytesMedidos(crear: () => unknown): { bytes: number; ref: unknown } {
-  gc?.();
-  gc?.();
-  const a = process.memoryUsage();
-  const ref = crear();
-  gc?.();
-  gc?.();
-  const b = process.memoryUsage();
-  return { bytes: b.heapUsed + b.arrayBuffers - a.heapUsed - a.arrayBuffers, ref };
+  const muestras: number[] = [];
+  let ref: unknown;
+  for (let i = 0; i < 5; i++) {
+    gc?.();
+    gc?.();
+    const a = process.memoryUsage();
+    ref = crear();
+    gc?.();
+    gc?.();
+    const b = process.memoryUsage();
+    muestras.push(b.heapUsed + b.arrayBuffers - a.heapUsed - a.arrayBuffers);
+  }
+  muestras.sort((x, y) => x - y);
+  return { bytes: muestras[2], ref };
 }
 
 /** Pregunta 1: memoria teórica y medida, y tiempo de BFS y DFS en lista y en matriz. */
@@ -148,8 +155,8 @@ function matrizVsLista(): void {
   const filas: Record<string, unknown>[] = [];
   for (const n of TAMANOS) {
     const red = generarRed('geometrica', n, SEMILLA);
-    const lista = medir(() => void bfs(red, 0), reloj);
-    const listaD = medir(() => void dfsIterativo(red, 0), reloj);
+    const lista = medir(() => void bfs(red, 0), reloj, { minimoMs: 5, calentamientoMs: 40 });
+    const listaD = medir(() => void dfsIterativo(red, 0), reloj, { minimoMs: 5, calentamientoMs: 40 });
     const memoria = bytesMedidos(() => red.matriz('km'));
     const m = memoria.ref as ReturnType<RedTransporte['matriz']>;
     const matriz = medir(() => void bfsMatriz(m, 0), reloj, { repeticiones: n >= 2500 ? 7 : 15 });
@@ -185,8 +192,8 @@ function cruceDijkstra(): void {
     for (const densidad of densidades) {
       if (n === 2000 && densidad > 0.5) continue; // 2 millones de vías ya no aportan al cruce y llenan la RAM
       const red = generarRed('densa', n, SEMILLA, { densidad });
-      const heap = medir(() => void dijkstra(red, 0), reloj, { repeticiones: 9 });
-      const arreglo = medir(() => void dijkstraArreglo(red, 0), reloj, { repeticiones: 9 });
+      const heap = medir(() => void dijkstra(red, 0), reloj, { repeticiones: 11, calentamientoMs: 40 });
+      const arreglo = medir(() => void dijkstraArreglo(red, 0), reloj, { repeticiones: 11, calentamientoMs: 40 });
       filas.push({ n, densidad, vias: red.numVias, heap_us: Number(heap.medianaUs.toFixed(2)), arreglo_us: Number(arreglo.medianaUs.toFixed(2)), razon: Number((heap.medianaUs / arreglo.medianaUs).toFixed(3)), e_teorico_cruce: Math.round((n * n) / Math.log2(n)) });
       serie.push({ p: densidad, heap: heap.medianaUs, arreglo: arreglo.medianaUs, e: red.numVias });
     }

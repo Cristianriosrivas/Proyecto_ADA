@@ -15,6 +15,8 @@ export interface OpcionesMedicion {
   /** Duración mínima de cada lote, en ms: por debajo de esto manda la resolución del reloj. */
   minimoMs?: number;
   calentamiento?: number;
+  /** Tiempo mínimo de calentamiento, en ms. */
+  calentamientoMs?: number;
 }
 
 /**
@@ -27,7 +29,10 @@ export function medir(fn: () => void, reloj: () => number, opts: OpcionesMedicio
   const repeticiones = opts.repeticiones ?? 15;
   const minimoMs = opts.minimoMs ?? 3;
   const calentamiento = opts.calentamiento ?? 3;
-  for (let i = 0; i < calentamiento; i++) fn();
+  // El JIT compila la función tras muchas llamadas: calentar por tiempo, no solo por cuenta,
+  // evita medir código interpretado en las redes pequeñas
+  const finCalentamiento = reloj() + (opts.calentamientoMs ?? 0);
+  for (let i = 0; i < calentamiento || reloj() < finCalentamiento; i++) fn();
 
   let lote = 1;
   for (;;) {

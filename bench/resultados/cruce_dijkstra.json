@@ -1,0 +1,380 @@
+[
+ {
+  "n": 250,
+  "densidad": 0.002,
+  "vias": 298,
+  "heap_us": 1771.1,
+  "arreglo_us": 463.53,
+  "razon": 3.821,
+  "e_teorico_cruce": 7846
+ },
+ {
+  "n": 250,
+  "densidad": 0.005,
+  "vias": 396,
+  "heap_us": 127.87,
+  "arreglo_us": 584.36,
+  "razon": 0.219,
+  "e_teorico_cruce": 7846
+ },
+ {
+  "n": 250,
+  "densidad": 0.01,
+  "vias": 543,
+  "heap_us": 147.27,
+  "arreglo_us": 2924.6,
+  "razon": 0.05,
+  "e_teorico_cruce": 7846
+ },
+ {
+  "n": 250,
+  "densidad": 0.02,
+  "vias": 853,
+  "heap_us": 160.46,
+  "arreglo_us": 450.8,
+  "razon": 0.356,
+  "e_teorico_cruce": 7846
+ },
+ {
+  "n": 250,
+  "densidad": 0.05,
+  "vias": 1731,
+  "heap_us": 217.26,
+  "arreglo_us": 502.01,
+  "razon": 0.433,
+  "e_teorico_cruce": 7846
+ },
+ {
+  "n": 250,
+  "densidad": 0.1,
+  "vias": 3298,
+  "heap_us": 370.2,
+  "arreglo_us": 582.64,
+  "razon": 0.635,
+  "e_teorico_cruce": 7846
+ },
+ {
+  "n": 250,
+  "densidad": 0.2,
+  "vias": 6378,
+  "heap_us": 711,
+  "arreglo_us": 856.18,
+  "razon": 0.83,
+  "e_teorico_cruce": 7846
+ },
+ {
+  "n": 250,
+  "densidad": 0.35,
+  "vias": 10955,
+  "heap_us": 1060.6,
+  "arreglo_us": 2705.05,
+  "razon": 0.392,
+  "e_teorico_cruce": 7846
+ },
+ {
+  "n": 250,
+  "densidad": 0.5,
+  "vias": 15463,
+  "heap_us": 1508.8,
+  "arreglo_us": 3373.2,
+  "razon": 0.447,
+  "e_teorico_cruce": 7846
+ },
+ {
+  "n": 250,
+  "densidad": 0.75,
+  "vias": 23377,
+  "heap_us": 1843.5,
+  "arreglo_us": 2058.5,
+  "razon": 0.896,
+  "e_teorico_cruce": 7846
+ },
+ {
+  "n": 250,
+  "densidad": 1,
+  "vias": 31125,
+  "heap_us": 3193.9,
+  "arreglo_us": 1908.2,
+  "razon": 1.674,
+  "e_teorico_cruce": 7846
+ },
+ {
+  "n": 500,
+  "densidad": 0.002,
+  "vias": 745,
+  "heap_us": 212.95,
+  "arreglo_us": 1580.83,
+  "razon": 0.135,
+  "e_teorico_cruce": 27884
+ },
+ {
+  "n": 500,
+  "densidad": 0.005,
+  "vias": 1135,
+  "heap_us": 281.88,
+  "arreglo_us": 1567.2,
+  "razon": 0.18,
+  "e_teorico_cruce": 27884
+ },
+ {
+  "n": 500,
+  "densidad": 0.01,
+  "vias": 1732,
+  "heap_us": 606.39,
+  "arreglo_us": 1535.3,
+  "razon": 0.395,
+  "e_teorico_cruce": 27884
+ },
+ {
+  "n": 500,
+  "densidad": 0.02,
+  "vias": 2995,
+  "heap_us": 452.87,
+  "arreglo_us": 2260.55,
+  "razon": 0.2,
+  "e_teorico_cruce": 27884
+ },
+ {
+  "n": 500,
+  "densidad": 0.05,
+  "vias": 6585,
+  "heap_us": 706.38,
+  "arreglo_us": 1803.9,
+  "razon": 0.392,
+  "e_teorico_cruce": 27884
+ },
+ {
+  "n": 500,
+  "densidad": 0.1,
+  "vias": 12788,
+  "heap_us": 1203.13,
+  "arreglo_us": 2342.7,
+  "razon": 0.514,
+  "e_teorico_cruce": 27884
+ },
+ {
+  "n": 500,
+  "densidad": 0.2,
+  "vias": 25052,
+  "heap_us": 2205.9,
+  "arreglo_us": 4147.7,
+  "razon": 0.532,
+  "e_teorico_cruce": 27884
+ },
+ {
+  "n": 500,
+  "densidad": 0.35,
+  "vias": 43882,
+  "heap_us": 3403.4,
+  "arreglo_us": 3764.7,
+  "razon": 0.904,
+  "e_teorico_cruce": 27884
+ },
+ {
+  "n": 500,
+  "densidad": 0.5,
+  "vias": 62213,
+  "heap_us": 8193,
+  "arreglo_us": 7393.3,
+  "razon": 1.108,
+  "e_teorico_cruce": 27884
+ },
+ {
+  "n": 500,
+  "densidad": 0.75,
+  "vias": 93600,
+  "heap_us": 14902.6,
+  "arreglo_us": 12497.2,
+  "razon": 1.192,
+  "e_teorico_cruce": 27884
+ },
+ {
+  "n": 500,
+  "densidad": 1,
+  "vias": 124750,
+  "heap_us": 32389.6,
+  "arreglo_us": 18794.2,
+  "razon": 1.723,
+  "e_teorico_cruce": 27884
+ },
+ {
+  "n": 1000,
+  "densidad": 0.002,
+  "vias": 2021,
+  "heap_us": 604.92,
+  "arreglo_us": 8847.1,
+  "razon": 0.068,
+  "e_teorico_cruce": 100343
+ },
+ {
+  "n": 1000,
+  "densidad": 0.005,
+  "vias": 3547,
+  "heap_us": 855.98,
+  "arreglo_us": 6184.4,
+  "razon": 0.138,
+  "e_teorico_cruce": 100343
+ },
+ {
+  "n": 1000,
+  "densidad": 0.01,
+  "vias": 5962,
+  "heap_us": 1189.9,
+  "arreglo_us": 11933.5,
+  "razon": 0.1,
+  "e_teorico_cruce": 100343
+ },
+ {
+  "n": 1000,
+  "densidad": 0.02,
+  "vias": 10981,
+  "heap_us": 2467.67,
+  "arreglo_us": 9486.8,
+  "razon": 0.26,
+  "e_teorico_cruce": 100343
+ },
+ {
+  "n": 1000,
+  "densidad": 0.05,
+  "vias": 25762,
+  "heap_us": 3794.65,
+  "arreglo_us": 11144.5,
+  "razon": 0.34,
+  "e_teorico_cruce": 100343
+ },
+ {
+  "n": 1000,
+  "densidad": 0.1,
+  "vias": 50686,
+  "heap_us": 5058.5,
+  "arreglo_us": 12799,
+  "razon": 0.395,
+  "e_teorico_cruce": 100343
+ },
+ {
+  "n": 1000,
+  "densidad": 0.2,
+  "vias": 100257,
+  "heap_us": 18457.9,
+  "arreglo_us": 17988.1,
+  "razon": 1.026,
+  "e_teorico_cruce": 100343
+ },
+ {
+  "n": 1000,
+  "densidad": 0.35,
+  "vias": 175301,
+  "heap_us": 56120.4,
+  "arreglo_us": 41536.3,
+  "razon": 1.351,
+  "e_teorico_cruce": 100343
+ },
+ {
+  "n": 1000,
+  "densidad": 0.5,
+  "vias": 249517,
+  "heap_us": 86484.6,
+  "arreglo_us": 69539.6,
+  "razon": 1.244,
+  "e_teorico_cruce": 100343
+ },
+ {
+  "n": 1000,
+  "densidad": 0.75,
+  "vias": 374443,
+  "heap_us": 137144.8,
+  "arreglo_us": 144690.9,
+  "razon": 0.948,
+  "e_teorico_cruce": 100343
+ },
+ {
+  "n": 1000,
+  "densidad": 1,
+  "vias": 499500,
+  "heap_us": 209443.9,
+  "arreglo_us": 368973.4,
+  "razon": 0.568,
+  "e_teorico_cruce": 100343
+ },
+ {
+  "n": 2000,
+  "densidad": 0.002,
+  "vias": 6032,
+  "heap_us": 2951.7,
+  "arreglo_us": 53354.8,
+  "razon": 0.055,
+  "e_teorico_cruce": 364771
+ },
+ {
+  "n": 2000,
+  "densidad": 0.005,
+  "vias": 12133,
+  "heap_us": 3726.2,
+  "arreglo_us": 46179.9,
+  "razon": 0.081,
+  "e_teorico_cruce": 364771
+ },
+ {
+  "n": 2000,
+  "densidad": 0.01,
+  "vias": 22018,
+  "heap_us": 4420.7,
+  "arreglo_us": 40024.6,
+  "razon": 0.11,
+  "e_teorico_cruce": 364771
+ },
+ {
+  "n": 2000,
+  "densidad": 0.02,
+  "vias": 42060,
+  "heap_us": 4255,
+  "arreglo_us": 40585.2,
+  "razon": 0.105,
+  "e_teorico_cruce": 364771
+ },
+ {
+  "n": 2000,
+  "densidad": 0.05,
+  "vias": 102108,
+  "heap_us": 13010.3,
+  "arreglo_us": 32798.7,
+  "razon": 0.397,
+  "e_teorico_cruce": 364771
+ },
+ {
+  "n": 2000,
+  "densidad": 0.1,
+  "vias": 201790,
+  "heap_us": 42035,
+  "arreglo_us": 48033.5,
+  "razon": 0.875,
+  "e_teorico_cruce": 364771
+ },
+ {
+  "n": 2000,
+  "densidad": 0.2,
+  "vias": 400939,
+  "heap_us": 109154.6,
+  "arreglo_us": 119769.4,
+  "razon": 0.911,
+  "e_teorico_cruce": 364771
+ },
+ {
+  "n": 2000,
+  "densidad": 0.35,
+  "vias": 700377,
+  "heap_us": 205456.9,
+  "arreglo_us": 213395.2,
+  "razon": 0.963,
+  "e_teorico_cruce": 364771
+ },
+ {
+  "n": 2000,
+  "densidad": 0.5,
+  "vias": 999177,
+  "heap_us": 344911.5,
+  "arreglo_us": 337231.8,
+  "razon": 1.023,
+  "e_teorico_cruce": 364771
+ }
+]
