@@ -40,7 +40,8 @@ export function buscarEstacion(red: RedTransporte, indice: TablaHash<number>, te
   const exacto = indice.obtener(q);
   if (exacto !== undefined) r.push(exacto);
   const candidatos: { i: number; p: number }[] = [];
-  const limite = Math.min(red.numEstaciones, 800);
+  // Alcanza para la red de calles reales (4429 cruces) sin trabar el teclado
+  const limite = Math.min(red.numEstaciones, 6000);
   for (let i = 0; i < limite; i++) {
     if (i === exacto) continue;
     const nombre = normalizar(red.estacion(i).nombre);

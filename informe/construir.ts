@@ -61,21 +61,21 @@ function sustituir(texto: string, d: Datos): string {
       if (!(k in d.valores)) throw new Error(`Falta el dato ${k}`);
       return d.valores[k];
     })
-    .replace(/\{\{fig:([^|}]+)\|([^}]+)\}\}/g, (_, nombres: string, leyenda: string) => {
+    // Figuras y capturas en una sola pasada, para que la numeración siga el orden del documento
+    .replace(/\{\{(fig|captura):([^|}]+)\|([^}]+)\}\}/g, (_, tipo: string, nombres: string, leyenda: string) => {
       nFig++;
+      if (tipo === 'captura') {
+        const p = `informe/figuras/capturas/${nombres.trim()}.png`;
+        if (!existsSync(p)) throw new Error(`Falta la captura ${p}`);
+        const b = readFileSync(p).toString('base64');
+        return `\n<figure class="fig"><img src="data:image/png;base64,${b}" alt="${leyenda}"><figcaption><b>Figura ${nFig}.</b> ${leyenda}</figcaption></figure>\n`;
+      }
       const svg = nombres.split(',').map((n) => {
         const p = `informe/figuras/${n.trim()}.svg`;
         if (!existsSync(p)) throw new Error(`Falta la figura ${p}`);
         return `<div class="fig-celda">${readFileSync(p, 'utf8')}</div>`;
       });
       return `\n<figure class="fig">${svg.join('')}<figcaption><b>Figura ${nFig.toString()}.</b> ${leyenda}</figcaption></figure>\n`;
-    })
-    .replace(/\{\{captura:([^|}]+)\|([^}]+)\}\}/g, (_, nombre: string, leyenda: string) => {
-      nFig++;
-      const p = `informe/figuras/capturas/${nombre}.png`;
-      if (!existsSync(p)) throw new Error(`Falta la captura ${p}`);
-      const b = readFileSync(p).toString('base64');
-      return `\n<figure class="fig"><img src="data:image/png;base64,${b}" alt="${leyenda}"><figcaption><b>Figura ${nFig}.</b> ${leyenda}</figcaption></figure>\n`;
     })
     .replace(/\{\{tabla:([^|}]+)\|([^}]+)\}\}/g, (_, nombre: string, leyenda: string) => {
       nTabla++;

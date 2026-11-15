@@ -53,7 +53,7 @@ Las dependencias van en un solo sentido: todo usa `core` y `core` no importa nad
 | `src/core/trafico` | Congestión, tabla, top-k, estadísticas, viajes, incidentes, experimento P6 |
 | `src/core/generadores` | PRNG mulberry32 y redes con semilla |
 | `src/core/instrumentacion` | Tracer, tipos de paso, medición y ajuste de curvas |
-| `src/redes` | Presets docente, fase 1 y Buenaventura |
+| `src/redes` | Presets docente, fase 1 y Buenaventura simulada; red de calles reales de OpenStreetMap (`osm.ts`) con su georreferencia |
 | `src/ui` | Componentes, vistas, tienda de estado |
 | `src/workers` | Worker del laboratorio |
 | `src/cli` | CLI de respaldo |

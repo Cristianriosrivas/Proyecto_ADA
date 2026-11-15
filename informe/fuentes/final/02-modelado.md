@@ -49,3 +49,18 @@ Las redes generadas usan el generador pseudoaleatorio mulberry32 con semilla fij
 
 Para que la prueba de escritorio dé lo mismo en cada ejecución, fijamos dos reglas. Los vecinos se recorren en el orden en que se insertaron las vías, y por eso la lista inserta por la cola. En el heap, a igual clave sale primero el índice de nodo menor.
 <!--/f1-->
+
+## Red de calles reales de Buenaventura
+
+La red simulada sirve para explicar. Para comprobar que el sistema funciona con datos de verdad, incluye también las calles reales de la zona urbana de Buenaventura, tomadas de OpenStreetMap (© colaboradores de OpenStreetMap, licencia ODbL). Dos scripts las descargan una sola vez y las convierten en una red del sistema:
+
+- Cada cruce de calles es una estación, y cada tramo de calle entre dos cruces es una vía con su largo real. Se conservan además los puntos de forma necesarios para que el tramo siga la calle con un error menor de 10 m.
+- Las calles de un solo sentido son vías dirigidas, y un tramo de doble sentido da dos vías, una por sentido. Por eso esta red es dirigida.
+- Se conserva la componente fuertemente conexa más grande, para que exista ruta entre cualquier par de estaciones.
+- El tiempo de cada vía sale de una velocidad supuesta según el tipo de calle, de 25 km/h en una calle residencial a 50 km/h en una troncal, o de la velocidad máxima cuando OpenStreetMap la trae.
+
+El resultado tiene 4.429 estaciones y 5.765 tramos, que dan 11.048 vías dirigidas. Veintinueve estaciones llevan el nombre de un lugar conocido, como el Malecón Bahía de la Cruz, el Terminal de Transportes o la Universidad del Valle Sede Pacífico. Las demás se nombran por las calles que se cruzan, por ejemplo "Calle 6 con Carrera 5".
+
+Las coordenadas usan la proyección de Mercator, escalada por $\cos \varphi_0$ en el centro de la zona. Así quedan en kilómetros reales y, a la vez, son una transformación lineal de las teselas del mapa, lo que permite dibujar la red sobre el mapa real. El largo de cada vía se mide sobre la misma proyección y se redondea hacia arriba, de modo que ninguna vía mide menos que la línea recta entre sus estaciones. Por eso la heurística euclidiana sigue siendo consistente (sección 6.3), y un test lo verifica en las 11.048 vías.
+
+{{captura:mapa-real|Ruta del Malecón Bahía de la Cruz a la Universidad del Valle Sede Pacífico sobre las calles reales y el mapa de OpenStreetMap. Datos © colaboradores de OpenStreetMap.}}

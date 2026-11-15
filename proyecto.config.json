@@ -6,6 +6,7 @@
   "periodo": "2026-2",
   "docente": "Esteban Andrés Díaz Mina",
   "fechaEntrega": "[FECHA DE ENTREGA]",
+  "urlPublica": "https://gestor-rutas-ada.cristian-david-rios.workers.dev",
   "integrantes": [
     { "nombre": "[NOMBRE 1]", "apellidos": "[APELLIDOS 1]", "codigo": "[CÓDIGO 1]" },
     { "nombre": "[NOMBRE 2]", "apellidos": "[APELLIDOS 2]", "codigo": "[CÓDIGO 2]" }

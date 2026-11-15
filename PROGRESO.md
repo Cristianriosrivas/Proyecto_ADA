@@ -18,6 +18,8 @@
 - [x] **F9** Pulido: Modo Sustentación, Ctrl+K, atajos, accesibilidad, responsive, rendimiento, build de un solo archivo.
 - [x] **F10** Informe PDF (fase 1 y final) + guía de sustentación + README + manual con capturas.
 - [x] **F11** QA final: `npm run check` en verde, revisión del cumplimiento punto por punto contra la sección 1 y la rúbrica, `npm run entrega`.
+- [x] **F12** (2026-11-14) Calles reales de Buenaventura desde OpenStreetMap: `scripts/osm-descargar.mjs` y `scripts/osm-convertir.mjs`, red dirigida de 4429 cruces (`src/redes/osm.ts`), botón de capas en el mapa (esquema, calles guardadas, mapa real con internet y vuelta automática sin conexión), exploración animada en el planificador, cierre de puentes en Tráfico, escena "Buenaventura de verdad" en la sustentación, `tests/red-osm.test.ts`, sección 2.5 y conclusión 8 del informe. `src/core` no cambió, así que las mediciones de `bench/resultados` siguen valiendo.
+- [x] **F13** (2026-11-15) Escena "Rompe la ciudad" (clic para cerrar calles o cruces, Dijkstra en vivo y la ciudad partida en dos colores), escena "Buenaventura de verdad" con Dijkstra contra A*, código QR en la primera escena (`qrcode-generator`, comprobado con `jsqr` en `tests/qr.test.ts`), `urlPublica` en `proyecto.config.json` y publicación en Cloudflare Workers desde `..\Publicar_GestorRutas`. Se corrigió que las regiones de color salían negras en el lienzo.
 
 ## Cumplimiento contra la sección 1 y la rúbrica
 
@@ -53,6 +55,14 @@
 - La cota O((V + E) lg V) de Dijkstra con heap es pesimista: en redes de metro el heap casi no crece, y en redes densas pocas relajaciones mejoran.
 - A* reduce mucho los nodos expandidos en redes geométricas y en cuadrícula, y poco en redes de metro.
 - En la noche del 6 al 7 de noviembre el equipo se suspendió en medio de `npm run bench` y alteró algunas mediciones. Esas partes se repitieron con el equipo despierto. Si se vuelve a medir, conviene dejar el portátil conectado y sin suspender.
+
+## Red de calles reales (F12)
+
+- Datos © colaboradores de OpenStreetMap, ODbL. La descarga cruda queda en `datos-osm/`, que no va al repositorio ni al .zip.
+- Proyección Mercator escalada por cos φ0: las coordenadas quedan en km reales y son lineales respecto a las teselas. Los largos se redondean hacia arriba, así que ninguna vía mide menos que la recta y A* sigue siendo consistente.
+- Con datos reales se confirma el hallazgo de la red simulada: cerrar los tramos del puente de la Calle 6 (Puente El Piñal) deja la isla incomunicada por calle. La Vía Alterna no conecta la isla.
+- La red es dirigida y cada tramo de doble sentido son dos vías. Tarjan corre sobre el grafo no dirigido subyacente y no marca como puente una calle de doble sentido, porque ve dos aristas paralelas. Por eso el cierre del puente se demuestra en Tráfico con un botón, y no con Tarjan.
+- El visualizador y el duelo siguen limitados a 1000 estaciones. En su lugar, el planificador anima la exploración con el orden de cierre.
 
 ## Decisiones de arquitectura (aprobadas)
 

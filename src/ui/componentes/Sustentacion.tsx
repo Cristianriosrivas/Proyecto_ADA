@@ -1,14 +1,18 @@
 import { aEstrella } from '@core/algoritmos/aEstrella';
+import { alcanzablesDesde } from '@core/algoritmos/conectividad';
 import { dijkstra } from '@core/algoritmos/dijkstra';
 import { generarRed } from '@core/generadores/redes';
-import type { NombreAlgoritmo } from '@core/instrumentacion/tipos';
-import { congestionPorVia } from '@core/trafico/trafico';
+import { ESTADO, type NombreAlgoritmo } from '@core/instrumentacion/tipos';
+import { bloquear, congestionPorVia } from '@core/trafico/trafico';
+import { cargarRedOSM, georreferencia } from '@redes/osm';
 import { cargarPreset } from '@redes/presets';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Construction, RotateCcw, Smartphone, X } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import config from '../../../proyecto.config.json';
 import { num, trazar } from '../datos/ejecutar';
 import { useTienda } from '../estado/tienda';
-import { Mapa } from './Mapa';
+import { CodigoQR } from './CodigoQR';
+import { Mapa, type Region } from './Mapa';
 import { useReproductor } from './Reproductor';
 
 const guardados = import.meta.glob('../../../bench/resultados/*.json', { eager: true, import: 'default' }) as Record<string, unknown>;
@@ -67,6 +71,130 @@ function DueloEscena() {
   );
 }
 
+/** Marca como cerradas las estaciones de una lista, para pintarlas como región. */
+function marcarRegion(n: number, lista: ArrayLike<number>): Uint8Array {
+  const e = new Uint8Array(n);
+  for (let i = 0; i < lista.length; i++) e[lista[i]] = ESTADO.CERRADO;
+  return e;
+}
+
+/**
+ * Las calles reales de Buenaventura: Dijkstra y A* del Malecón a la Univalle, con lo que exploró
+ * cada uno. Las cifras se calculan aquí mismo con el core, no están escritas a mano.
+ */
+function BuenaventuraReal() {
+  const red = useMemo(() => cargarRedOSM(), []);
+  const s = 0;
+  const t = red.numEstaciones - 1;
+  const d = useMemo(() => dijkstra(red, s, t, { metrica: 'km' }), [red, t]);
+  const a = useMemo(() => aEstrella(red, s, t, { metrica: 'km' }), [red, t]);
+  const regiones = useMemo<Region[]>(
+    () => [
+      { estados: marcarRegion(red.numEstaciones, d.orden), color: 'var(--frontera)' },
+      { estados: marcarRegion(red.numEstaciones, a.orden), color: 'var(--cerrado)' },
+    ],
+    [red, d, a],
+  );
+  return (
+    <div style={{ display: 'grid', gridTemplateRows: 'minmax(0,1fr) auto', gap: 10, height: '100%', minHeight: 0 }}>
+      <Mapa red={red} origen={s} destino={t} ruta={a.ruta} regiones={regiones} minimapa={false} />
+      <p style={{ fontSize: 20 }}>
+        {red.numEstaciones} cruces reales. Dijkstra exploró <b>{d.contadores.expandidos}</b> y A* <b>{a.contadores.expandidos}</b>, con el mismo costo: {num(a.costo)} km.
+      </p>
+    </div>
+  );
+}
+
+/**
+ * "Rompe la ciudad": el público elige qué cerrar y Dijkstra recalcula al instante. Un clic cierra
+ * un cruce o una calle (en sus dos sentidos). Si el origen y el destino quedan incomunicados, se
+ * pinta de un color lo que todavía se alcanza desde el origen y de otro lo que quedó aislado.
+ */
+function RompeLaCiudad() {
+  const red = useMemo(() => cargarRedOSM(), []);
+  const geo = georreferencia(red);
+  const n = red.numEstaciones;
+  const s = 0;
+  const t = n - 1;
+  const [cruces, setCruces] = useState<number[]>([]);
+  const [calles, setCalles] = useState<number[]>([]);
+  const alternar = (lista: number[], vs: number[]) => (vs.every((x) => lista.includes(x)) ? lista.filter((x) => !vs.includes(x)) : [...lista, ...vs.filter((x) => !lista.includes(x))]);
+  const conGemela = (v: number) => (geo && geo.gemela[v] >= 0 ? [v, geo.gemela[v]] : [v]);
+  const puente = geo?.puentes.find((p) => p.nombre.startsWith('Puente El Piñal'));
+  const puenteCerrado = puente !== undefined && Array.from(puente.vias).every((v) => calles.includes(v));
+
+  const base = useMemo(() => dijkstra(red, s, t, { metrica: 'km' }), [red, t]);
+  const bloqueados = useMemo(() => bloquear(red, cruces, calles), [red, cruces, calles]);
+  const r = useMemo(() => dijkstra(red, s, t, { metrica: 'km', arcosBloqueados: bloqueados }), [red, t, bloqueados]);
+  const partes = useMemo(() => {
+    if (r.alcanzado) return null;
+    const lado = alcanzablesDesde(red, s, bloqueados);
+    const deOrigen = marcarRegion(n, lado);
+    const aislado = new Uint8Array(n);
+    for (let i = 0; i < n; i++) if (deOrigen[i] === 0) aislado[i] = ESTADO.CERRADO;
+    return { regiones: [{ estados: deOrigen, color: 'var(--origen)' }, { estados: aislado, color: 'var(--critico)' }] as Region[], alcanzables: lado.length };
+  }, [red, r.alcanzado, bloqueados, n]);
+  const marcasE = useMemo(() => {
+    const m = new Uint8Array(n);
+    cruces.forEach((i) => (m[i] = 1));
+    return m;
+  }, [n, cruces]);
+  const marcasV = useMemo(() => {
+    const m = new Uint8Array(red.numVias);
+    calles.forEach((v) => (m[v] = 1));
+    return m;
+  }, [red, calles]);
+
+  const nCerrados = cruces.length + calles.filter((v) => !geo || geo.gemela[v] < 0 || geo.gemela[v] > v).length;
+  let mensaje: ReactNode;
+  if (!r.alcanzado && partes) mensaje = <>¡La ciudad quedó partida en dos! Desde el {red.estacion(s).nombre} solo se llega a <b>{partes.alcanzables}</b> de {n} cruces.</>;
+  else if (nCerrados === 0) mensaje = <>¿Qué calle cerramos? Haz clic en una calle o en un cruce. Ruta actual: <b>{num(r.costo)} km</b>.</>;
+  else mensaje = <>Dijkstra encontró otra ruta: <b>{num(r.costo)} km</b>{r.costo > base.costo + 1e-9 ? <>, {num(r.costo - base.costo)} km más que antes</> : ', igual de corta'}.</>;
+
+  return (
+    <div style={{ display: 'grid', gridTemplateRows: 'minmax(0,1fr) auto auto', gap: 10, height: '100%', minHeight: 0 }}>
+      <Mapa
+        red={red}
+        origen={s}
+        destino={t}
+        ruta={r.alcanzado ? r.ruta : undefined}
+        regiones={partes?.regiones}
+        estacionesCerradas={marcasE}
+        viasCerradas={marcasV}
+        alClicEstacion={(i) => i !== s && i !== t && setCruces((c) => alternar(c, [i]))}
+        alClicVia={(v) => setCalles((c) => alternar(c, conGemela(v)))}
+        minimapa={false}
+      />
+      <p style={{ fontSize: 20, margin: 0 }} aria-live="polite">{mensaje}</p>
+      <div className="fila">
+        {puente && (
+          <button className={`boton ${puenteCerrado ? 'activo' : ''}`} aria-pressed={puenteCerrado} onClick={() => setCalles((c) => alternar(c, Array.from(puente.vias)))}>
+            <Construction size={16} />
+            {puenteCerrado ? 'Reabrir el Puente El Piñal' : 'Cerrar el Puente El Piñal'}
+          </button>
+        )}
+        <button className="boton" onClick={() => { setCruces([]); setCalles([]); }} disabled={nCerrados === 0}><RotateCcw size={16} />Reabrir todo</button>
+      </div>
+    </div>
+  );
+}
+
+/** Primera escena: el público abre la misma aplicación en su celular mientras se expone. */
+function PruebaloEnTuCelular() {
+  const url = (config as { urlPublica?: string }).urlPublica;
+  if (!url) return null;
+  return (
+    <div className="qr-escena">
+      <CodigoQR texto={url} tamano={190} />
+      <div>
+        <p className="qr-titulo"><Smartphone size={22} />Pruébalo en tu celular</p>
+        <p>Escanea el código y busca tu propia ruta por las calles de Buenaventura mientras exponemos.</p>
+        <p className="mono qr-url">{url.replace(/^https:\/\//, '')}</p>
+      </div>
+    </div>
+  );
+}
+
 function TraficoEscena() {
   const red = useMemo(() => cargarPreset('buenaventura'), []);
   const calor = useMemo(() => congestionPorVia(red, 7), [red]);
@@ -85,7 +213,11 @@ function Cifras() {
         <thead><tr><th>Algoritmo</th><th>R² del ajuste, red geométrica</th></tr></thead>
         <tbody>{ajustes?.filter((a) => a.tipo === 'geometrica').map((a) => <tr key={a.algoritmo}><td>{a.algoritmo}</td><td>{a.r2.toFixed(3)}</td></tr>)}</tbody>
       </table>
-      {cruce && <p>Punto de cruce heap–arreglo con N = {cruce[cruce.length - 1].n}: {String(cruce[cruce.length - 1].vias_cruce || 'no se alcanzó')} vías.</p>}
+      {cruce && (
+        <p>
+          Punto de cruce heap–arreglo con N = {cruce[cruce.length - 1].n}: {cruce[cruce.length - 1].vias_cruce ? `${String(cruce[cruce.length - 1].vias_cruce)} vías` : 'no se alcanzó en las redes medidas'}.
+        </p>
+      )}
     </div>
   );
 }
@@ -94,6 +226,8 @@ interface Escena {
   titulo: string;
   puntos: string[];
   visual: ReactNode;
+  /** Algo más bajo los puntos, como el código QR de la primera escena. */
+  extra?: ReactNode;
 }
 
 const ESCENAS: Escena[] = [
@@ -101,6 +235,7 @@ const ESCENAS: Escena[] = [
     titulo: 'El problema',
     puntos: ['Una red de transporte es un grafo G = (V, E): estaciones y vías.', 'Preguntas distintas piden algoritmos distintos: menos trasbordos, menor costo, rutas alternas.', 'Todo está hecho con estructuras propias, sin librerías de grafos.'],
     visual: <TraficoEscena />,
+    extra: <PruebaloEnTuCelular />,
   },
   {
     titulo: 'Red docente: 8 estaciones, 11 vías',
@@ -136,6 +271,16 @@ const ESCENAS: Escena[] = [
     titulo: 'Tráfico',
     puntos: ['Peso efectivo = base × (1 + congestión).', 'Tabla ordenable con MergeSort, QuickSort y HeapSort propios.', 'Cola de prioridad indexada: O(lg n) por actualización.'],
     visual: <TraficoEscena />,
+  },
+  {
+    titulo: 'Buenaventura de verdad',
+    puntos: ['Las calles reales, tomadas de OpenStreetMap: cada cruce es una estación y las calles de un solo sentido son vías dirigidas.', 'El mismo código de la red docente, ahora con miles de cruces.', 'Azul: lo que exploró Dijkstra. Naranja: lo que exploró A*. Mismo costo, menos trabajo.', 'El botón de capas pone la red sobre el mapa real.'],
+    visual: <BuenaventuraReal />,
+  },
+  {
+    titulo: 'Rompe la ciudad',
+    puntos: ['¿Qué calle cerramos? Un clic en una calle o en un cruce la cierra.', 'Dijkstra recalcula la ruta al instante, con el mismo código de siempre.', 'Si se cae el Puente El Piñal, la isla queda incomunicada: la ciudad se parte en dos.', 'En la red simulada, Tarjan ya marcaba ese paso como vía crítica.'],
+    visual: <RompeLaCiudad />,
   },
   {
     titulo: 'Laboratorio',
@@ -181,7 +326,10 @@ export function Sustentacion() {
         <button className="boton icono" aria-label="Salir del modo sustentación" onClick={() => cerrar(false)}><X size={18} /></button>
       </div>
       <div className="escena">
-        <ul>{e.puntos.map((p) => <li key={p}>{p}</li>)}</ul>
+        <div className="escena-texto">
+          <ul>{e.puntos.map((p) => <li key={p}>{p}</li>)}</ul>
+          {e.extra}
+        </div>
         <div key={i} style={{ minHeight: 0, minWidth: 0 }}>{e.visual}</div>
       </div>
       <div className="fila" style={{ justifyContent: 'space-between' }}>

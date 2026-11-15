@@ -1,6 +1,7 @@
-import type { NombreAlgoritmo } from '@core/instrumentacion/tipos';
-import { Play, Route } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { ESTADO, type NombreAlgoritmo } from '@core/instrumentacion/tipos';
+import { georreferencia } from '@redes/osm';
+import { Play, RotateCcw, Route } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
 import { BuscadorEstacion } from '../componentes/Buscador';
 import { LeyendaMapa, Mapa } from '../componentes/Mapa';
 import { COMPLEJIDAD, correr, ESTRUCTURA, NOMBRE_ALGORITMO, num, rutaTexto, type ResultadoVista } from '../datos/ejecutar';
@@ -29,6 +30,38 @@ export function Planificador() {
 
   useEffect(() => setRes(null), [versionRed, metrica, origen, destino, algoritmo]);
 
+  // En la red de calles reales la exploración se anima sobre el mapa: las estaciones se pintan en
+  // el orden en que el algoritmo las cerró y la ruta aparece al final. Son los mismos datos del
+  // resultado, solo que mostrados en el tiempo. El visualizador paso a paso no admite redes tan grandes.
+  const animar = georreferencia(red) !== undefined;
+  const [vuelta, setVuelta] = useState(0);
+  const [cerradas, setCerradas] = useState(Infinity);
+  useEffect(() => {
+    if (!res || !animar) {
+      setCerradas(Infinity);
+      return undefined;
+    }
+    const total = res.orden.length;
+    const duracion = Math.min(2600, 600 + total * 0.7);
+    const inicio = performance.now();
+    let marco = 0;
+    const paso = (t: number) => {
+      const f = Math.min(1, (t - inicio) / duracion);
+      setCerradas(f >= 1 ? Infinity : Math.floor(total * f));
+      if (f < 1) marco = requestAnimationFrame(paso);
+    };
+    marco = requestAnimationFrame(paso);
+    return () => cancelAnimationFrame(marco);
+  }, [res, animar, vuelta]);
+  const animando = res !== null && animar && cerradas !== Infinity;
+  const estadosVisibles = useMemo(() => {
+    if (!res || !animando) return res?.estados;
+    const e = new Uint8Array(red.numEstaciones);
+    for (let i = 0; i < cerradas && i < res.orden.length; i++) e[res.orden[i]] = ESTADO.CERRADO;
+    if (cerradas < res.orden.length) e[res.orden[cerradas]] = ESTADO.FRONTERA;
+    return e;
+  }, [res, animando, cerradas, red]);
+
   const calcular = () => setRes(correr(red, algoritmo, origen, destino, { metrica }));
 
   const clicEstacion = (i: number) => {
@@ -52,7 +85,7 @@ export function Planificador() {
         <span className="etiqueta">Siguiente clic en el mapa: {turno}</span>
       </div>
       <div style={{ minHeight: 0 }}>
-        <Mapa red={red} origen={origen} destino={destino} estados={res?.estados} ruta={res?.ruta} vehiculos alClicEstacion={clicEstacion} />
+        <Mapa red={red} origen={origen} destino={destino} estados={estadosVisibles} ruta={animando ? undefined : res?.ruta} vehiculos alClicEstacion={clicEstacion} />
       </div>
       <div className="panel" style={{ display: 'flex', flexDirection: 'column', gap: 10, overflow: 'auto' }}>
         <h3 style={{ marginBottom: 0 }}>Resultado</h3>
@@ -77,7 +110,11 @@ export function Planificador() {
             </div>
             {res.algoritmo === 'dfs' && <p style={{ color: 'var(--texto-3)', fontSize: 12 }}>DFS halla una ruta, no necesariamente la mejor. Las alternativas están en el Explorador DFS.</p>}
             {res.algoritmo === 'bfs' && <p style={{ color: 'var(--texto-3)', fontSize: 12 }}>BFS minimiza saltos e ignora los pesos.</p>}
-            <button className="boton" onClick={() => irA('visualizador')}><Play size={15} />Ver paso a paso</button>
+            {animar ? (
+              <button className="boton" onClick={() => setVuelta((v) => v + 1)} disabled={animando}><RotateCcw size={15} />Repetir la exploración</button>
+            ) : (
+              <button className="boton" onClick={() => irA('visualizador')}><Play size={15} />Ver paso a paso</button>
+            )}
           </>
         )}
       </div>

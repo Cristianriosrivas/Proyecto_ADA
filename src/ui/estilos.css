@@ -34,6 +34,10 @@ html[data-tema='oscuro'] {
   --s3: #b794f6;
   --s4: #34d399;
   --s5: #e23741;
+  --calle: #2b5a6a;
+  --agua: #0f3f56;
+  --costa: #3aa0c8;
+  --manglar: #12392d;
   color-scheme: dark;
 }
 html[data-tema='claro'] {
@@ -61,6 +65,10 @@ html[data-tema='claro'] {
   --s3: #6d3fc4;
   --s4: #0f8a5f;
   --s5: #b5121b;
+  --calle: #ffffff;
+  --agua: #b7d8e6;
+  --costa: #5b9fbf;
+  --manglar: #d2e4c6;
   color-scheme: light;
 }
 
@@ -518,6 +526,109 @@ table.tabla {
   border-radius: 5px;
   opacity: 0.92;
 }
+/* ---------- Fondos del mapa: calles guardadas y mapa real ---------- */
+.mapa .teselas,
+.mapa svg.fondo-calles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+.mapa .teselas img {
+  position: absolute;
+  max-width: none;
+  user-select: none;
+}
+/* En el tema oscuro el mapa real se invierte para no encandilar en el proyector */
+html[data-tema='oscuro'] .mapa .teselas img {
+  filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.88) saturate(0.7);
+}
+.mapa svg.fondo-calles .agua {
+  fill: var(--agua);
+  stroke: none;
+}
+.mapa svg.fondo-calles .manglar {
+  fill: var(--manglar);
+  stroke: none;
+}
+.mapa svg.fondo-calles .costa {
+  fill: none;
+  stroke: var(--costa);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+}
+.mapa .capas {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  z-index: 3;
+}
+.mapa .capas > .boton {
+  background: var(--superficie);
+  box-shadow: var(--sombra);
+}
+.mapa .menu-capas {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 270px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: var(--sombra);
+}
+.mapa .opcion-capa {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: none;
+  color: var(--texto);
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+.mapa .opcion-capa:hover {
+  background: var(--superficie-2);
+}
+.mapa .opcion-capa.activo {
+  border-color: var(--frontera);
+  background: var(--superficie-2);
+}
+.mapa .opcion-capa svg {
+  flex: none;
+  margin-top: 2px;
+}
+.mapa .opcion-capa b {
+  display: block;
+  font-size: 13px;
+}
+.mapa .opcion-capa small {
+  display: block;
+  font-size: 11.5px;
+  color: var(--texto-2);
+  line-height: 1.35;
+}
+.mapa .atribucion {
+  position: absolute;
+  bottom: 8px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10.5px;
+  color: var(--texto-2);
+  background: color-mix(in srgb, var(--fondo) 82%, transparent);
+  z-index: 2;
+}
+.mapa .atribucion a {
+  color: inherit;
+}
+
 .leyenda {
   display: flex;
   flex-wrap: wrap;
@@ -740,6 +851,45 @@ table.tabla {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+.escena-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-height: 0;
+  overflow: auto;
+}
+/* Tarjeta "Pruébalo en tu celular" de la primera escena */
+.qr-escena {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px;
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  background: var(--superficie);
+}
+.qr-escena .codigo-qr {
+  flex: none;
+  border-radius: 6px;
+}
+.qr-escena p {
+  margin: 0 0 6px;
+  font-size: 17px;
+  color: var(--texto-2);
+}
+.qr-escena .qr-titulo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--texto);
+}
+.qr-escena .qr-url {
+  font-size: 14px;
+  color: var(--frontera);
+  word-break: break-all;
 }
 
 /* ---------- Inicio ---------- */

@@ -16,7 +16,7 @@ Todas las cifras de este documento salen de los archivos que genera `npm run ben
 
 La movilidad urbana es uno de los mayores desafíos logísticos de las ciudades. La congestión, los trayectos mal trazados y la falta de información en tiempo real afectan la calidad de vida de los usuarios y sobrecargan la infraestructura.
 
-En Buenaventura el problema tiene una forma particular. La zona de la isla Cascajal se comunica con la zona continental por un punto muy concentrado, y el eje de la Avenida Simón Bolívar reúne buena parte del tránsito hacia el oriente. Eso hace que la pregunta "¿qué pasa si falla esta vía?" sea concreta y no académica. Nuestra red simulada de Buenaventura lo muestra: el análisis de puntos críticos señala justo el paso entre la isla y el continente como la conexión cuya caída parte la red en dos. Es una red simulada con fines académicos, con coordenadas aproximadas.
+En Buenaventura el problema tiene una forma particular. La zona de la isla Cascajal se comunica con la zona continental por un punto muy concentrado, y el eje de la Avenida Simón Bolívar reúne buena parte del tránsito hacia el oriente. Eso hace que la pregunta "¿qué pasa si falla esta vía?" sea concreta y no académica. Nuestra red simulada de Buenaventura lo muestra: el análisis de puntos críticos señala justo el paso entre la isla y el continente como la conexión cuya caída parte la red en dos. Es una red simulada con fines académicos, con coordenadas aproximadas. Con las calles reales de OpenStreetMap (sección 2.5) el resultado se confirma: si se cierran los tramos del Puente El Piñal, la isla queda incomunicada por calle.
 
 Los grafos son el modelo natural para este tipo de red, y cada pregunta del usuario pide un algoritmo distinto:
 

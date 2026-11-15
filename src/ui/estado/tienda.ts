@@ -6,6 +6,8 @@ import { entradaCatalogo } from '../datos/catalogo';
 
 export type Vista = 'inicio' | 'planificador' | 'visualizador' | 'escritorio' | 'explorador' | 'duelo' | 'trafico' | 'laboratorio' | 'teoria' | 'editor';
 export type Tema = 'oscuro' | 'claro';
+/** Fondo del mapa en las redes con coordenadas reales: esquema, calles guardadas o mapa real. */
+export type FondoMapa = 'esquema' | 'calles' | 'real';
 
 export interface Aviso {
   id: number;
@@ -16,6 +18,7 @@ export interface Aviso {
 interface Estado {
   vista: Vista;
   tema: Tema;
+  fondo: FondoMapa;
   redId: string;
   red: RedTransporte;
   /** Cambia cada vez que se reemplaza la red, para que las vistas reinicien sus resultados. */
@@ -29,6 +32,7 @@ interface Estado {
   paleta: boolean;
   irA: (v: Vista) => void;
   alternarTema: () => void;
+  elegirFondo: (f: FondoMapa) => void;
   elegirRed: (id: string) => void;
   usarRed: (red: RedTransporte, id?: string) => void;
   elegirMetrica: (m: Metrica) => void;
@@ -51,6 +55,16 @@ function temaGuardado(): Tema {
   }
 }
 
+/** Por defecto, las calles guardadas: funcionan sin internet. El mapa real se elige a mano. */
+function fondoGuardado(): FondoMapa {
+  try {
+    const f = localStorage.getItem('gestor-fondo');
+    return f === 'esquema' || f === 'real' ? f : 'calles';
+  } catch {
+    return 'calles';
+  }
+}
+
 /** Origen y destino por defecto: los extremos de la red, para que el primer cálculo diga algo. */
 function extremos(red: RedTransporte): { origen: number; destino: number } {
   return { origen: 0, destino: Math.max(red.numEstaciones - 1, 0) };
@@ -59,6 +73,7 @@ function extremos(red: RedTransporte): { origen: number; destino: number } {
 export const useTienda = create<Estado>((set, get) => ({
   vista: 'inicio',
   tema: temaGuardado(),
+  fondo: fondoGuardado(),
   redId: 'docente',
   red: inicial,
   versionRed: 1,
@@ -77,6 +92,14 @@ export const useTienda = create<Estado>((set, get) => ({
       /* sin almacenamiento: el tema dura hasta recargar */
     }
     set({ tema });
+  },
+  elegirFondo: (fondo) => {
+    try {
+      localStorage.setItem('gestor-fondo', fondo);
+    } catch {
+      /* sin almacenamiento: la elección dura hasta recargar */
+    }
+    set({ fondo });
   },
   elegirRed: (id) => {
     const red = entradaCatalogo(id).crear();

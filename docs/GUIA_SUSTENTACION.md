@@ -21,6 +21,37 @@
 | 4:15 | **Laboratorio** | "Aquí están los contadores y las curvas. El ciclo interno de BFS da exactamente 2|E|." |
 | 4:45 | Escena Conclusiones | "Los datos respaldan cada conclusión del informe." |
 
+### "Pruébalo en tu celular" (al empezar)
+
+La primera escena del Modo Sustentación trae un código QR que abre la aplicación publicada en https://gestor-rutas-ada.cristian-david-rios.workers.dev.
+
+1. Al abrir la sustentación, quédate unos 20 segundos en la primera escena y di: *"Si quieren, escaneen el código: es esta misma aplicación y pueden buscar su propia ruta mientras exponemos."*
+2. Recomienda la red **Buenaventura, calles reales** y el fondo **Mapa real**, el botón de capas arriba a la izquierda del mapa.
+3. El público necesita datos móviles. La demostración de ustedes no depende de eso: el archivo `GestorRutas.html` funciona sin internet.
+
+### "Rompe la ciudad" en vivo (2 a 3 minutos)
+
+Es el momento para el público: ellos deciden qué se cierra y la aplicación responde al instante. Está en la escena **Rompe la ciudad** del Modo Sustentación, después de **Buenaventura de verdad**.
+
+| Qué hacer | Qué decir |
+|---|---|
+| Escena **Buenaventura de verdad** | "Estas son las calles reales de Buenaventura, tomadas de OpenStreetMap: 4429 cruces. Es el mismo código de la red de 8 estaciones. En azul lo que exploró Dijkstra y en naranja lo que exploró A*: mismo costo, menos trabajo." |
+| Pasa a **Rompe la ciudad** y pregunta al público | "¿Qué calle cerramos? Díganme una." |
+| Haz clic en la calle o el cruce que digan (acerca el mapa con la rueda si hace falta) | "Dijkstra recalcula al instante. Miren: otra ruta, y tantos kilómetros más." |
+| Pulsa **Cerrar el Puente El Piñal** | "¿Y si se cae el puente? La ciudad se parte en dos: en verde lo que todavía se alcanza desde el Malecón, en rojo lo que quedó aislado." |
+| Pulsa **Reabrir todo** | "La red simulada ya lo decía: Tarjan marca ese paso como vía crítica. Con datos reales se confirma." |
+
+Para mostrarlo con Tarjan, sal con `Esc`, elige la **Red Buenaventura (34)** y abre el **Explorador DFS**: las estaciones y vías críticas salen marcadas en rojo. En la red de calles reales Tarjan no lo marca, porque cada carril de la Calle 6 es una vía aparte y hay dos caminos paralelos; por eso ahí el corte se demuestra cerrando el puente.
+
+Si hay internet, elige antes **Mapa real** en el botón de capas; si no, las **Calles** guardadas se ven igual de bien. Lo mismo se puede hacer fuera de la sustentación: **Planificador** para ver la exploración animada y **Tráfico** → **Cerrar Puente El Piñal (Calle 6)**.
+
+Preguntas que pueden salir:
+
+- **¿Los datos son reales?** Sí, de OpenStreetMap, un mapa abierto que hace la comunidad. Se descargaron una vez y quedaron guardados en el proyecto; por eso funciona sin internet.
+- **¿Por qué la red es dirigida?** Porque hay calles de un solo sentido. Una calle de doble sentido da dos vías, una por sentido.
+- **¿Sigue siendo válida la heurística?** Sí: el largo de cada vía se mide sobre la calle y nunca es menor que la línea recta. Un test lo revisa en las 11.048 vías.
+- **¿Por qué no hay visualizador paso a paso aquí?** Porque guarda una foto por paso, y con 4429 cruces serían cientos de megabytes. Por eso el planificador anima la exploración con el orden en que el algoritmo cerró cada cruce.
+
 Si el proyector falla:
 
 ```bash
@@ -165,3 +196,5 @@ Ruta: **A → C → B → D → E → F → G → H, 16 km**. Expande los 8 nodo
 | Prototipo funcional | `src/ui/vistas/Planificador.tsx` | `scripts/capturas.mjs` |
 | Laboratorio | `src/ui/vistas/Laboratorio.tsx`, `src/workers/` | `scripts/capturas.mjs` |
 | Mediciones del informe | `bench/ejecutar.ts` | `bench/resultados/` |
+| Red de calles reales (OpenStreetMap) | `src/redes/osm.ts`, `scripts/osm-convertir.mjs` | `tests/red-osm.test.ts` |
+| Mapa real y calles guardadas | `src/ui/componentes/Mapa.tsx` | `scripts/capturas.mjs` |

@@ -1,8 +1,10 @@
 import { KDTree } from '@core/estructuras/KDTree';
 import type { RedTransporte } from '@core/grafo/RedTransporte';
 import { ESTADO } from '@core/instrumentacion/tipos';
-import { Maximize, Minus, Plus } from 'lucide-react';
-import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type PointerEvent as PE, type WheelEvent as WE } from 'react';
+import { georreferencia, kmAPixelMundo, metrosPorPixel, type Georreferencia } from '@redes/osm';
+import { Globe, Layers, Map as IconoMapa, Maximize, Minus, Plus, Waypoints } from 'lucide-react';
+import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type PointerEvent as PE, type ReactNode, type WheelEvent as WE } from 'react';
+import { useTienda, type FondoMapa } from '../estado/tienda';
 
 export interface Region {
   estados: Uint8Array;
@@ -48,6 +50,12 @@ const LIMITE_SVG = 300;
 
 function leerToken(nombre: string): string {
   return getComputedStyle(document.documentElement).getPropertyValue(nombre).trim();
+}
+
+/** El lienzo no entiende `var(--token)`: se traduce al color real del tema antes de pintar. */
+function colorLienzo(c: string): string {
+  const m = /^var\((--[\w-]+)\)$/.exec(c.trim());
+  return m ? leerToken(m[1]) || '#888888' : c;
 }
 
 function colorCalor(c: number): string {
@@ -137,12 +145,36 @@ function Leyenda() {
 
 export const LeyendaMapa = memo(Leyenda);
 
+const OPCIONES_FONDO: { id: FondoMapa; nombre: string; detalle: string; icono: ReactNode }[] = [
+  { id: 'esquema', nombre: 'Esquema', detalle: 'Solo la red, como un plano de metro', icono: <Waypoints size={16} /> },
+  { id: 'calles', nombre: 'Calles', detalle: 'Calles y costa guardadas. Funciona sin internet', icono: <IconoMapa size={16} /> },
+  { id: 'real', nombre: 'Mapa real', detalle: 'OpenStreetMap, como un mapa de internet. Necesita conexión', icono: <Globe size={16} /> },
+];
+
 export function Mapa(p: PropsMapa) {
   const { red } = p;
   const caja = useRef<HTMLDivElement>(null);
   const [tam, setTam] = useState({ w: 640, h: 420 });
   const [vista, setVista] = useState<Vista>({ k: 1, tx: 0, ty: 0 });
   const n = red.numEstaciones;
+
+  // Fondo: solo las redes con coordenadas reales pueden ponerse sobre calles o sobre el mapa real
+  const geo = georreferencia(red);
+  const fondoElegido = useTienda((e) => e.fondo);
+  const elegirFondo = useTienda((e) => e.elegirFondo);
+  const avisar = useTienda((e) => e.avisar);
+  const [sinConexion, setSinConexion] = useState(false);
+  const [menuCapas, setMenuCapas] = useState(false);
+  const modo: FondoMapa = !geo ? 'esquema' : fondoElegido === 'real' && sinConexion ? 'calles' : fondoElegido;
+  useEffect(() => {
+    const volver = () => setSinConexion(false);
+    window.addEventListener('online', volver);
+    return () => window.removeEventListener('online', volver);
+  }, []);
+  const alFallarTeselas = useCallback(() => {
+    setSinConexion(true);
+    avisar('Sin internet: el mapa real no cargó y se muestran las calles guardadas', 'info');
+  }, [avisar]);
 
   const limites = useMemo(() => {
     let minX = Infinity;
@@ -272,17 +304,139 @@ export function Mapa(p: PropsMapa) {
     return base;
   }, [vista.k]);
 
+  const conMinimapa = p.minimapa !== false && tam.w > 420;
+  const opcion = OPCIONES_FONDO.find((o) => o.id === modo) ?? OPCIONES_FONDO[0];
+
   return (
-    <div ref={caja} className="mapa" role="application" aria-label={p.etiquetaAria ?? `Mapa de ${red.nombre}`}>
-      {n <= LIMITE_SVG ? <CapaSvg {...p} tam={tam} vista={vista} X={X} Y={Y} lienzo={propsLienzo} escalaKm={escalaKm} /> : <CapaCanvas {...p} tam={tam} vista={vista} X={X} Y={Y} lienzo={propsLienzo} />}
+    <div ref={caja} className={`mapa fondo-${modo}`} role="application" aria-label={p.etiquetaAria ?? `Mapa de ${red.nombre}`}>
+      {geo && modo === 'real' && <Teselas geo={geo} vista={vista} tam={tam} alFallar={alFallarTeselas} />}
+      {geo && modo === 'calles' && <FondoCalles geo={geo} vista={vista} tam={tam} />}
+      {n <= LIMITE_SVG ? <CapaSvg {...p} tam={tam} vista={vista} X={X} Y={Y} lienzo={propsLienzo} escalaKm={escalaKm} /> : <CapaCanvas {...p} tam={tam} vista={vista} X={X} Y={Y} lienzo={propsLienzo} modo={modo} geo={geo} />}
       <div className="controles no-imprimir">
         <button className="boton icono" aria-label="Acercar" onClick={() => zoom(1.3, tam.w / 2, tam.h / 2)}><Plus size={15} /></button>
         <button className="boton icono" aria-label="Alejar" onClick={() => zoom(1 / 1.3, tam.w / 2, tam.h / 2)}><Minus size={15} /></button>
         <button className="boton icono" aria-label="Encuadrar la red" onClick={() => setVista(encuadre())}><Maximize size={15} /></button>
       </div>
+      {geo && (
+        <div className="capas no-imprimir">
+          <button className="boton" aria-haspopup="true" aria-expanded={menuCapas} aria-label={`Fondo del mapa: ${opcion.nombre}`} onClick={() => setMenuCapas((a) => !a)}>
+            <Layers size={15} />
+            {opcion.nombre}
+            {fondoElegido === 'real' && sinConexion && <span className="etiqueta mal">sin internet</span>}
+          </button>
+          {menuCapas && (
+            <div className="panel menu-capas" role="radiogroup" aria-label="Fondo del mapa">
+              {OPCIONES_FONDO.map((o) => (
+                <button
+                  key={o.id}
+                  role="radio"
+                  aria-checked={fondoElegido === o.id}
+                  className={`opcion-capa ${fondoElegido === o.id ? 'activo' : ''}`}
+                  onClick={() => {
+                    elegirFondo(o.id);
+                    setSinConexion(false);
+                    setMenuCapas(false);
+                  }}
+                >
+                  {o.icono}
+                  <span>
+                    <b>{o.nombre}</b>
+                    <small>{o.detalle}</small>
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
       <div className="escala" aria-hidden="true"><i style={{ width: escalaKm * vista.k }} />{escalaKm} km</div>
-      {p.minimapa !== false && tam.w > 420 && <Minimapa red={red} vista={vista} tam={tam} limites={limites} ruta={p.ruta} />}
+      {geo && modo !== 'esquema' && (
+        <div className="atribucion" style={{ right: conMinimapa ? 128 : 8 }}>
+          © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">colaboradores de OpenStreetMap</a>
+        </div>
+      )}
+      {conMinimapa && <Minimapa red={red} vista={vista} tam={tam} limites={limites} ruta={p.ruta} />}
     </div>
+  );
+}
+
+/**
+ * Mapa real de OpenStreetMap (teselas raster de 256 px, proyección Web Mercator).
+ *
+ * Las coordenadas de la red real están en la misma proyección, escalada por cos φ0, así que pasar
+ * de km a píxeles de tesela es una transformación lineal: x_pantalla = tx + s · (px − px0), con
+ * s = k · (metros por píxel) / 1000. Se elige el zoom z cuyo s quede más cerca de 1.
+ * Si las teselas no cargan (sin internet), avisa una vez para mostrar las calles guardadas.
+ */
+function Teselas({ geo, vista, tam, alFallar }: { geo: Georreferencia; vista: Vista; tam: { w: number; h: number }; alFallar: () => void }) {
+  const cuenta = useRef({ cargadas: 0, fallidas: 0, avisado: false });
+  const z = Math.max(3, Math.min(19, Math.round(Math.log2((vista.k * metrosPorPixel(geo, 0)) / 1000))));
+  const s = (vista.k * metrosPorPixel(geo, z)) / 1000;
+  const o = kmAPixelMundo(geo, 0, 0, z);
+  const px0 = o.px - vista.tx / s;
+  const py0 = o.py - vista.ty / s;
+  const i0 = Math.floor(px0 / 256);
+  const i1 = Math.floor((px0 + tam.w / s) / 256);
+  const j0 = Math.floor(py0 / 256);
+  const j1 = Math.floor((py0 + tam.h / s) / 256);
+  const max = 2 ** z;
+  const teselas: { clave: string; url: string; x: number; y: number }[] = [];
+  for (let j = Math.max(0, j0); j <= Math.min(max - 1, j1) && teselas.length < 80; j++) {
+    for (let i = i0; i <= i1 && teselas.length < 80; i++) {
+      const ii = ((i % max) + max) % max;
+      teselas.push({ clave: `${z}/${i}/${j}`, url: `https://tile.openstreetmap.org/${z}/${ii}/${j}.png`, x: vista.tx + s * (i * 256 - o.px), y: vista.ty + s * (j * 256 - o.py) });
+    }
+  }
+  const lado = 256 * s;
+  const fallo = () => {
+    const c = cuenta.current;
+    c.fallidas++;
+    if (!c.avisado && c.cargadas === 0 && c.fallidas >= 3) {
+      c.avisado = true;
+      alFallar();
+    }
+  };
+  return (
+    <div className="teselas" aria-hidden="true">
+      {teselas.map((t) => (
+        <img
+          key={t.clave}
+          src={t.url}
+          alt=""
+          draggable={false}
+          onLoad={() => (cuenta.current.cargadas += 1)}
+          onError={fallo}
+          style={{ left: Math.floor(t.x), top: Math.floor(t.y), width: Math.ceil(lado) + 1, height: Math.ceil(lado) + 1 }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function polilineasComoPath(lista: Float64Array[], cerrar: boolean): string {
+  let d = '';
+  for (const p of lista) {
+    for (let i = 0; i < p.length; i += 2) d += `${i === 0 ? 'M' : 'L'}${p[i].toFixed(4)} ${p[i + 1].toFixed(4)}`;
+    if (cerrar) d += 'Z';
+  }
+  return d;
+}
+
+/** Fondo sin internet: costa, agua y manglar descargados de OpenStreetMap, en km. */
+function FondoCalles({ geo, vista, tam }: { geo: Georreferencia; vista: Vista; tam: { w: number; h: number } }) {
+  const d = useMemo(
+    () => ({ costa: polilineasComoPath(geo.fondo.costa, false), agua: polilineasComoPath(geo.fondo.agua, true), manglar: polilineasComoPath(geo.fondo.manglar, true) }),
+    [geo],
+  );
+  // Una sola transformación: el navegador escala los caminos sin recalcularlos en cada arrastre
+  return (
+    <svg className="fondo-calles" viewBox={`0 0 ${tam.w} ${tam.h}`} aria-hidden="true">
+      <g transform={`matrix(${vista.k} 0 0 ${-vista.k} ${vista.tx} ${vista.ty})`}>
+        <path d={d.manglar} className="manglar" />
+        <path d={d.agua} className="agua" />
+        <path d={d.costa} className="costa" vectorEffect="non-scaling-stroke" />
+      </g>
+    </svg>
   );
 }
 
@@ -462,10 +616,15 @@ function Vehiculos({ d, clave }: { d: string; clave: string }) {
   );
 }
 
+/** Grosor de la calle en el fondo de calles, según su importancia (0 = andén … 5 = troncal). */
+const GROSOR_CALLE = [1.2, 1.6, 2.4, 3.2, 4.2, 5.4];
+
 /** Lienzo para redes grandes: dibujar miles de nodos en SVG congelaría la interfaz. */
-function CapaCanvas(p: PropsCapa) {
-  const { red, tam, vista, X, Y, estados, ruta, origen, destino, calor, regiones, lienzo } = p;
+function CapaCanvas(p: PropsCapa & { modo: FondoMapa; geo?: Georreferencia }) {
+  const { red, tam, vista, X, Y, estados, ruta, origen, destino, calor, regiones, lienzo, modo, geo, viasCerradas, estacionesCerradas } = p;
   const ref = useRef<HTMLCanvasElement>(null);
+  // El lienzo lee los colores del tema al dibujar: hay que redibujar cuando el tema cambia
+  const tema = useTienda((e) => e.tema);
 
   useEffect(() => {
     const c = ref.current;
@@ -484,10 +643,18 @@ function CapaCanvas(p: PropsCapa) {
       ce: leerToken('--cerrado'),
       or: leerToken('--origen'),
       de: leerToken('--destino'),
+      calle: leerToken('--calle'),
+      halo: leerToken('--halo'),
+      texto: leerToken('--texto'),
+      critico: leerToken('--critico'),
     };
+    if (geo && modo !== 'esquema') {
+      dibujarSobreMapa(g, { red, geo, modo, vista, X, Y, estados, ruta, origen, destino, calor, regiones, viasCerradas, estacionesCerradas, col, real: modo === 'real' });
+      return;
+    }
     regiones?.forEach((reg) => {
       g.globalAlpha = 0.16;
-      g.fillStyle = reg.color;
+      g.fillStyle = colorLienzo(reg.color);
       for (let i = 0; i < n; i++) {
         if (reg.estados[i] === ESTADO.CERRADO || reg.estados[i] === ESTADO.RUTA) {
           g.beginPath();
@@ -544,9 +711,208 @@ function CapaCanvas(p: PropsCapa) {
       g.arc(X(destino), Y(destino), 6, 0, 6.3);
       g.fill();
     }
-  }, [red, tam, vista, X, Y, estados, ruta, origen, destino, calor, regiones]);
+    dibujarCierres(g, red, X, Y, viasCerradas, estacionesCerradas, col.critico, col.halo);
+  }, [red, tam, vista, X, Y, estados, ruta, origen, destino, calor, regiones, modo, geo, viasCerradas, estacionesCerradas, tema]);
 
   return <canvas ref={ref} className="lienzo" {...lienzo} />;
+}
+
+interface Colores {
+  via: string;
+  ruta: string;
+  fr: string;
+  ce: string;
+  or: string;
+  de: string;
+  calle: string;
+  halo: string;
+  texto: string;
+  critico: string;
+}
+
+/** Vías y estaciones cerradas por un incidente: raya roja y una equis, visibles en cualquier fondo. */
+function dibujarCierres(g: CanvasRenderingContext2D, red: RedTransporte, X: (i: number) => number, Y: (i: number) => number, viasCerradas: Uint8Array | undefined, estacionesCerradas: Uint8Array | undefined, critico: string, halo: string) {
+  if (viasCerradas) {
+    g.lineCap = 'round';
+    const capas: { ancho: number; color: string; raya: number[] }[] = [
+      { ancho: 8, color: halo, raya: [] },
+      { ancho: 4.5, color: critico, raya: [6, 6] },
+    ];
+    for (const { ancho, color, raya } of capas) {
+      g.strokeStyle = color;
+      g.lineWidth = ancho;
+      g.setLineDash(raya);
+      g.beginPath();
+      for (let i = 0; i < red.numVias; i++) {
+        if (viasCerradas[i] !== 1) continue;
+        const v = red.via(i);
+        g.moveTo(X(v.origen), Y(v.origen));
+        g.lineTo(X(v.destino), Y(v.destino));
+      }
+      g.stroke();
+    }
+    g.setLineDash([]);
+  }
+  if (estacionesCerradas) {
+    g.lineWidth = 3;
+    g.strokeStyle = critico;
+    for (let i = 0; i < red.numEstaciones; i++) {
+      if (estacionesCerradas[i] !== 1) continue;
+      const x = X(i);
+      const y = Y(i);
+      g.beginPath();
+      g.moveTo(x - 6, y - 6);
+      g.lineTo(x + 6, y + 6);
+      g.moveTo(x + 6, y - 6);
+      g.lineTo(x - 6, y + 6);
+      g.stroke();
+    }
+  }
+}
+
+/** Texto con halo, para que se lea sobre las calles o sobre el mapa real. */
+function rotulo(g: CanvasRenderingContext2D, texto: string, x: number, y: number, col: Colores, negrita = true) {
+  g.font = `${negrita ? 700 : 600} 12px Sora, system-ui, sans-serif`;
+  g.lineJoin = 'round';
+  g.lineWidth = 4;
+  g.strokeStyle = col.halo;
+  g.strokeText(texto, x, y);
+  g.fillStyle = col.texto;
+  g.fillText(texto, x, y);
+}
+
+/**
+ * Dibujo de la red de calles reales sobre el fondo de calles o sobre el mapa real. Las calles se
+ * pintan como calles; de las estaciones solo se ven las que el algoritmo tocó, porque 4429 puntos
+ * grises taparían el mapa. La ruta lleva un borde claro, como en las aplicaciones de mapas.
+ */
+function dibujarSobreMapa(
+  g: CanvasRenderingContext2D,
+  a: {
+    red: RedTransporte;
+    geo: Georreferencia;
+    modo: FondoMapa;
+    vista: Vista;
+    X: (i: number) => number;
+    Y: (i: number) => number;
+    estados?: Uint8Array;
+    ruta?: ArrayLike<number>;
+    origen?: number;
+    destino?: number;
+    calor?: Float64Array;
+    regiones?: Region[];
+    viasCerradas?: Uint8Array;
+    estacionesCerradas?: Uint8Array;
+    col: Colores;
+    real: boolean;
+  },
+) {
+  const { red, geo, vista, X, Y, estados, ruta, origen, destino, calor, regiones, col, real } = a;
+  const n = red.numEstaciones;
+  g.lineCap = 'round';
+  g.lineJoin = 'round';
+
+  // Calles: en el mapa real ya las dibuja OpenStreetMap; en el fondo de calles las dibujamos nosotros
+  if (calor) {
+    g.globalAlpha = 0.9;
+    g.lineWidth = real ? 3 : 2.4;
+    for (let i = 0; i < red.numVias; i++) {
+      const gem = geo.gemela[i];
+      if (gem >= 0 && gem < i) continue;
+      const v = red.via(i);
+      g.strokeStyle = colorCalor(calor[i]);
+      g.beginPath();
+      g.moveTo(X(v.origen), Y(v.origen));
+      g.lineTo(X(v.destino), Y(v.destino));
+      g.stroke();
+    }
+    g.globalAlpha = 1;
+  } else if (!real) {
+    g.strokeStyle = col.calle;
+    const escala = Math.max(0.6, Math.min(2.2, vista.k / 140));
+    for (let clase = 0; clase < GROSOR_CALLE.length; clase++) {
+      g.lineWidth = GROSOR_CALLE[clase] * escala;
+      g.beginPath();
+      for (let i = 0; i < red.numVias; i++) {
+        if (geo.clase[i] !== clase) continue;
+        const gem = geo.gemela[i];
+        if (gem >= 0 && gem < i) continue;
+        const v = red.via(i);
+        g.moveTo(X(v.origen), Y(v.origen));
+        g.lineTo(X(v.destino), Y(v.destino));
+      }
+      g.stroke();
+    }
+  }
+
+  regiones?.forEach((reg) => {
+    g.globalAlpha = 0.22;
+    g.fillStyle = colorLienzo(reg.color);
+    for (let i = 0; i < n; i++) {
+      if (reg.estados[i] === ESTADO.CERRADO || reg.estados[i] === ESTADO.RUTA) {
+        g.beginPath();
+        g.arc(X(i), Y(i), 7, 0, 6.3);
+        g.fill();
+      }
+    }
+  });
+  g.globalAlpha = 1;
+
+  // Solo las estaciones que el algoritmo visitó: así se ve la exploración extendiéndose por las calles
+  if (estados) {
+    // Semitransparentes: se ve la mancha de la exploración sin tapar las calles de debajo
+    const lado = Math.max(3, Math.min(6, vista.k / 60));
+    g.globalAlpha = real ? 0.6 : 0.75;
+    for (let i = 0; i < n; i++) {
+      const e = estados[i];
+      if (e === ESTADO.FRONTERA) g.fillStyle = col.fr;
+      else if (e === ESTADO.CERRADO) g.fillStyle = col.ce;
+      else continue;
+      g.fillRect(X(i) - lado / 2, Y(i) - lado / 2, lado, lado);
+    }
+    g.globalAlpha = 1;
+  }
+
+  dibujarCierres(g, red, X, Y, a.viasCerradas, a.estacionesCerradas, col.critico, col.halo);
+
+  if (ruta && ruta.length > 1) {
+    const trazo = () => {
+      g.beginPath();
+      g.moveTo(X(ruta[0]), Y(ruta[0]));
+      for (let i = 1; i < ruta.length; i++) g.lineTo(X(ruta[i]), Y(ruta[i]));
+      g.stroke();
+    };
+    g.strokeStyle = real ? '#ffffff' : col.halo;
+    g.lineWidth = 8;
+    trazo();
+    g.strokeStyle = col.ruta;
+    g.lineWidth = 4.5;
+    trazo();
+  }
+
+  // Lugares conocidos al acercarse, en el fondo de calles (el mapa real ya trae sus nombres)
+  if (!real && vista.k > 260) {
+    for (const i of geo.lugares) {
+      if (i === origen || i === destino) continue;
+      g.fillStyle = col.de;
+      g.beginPath();
+      g.arc(X(i), Y(i), 3.5, 0, 6.3);
+      g.fill();
+      rotulo(g, red.estacion(i).nombre, X(i) + 6, Y(i) - 6, col, false);
+    }
+  }
+
+  for (const [i, color] of [[origen, col.or], [destino, col.de]] as const) {
+    if (i === undefined || i < 0 || i >= n) continue;
+    g.fillStyle = color;
+    g.strokeStyle = real ? '#ffffff' : col.halo;
+    g.lineWidth = 3;
+    g.beginPath();
+    g.arc(X(i), Y(i), 8, 0, 6.3);
+    g.fill();
+    g.stroke();
+    rotulo(g, red.estacion(i).nombre, X(i) + 12, Y(i) + 4, col);
+  }
 }
 
 /** Minimapa: la red completa y el rectángulo de lo que se ve. */

@@ -7,6 +7,7 @@ import type { Metrica } from '@core/grafo/tipos';
 import { medir } from '@core/instrumentacion/medicion';
 import { TracerMemoria } from '@core/instrumentacion/TracerMemoria';
 import type { NombreAlgoritmo, PasoTraza } from '@core/instrumentacion/tipos';
+import { georreferencia } from '@redes/osm';
 
 export const NOMBRE_ALGORITMO: Record<NombreAlgoritmo, string> = { bfs: 'BFS', dfs: 'DFS', dijkstra: 'Dijkstra', aestrella: 'A*' };
 
@@ -26,6 +27,8 @@ export interface ResultadoVista {
   opsHeap: number | null;
   microsegundos: number;
   estados: Uint8Array;
+  /** Estaciones en el orden en que el algoritmo las cerró: sirve para animar la exploración. */
+  orden: Int32Array;
 }
 
 export interface OpcionesCorrida {
@@ -48,7 +51,7 @@ export function correr(red: RedTransporte, algoritmo: NombreAlgoritmo, s: number
     const r = f();
     const us = tiempo(f);
     for (let i = 0; i < r.visitados; i++) estados[r.orden[i]] = 2;
-    return { algoritmo, ruta: r.ruta, alcanzado: r.alcanzado, costo: null, saltos: r.saltos, expandidos: r.visitados, relajaciones: r.contadores.internas, opsHeap: null, microsegundos: us, estados };
+    return { algoritmo, ruta: r.ruta, alcanzado: r.alcanzado, costo: null, saltos: r.saltos, expandidos: r.visitados, relajaciones: r.contadores.internas, opsHeap: null, microsegundos: us, estados, orden: r.orden.slice(0, r.visitados) };
   }
   const op = { metrica: o.metrica, pesos: o.pesos, arcosBloqueados: o.arcosBloqueados };
   const f = () => (algoritmo === 'dijkstra' ? dijkstra(red, s, t, op) : aEstrella(red, s, t, op));
@@ -56,7 +59,7 @@ export function correr(red: RedTransporte, algoritmo: NombreAlgoritmo, s: number
   const us = tiempo(f);
   for (let i = 0; i < r.orden.length; i++) estados[r.orden[i]] = 2;
   const c = r.contadores;
-  return { algoritmo, ruta: r.ruta, alcanzado: r.alcanzado, costo: r.alcanzado ? r.costo : null, saltos: r.saltos, expandidos: c.expandidos, relajaciones: c.relajaciones, opsHeap: c.inserciones + c.extracciones + c.disminuciones, microsegundos: us, estados };
+  return { algoritmo, ruta: r.ruta, alcanzado: r.alcanzado, costo: r.alcanzado ? r.costo : null, saltos: r.saltos, expandidos: c.expandidos, relajaciones: c.relajaciones, opsHeap: c.inserciones + c.extracciones + c.disminuciones, microsegundos: us, estados, orden: r.orden };
 }
 
 /** Corre con tracer y devuelve los pasos para el visualizador. */
@@ -77,7 +80,32 @@ export function num(v: number, decimales = 2): string {
 }
 
 export function rutaTexto(red: RedTransporte, ruta: ArrayLike<number>, largo = false): string {
+  if (largo && georreferencia(red) && ruta.length > 2) return itinerarioPorCalles(red, ruta);
   return Array.from(ruta, (i) => (largo ? red.estacion(i).nombre : red.estacion(i).id)).join(' → ');
+}
+
+/** Calles de un cruce: "Calle 6 con Carrera 5" da las dos; un lugar conocido no da ninguna. */
+function callesDe(nombre: string): string[] {
+  if (nombre === 'Cruce sin nombre') return [];
+  return nombre.includes(' con ') ? nombre.split(' con ') : [nombre];
+}
+
+/**
+ * En la red de calles reales una ruta pasa por decenas de cruces. Como en una aplicación de mapas,
+ * se cuenta por qué calles va: la calle de cada tramo es la que comparten sus dos extremos, y se
+ * nombra una sola vez mientras la ruta siga por ella.
+ */
+export function itinerarioPorCalles(red: RedTransporte, ruta: ArrayLike<number>): string {
+  const partes: string[] = [red.estacion(ruta[0]).nombre];
+  for (let k = 1; k < ruta.length; k++) {
+    const a = callesDe(red.estacion(ruta[k - 1]).nombre);
+    const b = callesDe(red.estacion(ruta[k]).nombre);
+    const calle = a.find((c) => b.includes(c));
+    if (calle && partes[partes.length - 1] !== calle) partes.push(calle);
+  }
+  const fin = red.estacion(ruta[ruta.length - 1]).nombre;
+  if (partes[partes.length - 1] !== fin) partes.push(fin);
+  return partes.join(' → ');
 }
 
 /** Descarga texto como archivo, sin servidor. */

@@ -2,7 +2,8 @@ import { dijkstra } from '@core/algoritmos/dijkstra';
 import { medir } from '@core/instrumentacion/medicion';
 import { busquedaBinaria } from '@core/ordenamiento/ordenamiento';
 import { bloquear, congestionPorVia, demandaHoraria, estadisticas, experimentoP6, ordenarTabla, pesosEfectivos, simularViajes, tablaCongestion, topK, type AlgoritmoOrden, type FilaCongestion, type ResultadoP6 } from '@core/trafico/trafico';
-import { Ban, FlaskConical, Pause, Play, RotateCcw } from 'lucide-react';
+import { georreferencia } from '@redes/osm';
+import { Ban, Construction, FlaskConical, Pause, Play, RotateCcw } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { BuscadorEstacion } from '../componentes/Buscador';
@@ -83,9 +84,15 @@ export function Trafico() {
   const clicEstacion = (i: number) => {
     if (incidente) setEstCerradas((c) => (c.includes(i) ? c.filter((x) => x !== i) : [...c, i]));
   };
+  // En la red de calles reales cada tramo de doble sentido son dos vías: se cierran juntas
+  const geo = georreferencia(red);
+  const conGemela = (v: number): number[] => (geo && geo.gemela[v] >= 0 ? [v, geo.gemela[v]] : [v]);
+  const alternarVias = (vs: number[]) =>
+    setViasCerradas((c) => (vs.every((x) => c.includes(x)) ? c.filter((x) => !vs.includes(x)) : [...c, ...vs.filter((x) => !c.includes(x))]));
   const clicVia = (v: number) => {
-    if (incidente) setViasCerradas((c) => (c.includes(v) ? c.filter((x) => x !== v) : [...c, v]));
+    if (incidente) alternarVias(conGemela(v));
   };
+  const puenteCerrado = (vias: Int32Array) => vias.length > 0 && Array.from(vias).every((x) => viasCerradas.includes(x));
 
   const marcasE = useMemo(() => {
     const m = new Uint8Array(red.numEstaciones);
@@ -111,6 +118,20 @@ export function Trafico() {
         <button className={`boton ${incidente ? 'activo' : ''}`} aria-pressed={incidente} onClick={() => setIncidente((v) => !v)}><Ban size={15} />Cerrar con clic</button>
         <button className="boton" onClick={() => { setEstCerradas([]); setViasCerradas([]); }}><RotateCcw size={15} />Reabrir todo</button>
       </div>
+      {geo && geo.puentes.length > 0 && (
+        <div className="fila no-imprimir" role="group" aria-label="Cerrar un puente">
+          <span style={{ color: 'var(--texto-2)', fontSize: 13 }}>¿Qué pasa si se cae un puente?</span>
+          {geo.puentes.map((p) => {
+            const cerrado = puenteCerrado(p.vias);
+            return (
+              <button key={p.nombre} className={`boton ${cerrado ? 'activo' : ''}`} aria-pressed={cerrado} onClick={() => alternarVias(Array.from(p.vias))}>
+                <Construction size={15} />
+                {cerrado ? `Reabrir ${p.nombre}` : `Cerrar ${p.nombre}`}
+              </button>
+            );
+          })}
+        </div>
+      )}
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.3fr) minmax(0,1fr)', gap: 12 }} className="rejilla-trafico">
         <div style={{ height: 420 }}>
           <Mapa red={red} calor={congestion} ruta={activa.alcanzado ? activa.ruta : undefined} origen={origen} destino={destino} vehiculos estacionesCerradas={marcasE} viasCerradas={marcasV} alClicEstacion={clicEstacion} alClicVia={clicVia} />

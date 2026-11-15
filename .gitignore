@@ -6,4 +6,5 @@ coverage/
 .DS_Store
 Entrega_GestorRutas_*.zip
 GestorRutas.html
+datos-osm/
 informe/salida/*.tmp.html

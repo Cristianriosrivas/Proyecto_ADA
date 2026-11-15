@@ -30,7 +30,7 @@ zip.directory('docs/', 'docs');
 if (existsSync('informe/salida/Documento_Fase1.pdf')) zip.file('informe/salida/Documento_Fase1.pdf', { name: 'docs/Documento_Fase1.pdf' });
 zip.directory('dist/', 'software/dist');
 zip.glob('**/*', {
-  ignore: ['REGLAS.md', 'PROGRESO.md', 'node_modules/**', 'dist/**', 'dist-unico/**', 'coverage/**', '.git/**', 'Entrega_*.zip', 'GestorRutas.html', 'informe/salida/**'],
+  ignore: ['REGLAS.md', 'PROGRESO.md', 'node_modules/**', 'dist/**', 'dist-unico/**', 'coverage/**', '.git/**', 'datos-osm/**', 'Entrega_*.zip', 'GestorRutas.html', 'informe/salida/**'],
   dot: true,
 }, { prefix: 'software' });
 

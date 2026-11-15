@@ -27,11 +27,13 @@ const pagina = await navegador.newPage();
 await pagina.setViewport({ width: 1440, height: 860 });
 const errores = [];
 pagina.on('pageerror', (e) => errores.push(`pageerror: ${e.message}`));
+// Sin internet las teselas del mapa real fallan y la app cae a las calles guardadas: eso no es un error
+const tolerado = (url) => url.endsWith('logo-univalle.png') || url.startsWith('https://tile.openstreetmap.org/');
 pagina.on('console', (m) => {
-  if (m.type() === 'error' && !(m.location().url ?? '').endsWith('logo-univalle.png')) errores.push(`console: ${m.text()}`);
+  if (m.type() === 'error' && !tolerado(m.location().url ?? '')) errores.push(`console: ${m.text()}`);
 });
 pagina.on('requestfailed', (r) => {
-  if (!r.url().endsWith('logo-univalle.png')) errores.push(`red: ${r.url().slice(0, 100)}`);
+  if (!tolerado(r.url())) errores.push(`red: ${r.url().slice(0, 100)}`);
 });
 
 const espera = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -105,6 +107,28 @@ await espera(800);
 await clicTexto('Calcular ruta');
 await espera(1500);
 await pagina.screenshot({ path: `${SALIDA}/red-5000.png` });
+
+// Calles reales de Buenaventura: primero con las calles guardadas y luego sobre el mapa real
+await pagina.select('select[aria-label="Red activa"]', 'buenaventura-osm');
+await espera(800);
+await clicTexto('Calcular ruta');
+await espera(3500);
+await pagina.screenshot({ path: `${SALIDA}/calles-reales.png` });
+console.log('Captura: calles-reales');
+await pagina.click('.mapa .capas > button');
+await espera(300);
+await pagina.evaluate(() => [...document.querySelectorAll('.opcion-capa')].find((b) => b.textContent.includes('Mapa real')).click());
+await pagina.waitForFunction(() => [...document.querySelectorAll('.teselas img')].some((i) => i.complete && i.naturalWidth > 0) || document.querySelector('.mapa.fondo-calles'), { timeout: 15000 }).catch(() => {});
+await espera(2500);
+if (await pagina.evaluate(() => !!document.querySelector('.mapa.fondo-real'))) {
+  await pagina.screenshot({ path: `${SALIDA}/mapa-real.png` });
+  console.log('Captura: mapa-real');
+} else console.log('Sin internet: no se tomó la captura del mapa real');
+await pagina.click('.mapa .capas > button');
+await espera(300);
+await pagina.evaluate(() => [...document.querySelectorAll('.opcion-capa')].find((b) => b.textContent.includes('Calles')).click());
+await espera(300);
+
 await pagina.select('select[aria-label="Red activa"]', 'docente');
 await espera(300);
 
@@ -120,7 +144,8 @@ await clicTexto('Inicio', '.nav button');
 await espera(300);
 await clicTexto('Iniciar sustentación');
 await espera(900);
-for (let i = 0; i < 9; i++) {
+// Hasta la última escena, Conclusiones (las flechas de más no hacen nada en la última)
+for (let i = 0; i < 15; i++) {
   await pagina.keyboard.press('ArrowRight');
   await espera(280);
 }
